@@ -8,7 +8,7 @@ Stable tag: 3.8
 Embedding PlayBuzz playful content into your WordPress site.
 
 == Description ==
-PlayBuzz’s platform allows you to embed playful content like specific games, hub of games and related content into your WordPress site.
+PlayBuzz's platform allows you to embed playful content like specific games, hub of games and related content into your WordPress site.
 
 = ShortCodes =
 Embedding content is easy, just use a simple shortcode:
@@ -23,7 +23,8 @@ Hub / Archive:
 
 Recommendations / Related-Content:
 
-`[playbuzz-recommendations tags="Celebrities" links="http://www.mysite.com/url_in_your_site_where_you_display_playbuzz_games"]`
+`[playbuzz-recommendations tags="Celebrities"
+   links="http://www.mysite.com/url_in_your_site_where_you_display_playbuzz_games"]`
 
 = Widgets =
 Embedding PlayBuzz related playful content links and recommendations on your sites sidebar using customizable WordPress widget.
@@ -45,17 +46,11 @@ For any questions or more information please contact publishers@playbuzz.com
 
 = 0.1 =
 * Initial release.
-
-* Admin:
-** Settings Page - API Key, data provider, ect...
-** PlayBuzz Recommendations - insert related playful content links and recommendations to posts header/footer.
-** PlayBuzz Games - configure the playful games.
-** Shortcodes documentation.
-
-* Widgets:
-** PlayBuzz recommendations and related playful content links.
-
-* Shortcodes:
-** [playbuzz-game] / [playbuzz-post]
-** [playbuzz-hub] / [playbuzz-archive]
-** [playbuzz-related] / [playbuzz-recommendations]
+* Widget: PlayBuzz recommendations and related playful content links.
+* Shortcodes: [playbuzz-game] / [playbuzz-post]
+* Shortcodes: [playbuzz-hub] / [playbuzz-archive]
+* Shortcodes: [playbuzz-related] / [playbuzz-recommendations]
+* Admin: Settings Page - API Key, data provider, ect...
+* Admin: PlayBuzz Games - configure the playful games.
+* Admin: PlayBuzz Recommendations - insert related playful content links and recommendations to posts header/footer.
+* Admin: Shortcodes documentation.
