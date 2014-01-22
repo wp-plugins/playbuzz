@@ -143,11 +143,18 @@ class PlayBuzzAdmin {
 	 * Print the menu page itself
 	 */
 	public function options_do_page() {
-		// Set Api Key (TODO: rewrite this code)
-		if ( 'default' == $this->data['key']  ) {
-			$this->data['key'] = parse_url( home_url(), PHP_URL_HOST );
 
-			// TODO: Remove www.
+		// Set API Key
+		if ( 'default' == $this->data['key']  ) {
+
+			// Extract host domain
+			$domain = parse_url( home_url(), PHP_URL_HOST );
+
+			// Remove "www." from the domain
+			$api = str_replace( 'www.', '', $domain );
+
+			// Set API
+			$this->data['key'] = $api;
 
 		}
 
@@ -175,7 +182,7 @@ class PlayBuzzAdmin {
 
 				<form method="post" action="options.php">
 
-					<?php // settings_fields('playbuzz'); ?>
+					<?php // settings_fields( 'playbuzz' ); ?>
 
 					<input type="hidden" name="<?php echo $this->option_name; ?>[info]"              value="<?php echo $options['info'];              ?>">
 					<input type="hidden" name="<?php echo $this->option_name; ?>[social]"            value="<?php echo $options['social'];            ?>">
@@ -220,7 +227,7 @@ class PlayBuzzAdmin {
 
 				<form method="post" action="options.php">
 
-					<?php settings_fields('playbuzz'); ?>
+					<?php settings_fields( 'playbuzz' ); ?>
 
 					<input type="hidden" name="<?php echo $this->option_name; ?>[key]"               value="<?php echo $options['key'];               ?>">
 
@@ -280,14 +287,14 @@ class PlayBuzzAdmin {
 
 				<form method="post" action="options.php">
 
-					<?php settings_fields('playbuzz'); ?>
+					<?php settings_fields( 'playbuzz' ); ?>
 
 					<input type="hidden" name="<?php echo $this->option_name; ?>[key]"       value="<?php echo $options['key'];       ?>">
 
 					<input type="hidden" name="<?php echo $this->option_name; ?>[info]"      value="<?php echo $options['info'];      ?>">
 					<input type="hidden" name="<?php echo $this->option_name; ?>[social]"    value="<?php echo $options['social'];    ?>">
 					<input type="hidden" name="<?php echo $this->option_name; ?>[recommend]" value="<?php echo $options['recommend']; ?>">
-					
+
 					<table class="form-table">
 						<tr>
 							<th scope="row"><?php _e( 'Activation', 'playbuzz' ); ?></th>
