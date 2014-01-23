@@ -12,30 +12,31 @@ class PlayBuzzAdmin {
 	protected $data = array(
 
 		// General
-		'key'                => 'default',
+		'key'               => 'default',
 
 		// Games
-		'info'               => '1',
-		'social'             => '1',
-		'recommend'          => '1',
+		'info'              => '1',
+		'social'            => '1',
+		'recommend'         => '1',
 
 		// Recommendations
-		'active'             => 'false',
-		'show'               => 'footer',
-		'view'               => 'large_images',
-		'items'              => '3',
-		'links'              => 'http://www.playbuzz.com',
+		'active'            => 'false',
+		'show'              => 'footer',
+		'view'              => 'large_images',
+		'items'             => '3',
+		'links'             => 'http://www.playbuzz.com',
 
 		// Tags
-		'tags-mix'           => '1',
-		'tags-funz'          => '',
-		'tags-popz'          => '',
-		'tags-brainz'        => '',
-		'tags-sportz'        => '',
-		'tags-editors-pick'  => '',
-		'tags-tv'            => '',
-		'tags-celebrities'   => '',
-		'more-tags'          => '',
+		'tags-mix'          => '1',
+		'tags-funz'         => '',
+		'tags-popz'         => '',
+		'tags-brainz'       => '',
+		'tags-sportz'       => '',
+		'tags-editors-pick' => '',
+		'tags-tv'           => '',
+		'tags-celebrities'  => '',
+		'more-tags'         => '',
+
 	);
 
 	/*
@@ -62,15 +63,20 @@ class PlayBuzzAdmin {
 	 * Fired when the plugin is activated.
 	 */
 	public function activate() {
+
 		// Set default options when the plugin is activated
 		update_option( $this->option_name, $this->data );
+
 	}
 
 	/*
 	 * Fired when the plugin is deactivated.
 	 */
 	public function deactivate() {
+
+		// Delete options from the database when the plugin is deactivated
 		delete_option( $this->option_name );
+
 	}
 
 	/*
@@ -80,7 +86,9 @@ class PlayBuzzAdmin {
 
 		// Add Recommendations to the content
 		add_filter( 'the_content', 'pb_content_filter', 20 );
+
 		function pb_content_filter( $content ) {
+
 			global $post;
 
 			$options   = get_option( 'playbuzz' );
@@ -121,26 +129,31 @@ class PlayBuzzAdmin {
 
 			// Return the content
 			return $content;
+
 		}
 
 	}
 
 	/*
-	 * White list our options using the Settings API
+	 * White list our options using the Settings API.
 	 */
 	public function admin_init() {
+
 		register_setting( 'playbuzz', $this->option_name );
+
 	}
 
 	/*
-	 * Add entry in the settings menu
+	 * Add entry in the settings menu.
 	 */
 	public function add_page() {
+
 		add_options_page( __('PlayBuzz', 'playbuzz' ), __( 'PlayBuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'options_do_page' ) );
+
 	}
 
 	/*
-	 * Print the menu page itself
+	 * Print the menu page itself.
 	 */
 	public function options_do_page() {
 
@@ -162,7 +175,7 @@ class PlayBuzzAdmin {
 		$options = wp_parse_args( get_option( $this->option_name ), $this->data );
 
 		// Set default tab
-		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'settings';
+		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'details';
 
 		// Display the page
 		?>
@@ -170,56 +183,49 @@ class PlayBuzzAdmin {
 		<div class="wrap">
 			<h2 class="nav-tab-wrapper">
 				<?php _e( 'PlayBuzz', 'playbuzz' ); ?> 
-				<a href="?page=<?php echo $this->option_name; ?>&tab=settings"        class="nav-tab <?php echo $active_tab == 'settings'        ? 'nav-tab-active' : ''; ?>"><?php _e( 'General Settings', 'playbuzz' ); ?></a>
+				<a href="?page=<?php echo $this->option_name; ?>&tab=details"         class="nav-tab <?php echo $active_tab == 'details'         ? 'nav-tab-active' : ''; ?>"><?php _e( 'General Details',  'playbuzz' ); ?></a>
 				<a href="?page=<?php echo $this->option_name; ?>&tab=games"           class="nav-tab <?php echo $active_tab == 'games'           ? 'nav-tab-active' : ''; ?>"><?php _e( 'Games',            'playbuzz' ); ?></a>
 				<a href="?page=<?php echo $this->option_name; ?>&tab=recommendations" class="nav-tab <?php echo $active_tab == 'recommendations' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Recommendations',  'playbuzz' ); ?></a>
-				<a href="?page=<?php echo $this->option_name; ?>&tab=shortcodes"      class="nav-tab <?php echo $active_tab == 'shortcodes'      ? 'nav-tab-active' : ''; ?>"><?php _e( 'Shortcodes',       'playbuzz' ); ?></a>
 			</h2>
 
-			<?php if( $active_tab == 'settings' ) { ?>
+			<?php if( $active_tab == 'details' ) { ?>
 
-				<h3><?php _e( 'General Settings', 'playbuzz' ); ?></h3>
+				<h3><?php _e( 'General', 'playbuzz' ); ?></h3>
 
-				<form method="post" action="options.php">
+				<table class="form-table">
+					<tr>
+						<th scope="row"><?php _e( 'API Key', 'playbuzz' ); ?></th>
+						<td>
+							<strong><?php echo $options['key']; ?></strong>
+						</td>
+					</tr>
+				</table>
 
-					<?php // settings_fields( 'playbuzz' ); ?>
+				<h3><?php _e( 'Shortcodes', 'playbuzz' ); ?></h3>
 
-					<input type="hidden" name="<?php echo $this->option_name; ?>[info]"              value="<?php echo $options['info'];              ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[social]"            value="<?php echo $options['social'];            ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[recommend]"         value="<?php echo $options['recommend'];         ?>">
+				<p><?php _e( 'Embedding content is easy, just use a simple shortcode:', 'playbuzz' ); ?></p>
+				<br>
 
-					<input type="hidden" name="<?php echo $this->option_name; ?>[active]"            value="<?php echo $options['active'];            ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[show]"              value="<?php echo $options['show'];              ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[view]"              value="<?php echo $options['view'];              ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[items]"             value="<?php echo $options['items'];             ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[links]"             value="<?php echo $options['links'];             ?>">
+				<h4><?php _e( 'Game / Post Shortcode', 'playbuzz' ); ?></h4>
+				<p>
+					<?php _e( 'Usage:', 'playbuzz' ); ?>
+					<code>[playbuzz-game game="jonathang/players-and-playmates-playoffs"]</code>
+				</p>
+				<br>
 
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-funz]"         value="<?php echo $options['tags-funz'];         ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-popz]"         value="<?php echo $options['tags-popz'];         ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-brainz]"       value="<?php echo $options['tags-brainz'];       ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-sportz]"       value="<?php echo $options['tags-sportz'];       ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-editors-pick]" value="<?php echo $options['tags-editors-pick']; ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-mix]"          value="<?php echo $options['tags-mix'];          ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-tv]"           value="<?php echo $options['tags-tv'];           ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[tags-celebrities]"  value="<?php echo $options['tags-celebrities'];  ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[more-tags]"         value="<?php echo $options['more-tags'];         ?>">
+				<h4><?php _e( 'Hub / Archive Shortcode', 'playbuzz' ); ?></h4>
+				<p>
+					<?php _e( 'Usage:', 'playbuzz' ); ?>
+					<code>[playbuzz-hub tags="Celebrities"]</code>
+				</p>
+				<br>
 
-					<table class="form-table">
-						<tr>
-							<th scope="row"><?php _e( 'API Key', 'playbuzz' ); ?></th>
-							<td>
-								<strong><?php echo $options['key']; ?></strong>
-								<?php /*
-								<input type="text" name="<?php echo $this->option_name; ?>[key]" value="<?php echo $options['key']; ?>" class="regular-text" readonly >
-								<p class="description"><?php _e( 'PlayBuzz uniq API key allowing configuration and analytics. If you have no API key, enter your domain name i.e. example.com', 'playbuzz' ); ?></p>
-								*/ ?>
-							</td>
-						</tr>
-					</table>
-
-					<?php // submit_button(); ?> 
-
-				</form>
+				<h4><?php _e( 'Recommendations / Related-Content Shortcode', 'playbuzz' ); ?></h4>
+				<p>
+					<?php _e( 'Usage:', 'playbuzz' ); ?>
+					<code>[playbuzz-recommendations tags="Celebrities" links="http://www.mysite.com/url_in_your_site_where_you_display_playbuzz_games"]</code>
+				</p>
+				<br>
 
 			<?php } elseif( $active_tab == 'games' ) { ?>
 
@@ -229,13 +235,13 @@ class PlayBuzzAdmin {
 
 					<?php settings_fields( 'playbuzz' ); ?>
 
-					<input type="hidden" name="<?php echo $this->option_name; ?>[key]"               value="<?php echo $options['key'];               ?>">
+					<input type="hidden" name="<?php echo $this->option_name; ?>[key]"    value="<?php echo $options['key'];    ?>">
 
-					<input type="hidden" name="<?php echo $this->option_name; ?>[active]"            value="<?php echo $options['active'];            ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[show]"              value="<?php echo $options['show'];              ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[view]"              value="<?php echo $options['view'];              ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[items]"             value="<?php echo $options['items'];             ?>">
-					<input type="hidden" name="<?php echo $this->option_name; ?>[links]"             value="<?php echo $options['links'];             ?>">
+					<input type="hidden" name="<?php echo $this->option_name; ?>[active]" value="<?php echo $options['active']; ?>">
+					<input type="hidden" name="<?php echo $this->option_name; ?>[show]"   value="<?php echo $options['show'];   ?>">
+					<input type="hidden" name="<?php echo $this->option_name; ?>[view]"   value="<?php echo $options['view'];   ?>">
+					<input type="hidden" name="<?php echo $this->option_name; ?>[items]"  value="<?php echo $options['items'];  ?>">
+					<input type="hidden" name="<?php echo $this->option_name; ?>[links]"  value="<?php echo $options['links'];  ?>">
 
 					<table class="form-table">
 						<tr>
@@ -338,13 +344,6 @@ class PlayBuzzAdmin {
 						<tr>
 							<th scope="row"><?php _e( 'Style', 'playbuzz' ); ?></th>
 							<td valign="top">
-								<?php /*
-								<select name="<?php echo $this->option_name; ?>[view]">
-									<option value="large_images"      <?php if ( 'large_images'      == $options['view'] ) echo 'selected'; ?>><?php _e( 'Large Images', 'playbuzz' ); ?></option>
-									<option value="horizontal_images" <?php if ( 'horizontal_images' == $options['view'] ) echo 'selected'; ?>><?php _e( 'Horizontal Images', 'playbuzz' ); ?></option>
-									<option value="no_images"         <?php if ( 'no_images'         == $options['view'] ) echo 'selected'; ?>><?php _e( 'No Images', 'playbuzz' ); ?></option>
-								</select>
-								*/ ?>
 								<input type="radio" name="<?php echo $this->option_name; ?>[view]" value="large_images"      <?php if ( 'large_images'      == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Large Images',      'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/tumbs.jpg',      __FILE__); ?>" title="<?php _e( 'Large Images', 'playbuzz' );      ?>"><br><br>
 								<input type="radio" name="<?php echo $this->option_name; ?>[view]" value="horizontal_images" <?php if ( 'horizontal_images' == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Horizontal Images', 'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/image-list.jpg', __FILE__); ?>" title="<?php _e( 'Horizontal Images', 'playbuzz' ); ?>"><br><br>
 								<input type="radio" name="<?php echo $this->option_name; ?>[view]" value="no_images"         <?php if ( 'no_images'         == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'No Images',         'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/list.jpg',       __FILE__); ?>" title="<?php _e( 'No Images', 'playbuzz' );         ?>">
@@ -382,59 +381,43 @@ class PlayBuzzAdmin {
 
 				</form>
 
-			<?php } elseif( $active_tab == 'shortcodes' ) { ?>
-
-				<h3><?php _e( 'Shortcodes', 'playbuzz' ); ?></h3>
-
-				<p><?php _e( 'Embedding content is easy, just use a simple shortcode:', 'playbuzz' ); ?></p>
-				<br>
-
-				<h4><?php _e( 'Game / Post Shortcode', 'playbuzz' ); ?></h4>
-				<p>
-					<?php _e( 'Usage:', 'playbuzz' ); ?>
-					<code>[playbuzz-game game="jonathang/players-and-playmates-playoffs"]</code>
-				</p>
-				<br>
-
-				<h4><?php _e( 'Hub / Archive Shortcode', 'playbuzz' ); ?></h4>
-				<p>
-					<?php _e( 'Usage:', 'playbuzz' ); ?>
-					<code>[playbuzz-hub tags="Celebrities"]</code>
-				</p>
-				<br>
-
-				<h4><?php _e( 'Recommendations / Related-Content Shortcode', 'playbuzz' ); ?></h4>
-				<p>
-					<?php _e( 'Usage:', 'playbuzz' ); ?>
-					<code>[playbuzz-recommendations tags="Celebrities" links="http://www.mysite.com/url_in_your_site_where_you_display_playbuzz_games"]</code>
-				</p>
-				<br>
-
 			<?php } ?>
 
 		</div>
 		<?php
+
 	}
 
 }
 
 
+/*
+ * Extract tags list
+ *
+ * @since 0.1
+ */
 function pb_tags( $options ) {
+
+	// Tags string
 	$tags = '';
 
 	// Default tags
+	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
 	if ( '1' == $options['tags-funz']         ) $tags .= 'Funz,';
 	if ( '1' == $options['tags-popz']         ) $tags .= 'Popz,';
 	if ( '1' == $options['tags-brainz']       ) $tags .= 'Brainz,';
 	if ( '1' == $options['tags-sportz']       ) $tags .= 'sportz,';
 	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'Editor\'s Pick,';
-	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
 	if ( '1' == $options['tags-tv']           ) $tags .= 'TV,';
 	if ( '1' == $options['tags-celebrities']  ) $tags .= 'Celebrities,';
 
 	// Custom tags
 	$tags .= $options['more-tags'];
 
-	// Return tag list
+	// Remove the comma from the end
+	$tags = rtrim( $tags, ',');
+
+	// Return the tag list
 	return $tags;
+
 }

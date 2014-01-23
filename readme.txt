@@ -1,5 +1,5 @@
 === PlayBuzz Playful Content ===
-Contributors: ramiy, playbuzzcom
+Contributors: ramiy, playbuzz
 Tags: PlayBuzz, related content, quiz, list
 Requires at least: 3.0
 Tested up to: 3.8

@@ -61,10 +61,19 @@ function playbuzz_shortcode( $atts ) {
 	);
 
 	// PlayBuzz Embed Code
-	return '
-		<script type="text/javascript" src="http://www.playbuzz.com/bundles/feed"></script>
-		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $game . '" data-game-info="' . $info . '" data-social="' . $social . '" data-recommend="' . $recommend . '"></div>
-	';
+	if ( is_single() ) {
+
+		return '
+			<script type="text/javascript" src="http://www.playbuzz.com/bundles/feed"></script>
+			<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $game . '" data-game-info="' . $info . '" data-social="' . $social . '" data-recommend="' . $recommend . '"></div>
+		';
+
+	} elseif ( is_archive() ) {
+
+		return '';
+
+	}
+
 }
 function playbuzz_recommendations_shortcode( $atts ) {
 
@@ -84,8 +93,17 @@ function playbuzz_recommendations_shortcode( $atts ) {
 	);
 
 	// PlayBuzz Embed Code
-	return '
-		<script type="text/javascript" src="http://www.playbuzz.com/bundles/widgets"></script>
-		<div class="pb_recommendations" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="' . $nostyle . '"></div>
-	';
+	if ( is_single() ) {
+
+		return '
+			<script type="text/javascript" src="http://www.playbuzz.com/bundles/widgets"></script>
+			<div class="pb_recommendations" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="' . $nostyle . '"></div>
+		';
+
+	} elseif ( is_archive() ) {
+
+		return '';
+
+	}
+
 }

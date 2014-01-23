@@ -7,10 +7,9 @@
  */
 class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
-	/*--------------------------------------------------*/
-	/* Constructor
-	/*--------------------------------------------------*/
-
+	/*
+	 * Constructor
+	 */
 	public function __construct() {
 
 		// load plugin text domain
@@ -32,11 +31,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 	}
 
 
-	/*--------------------------------------------------*/
-	/* Widget API Functions
-	/*--------------------------------------------------*/
-
-	/**
+	/*
 	 * Outputs the content of the widget.
 	 *
 	 * @param	array	args		The array of form elements
@@ -46,14 +41,14 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		extract( $args, EXTR_SKIP );
 
-		$options  = get_option( 'playbuzz' );
+		$options = get_option( 'playbuzz' );
 
-		$key      = $options['key'];
-		$links    = $options['links'];
+		$key     = $options['key'];
+		$links   = $options['links'];
 
-		$view     = empty( $instance['view'] )  ? '' : apply_filters( 'view',  $instance['view']  );
-		$items    = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
-		$tags     = pb_tags( $instance );
+		$view    = empty( $instance['view'] )  ? '' : apply_filters( 'view',  $instance['view']  );
+		$items   = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
+		$tags    = pb_tags( $instance );
 
 		echo $before_widget;
 		echo '
@@ -65,7 +60,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 	}
 
 
-	/**
+	/*
 	 * Processes the widget's options to be saved.
 	 *
 	 * @param	array	new_instance	The new instance of values to be generated via the update.
@@ -75,24 +70,24 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['view']               = strip_tags( stripslashes( $new_instance['view']               ) );
-		$instance['items']              = strip_tags( stripslashes( $new_instance['items']              ) );
-		$instance['tags-funz']          = strip_tags( stripslashes( $new_instance['tags-funz']          ) );
-		$instance['tags-popz']          = strip_tags( stripslashes( $new_instance['tags-popz']          ) );
-		$instance['tags-brainz']        = strip_tags( stripslashes( $new_instance['tags-brainz']        ) );
-		$instance['tags-sportz']        = strip_tags( stripslashes( $new_instance['tags-sportz']        ) );
-		$instance['tags-editors-pick']  = strip_tags( stripslashes( $new_instance['tags-editors-pick']  ) );
-		$instance['tags-mix']           = strip_tags( stripslashes( $new_instance['tags-mix']           ) );
-		$instance['tags-tv']            = strip_tags( stripslashes( $new_instance['tags-tv']            ) );
-		$instance['tags-celebrities']   = strip_tags( stripslashes( $new_instance['tags-celebrities']   ) );
-		$instance['more-tags']          = strip_tags( stripslashes( $new_instance['more-tags']          ) );
+		$instance['view']              = strip_tags( stripslashes( $new_instance['view']              ) );
+		$instance['items']             = strip_tags( stripslashes( $new_instance['items']             ) );
+		$instance['tags-funz']         = strip_tags( stripslashes( $new_instance['tags-funz']         ) );
+		$instance['tags-popz']         = strip_tags( stripslashes( $new_instance['tags-popz']         ) );
+		$instance['tags-brainz']       = strip_tags( stripslashes( $new_instance['tags-brainz']       ) );
+		$instance['tags-sportz']       = strip_tags( stripslashes( $new_instance['tags-sportz']       ) );
+		$instance['tags-editors-pick'] = strip_tags( stripslashes( $new_instance['tags-editors-pick'] ) );
+		$instance['tags-mix']          = strip_tags( stripslashes( $new_instance['tags-mix']          ) );
+		$instance['tags-tv']           = strip_tags( stripslashes( $new_instance['tags-tv']           ) );
+		$instance['tags-celebrities']  = strip_tags( stripslashes( $new_instance['tags-celebrities']  ) );
+		$instance['more-tags']         = strip_tags( stripslashes( $new_instance['more-tags']         ) );
 
 		return $instance;
 
 	}
 
 
-	/**
+	/*
 	 * Generates the administration form for the widget.
 	 *
 	 * @param	array	instance	The array of keys and values for the widget.
@@ -104,17 +99,17 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		// Set default values
 		$defaults = array(
-				'view'               => $options['view'],
-				'items'              => $options['items'],
-				'tags-funz'          => $options['tags-funz'],
-				'tags-popz'          => $options['tags-popz'],
-				'tags-brainz'        => $options['tags-brainz'],
-				'tags-sportz'        => $options['tags-sportz'],
-				'tags-editors-pick'  => $options['tags-editors-pick'],
-				'tags-mix'           => $options['tags-mix'],
-				'tags-tv'            => $options['tags-tv'],
-				'tags-celebrities'   => $options['tags-celebrities'],
-				'more-tags'          => $options['more-tags'],
+				'view'              => $options['view'],
+				'items'             => $options['items'],
+				'tags-funz'         => $options['tags-funz'],
+				'tags-popz'         => $options['tags-popz'],
+				'tags-brainz'       => $options['tags-brainz'],
+				'tags-sportz'       => $options['tags-sportz'],
+				'tags-editors-pick' => $options['tags-editors-pick'],
+				'tags-mix'          => $options['tags-mix'],
+				'tags-tv'           => $options['tags-tv'],
+				'tags-celebrities'  => $options['tags-celebrities'],
+				'more-tags'         => $options['more-tags'],
 			);
 
 		// New instance (use defaults if empty)
@@ -167,10 +162,6 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		<?php
 	}
 
-
-	/*--------------------------------------------------*/
-	/* Public Functions
-	/*--------------------------------------------------*/
 
 	/*
 	 * Loads the Widget's text domain for localization and translation.
