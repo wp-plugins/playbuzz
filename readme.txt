@@ -23,8 +23,7 @@ Hub / Archive:
 
 Recommendations / Related-Content:
 
-`[playbuzz-recommendations tags="Celebrities"
-   links="http://www.mysite.com/url_in_your_site_where_you_display_playbuzz_games"]`
+`[playbuzz-recommendations tags="Celebrities"]`
 
 = Widgets =
 Embedding PlayBuzz related playful content links and recommendations on your sites sidebar using customizable WordPress widget.
