@@ -2,11 +2,10 @@
 Contributors: playbuzz, ramiy
 Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, outbrain, post,Entertainment, celebs, celebrities, animals
 Requires at least: 3.0
-Tested up to: 3.8
+Tested up to: 3.8.1
 Stable tag: 0.1.1
 
 PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yourself Quizzes, Lists and more. Customizable & ads free!
-
 
 == Description ==
 Enrich your WordPress site with Quizzes, Test yourself quizzes, Lists, Polls, and other Playful Content items. PlayBuzz's plugin allows you to easily embed playful content that refreshes daily, increasing your traffic and engagement. 
@@ -43,9 +42,9 @@ Embedding PlayBuzz related Playful Content links and recommendations on your sit
 `[playbuzz-recommendations tags="<Any Tag>"]`
 (e.g tags="Celebrities")
 
-**PlayBuzz is different from other similar plugins because:** 
-*	PlayBuzz features playful content items such as quizzes, lists, polls (coming soon), etc
-*	You get free content that is embedded on your site! rather than redirecting users out of the site.
+**PlayBuzz is different from other similar plugins because:** 	
+1. PlayBuzz features playful content items such as quizzes, lists, polls (coming soon), etc.
+2. You get free content that is embedded on your site! rather than redirecting users out of the site.
 
 
 = More Information =
