@@ -43,7 +43,7 @@ Embedding PlayBuzz related Playful Content links and recommendations on your sit
 `[playbuzz-recommendations tags="<Any Tag>"]`
 (e.g tags="Celebrities")
 
-PlayBuzz is different from other similar plugins because: 
+**PlayBuzz is different from other similar plugins because:** 
 *	PlayBuzz features playful content items such as quizzes, lists, polls (coming soon), etc
 *	You get free content that is embedded on your site! rather than redirecting users out of the site.
 
