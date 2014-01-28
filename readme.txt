@@ -23,7 +23,7 @@ PlayBuzz's content will appear natively on your website enhancing your users' ex
 = Embedding options =
 PlayBuzz plugin has 3 embedding options:
 
-** Specific Item **
+**Specific Item** 
 Choose any Playful Content item from [playbuzz.com](http://www.playbuzz.com) and easily embed it in a post.
 The short code used is:
 `[playbuzz-game game="<Any Item from PlayBuzz.com>"]`
@@ -31,19 +31,19 @@ The short code used is:
 Embed any PlayBuzz item by using the aforementioned shortcode with the game/post URL. 
 Create your own Playful items (quizzes,lists,etc) on PlayBuzz's website and embed them in the exact same way.
 
-** Embed a hub of games **
+**Embed a hub of games** 
 A list of Playful Items in a specific vertical. This is best used as a "Playful Section" displaying games and posts in
 the selected tags (topics).
 `[playbuzz-hub tags="<Any Tag>"]`
 (e.g tags="Games")
 
-** Recommendations Widget **
+**Recommendations Widget** 
 Embedding PlayBuzz related Playful Content links and recommendations on your site's sidebar using customizable WordPress widget.
  Once you install the plugin A widget is available in the widget's menu. There's also a shortcode:
 `[playbuzz-recommendations tags="<Any Tag>"]`
 (e.g tags="Celebrities")
 
-PlayBuzz is different from other similar plugins because:
+PlayBuzz is different from other similar plugins because: 
 *	PlayBuzz features playful content items such as quizzes, lists, polls (coming soon), etc
 *	You get free content that is embedded on your site! rather than redirecting users out of the site.
 
