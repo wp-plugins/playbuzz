@@ -1,5 +1,5 @@
 === PlayBuzz Playful Content ===
-Contributors: playbuzz, ramiy
+Contributors: playbuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, outbrain, post,Entertainment, celebs, celebrities, animals
 Requires at least: 3.0
 Tested up to: 3.8.1
@@ -70,7 +70,7 @@ For any questions or more information please contact publishers@playbuzz.com
 * Updated readme with new information
 * Added helpers in the plugin's settings page
 
-= 0.1 =
+= 0.1.0 =
 * Initial release.
 * Widget: PlayBuzz recommendations and related playful content links.
 * Shortcodes: [playbuzz-game] / [playbuzz-post]
