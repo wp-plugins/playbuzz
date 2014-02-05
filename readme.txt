@@ -8,11 +8,9 @@ Stable tag: 0.1.1
 PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yourself Quizzes, Lists and more. Customizable & ads free!
 
 == Description ==
-Enrich your WordPress site with Quizzes, Test yourself quizzes, Lists, Polls, and other Playful Content items. PlayBuzz's plugin allows you to easily embed playful content that refreshes daily, increasing your traffic and engagement. 
-PlayBuzz's content will appear natively on your website enhancing your users' experience. 
-
+The PlayBuzz plugin enables site owners to easily embed playful content items such as quizzes, lists, polls and more, and offer them as a native part of the site’s offering. You’ve seen the highly engaging content on sites such as Buzzfeed, Upworthy, 9Gag, and others. PlayBuzz enables you to have similar content packages on your site as well.
 = Features =
-*	Access to hundreds of Quizzes, Test yourselves Quizzes, Lists, etc.
+*	Access to hundreds of Quizzes, Test yourself Quizzes, Lists, etc.
 *	Content is available in multiple verticals: Entertainment, Funz, Sportz, Celebrities, Music, Animals, and more.
 *	Filter system enables you to select the content relevant to your site 
 *	Create your own Playful Content items and embed them
@@ -54,6 +52,33 @@ For any questions or more information please contact publishers@playbuzz.com
 1. Upload the plugin to the "/wp-content/plugins/" directory.
 1. Activate the plugin through the "Plugins" menu in WordPress.
 
+== Frequently Asked Questions ==
+
+= Why should I embed content from the PlayBuzz network? =
+Our content is created by our network of partners and our editorial staff. We feature highly engaging items around many popular topics. Embedding these items on your site is likely to boost all of your engagement metrics- page views, ad impressions, time spent online, sharing rate, etc. Above all- it enhances your site’s content offering by complementing it with content packaged in an extremely engaging and viral way.
+
+= Does PlayBuzz help me make my content viral? =
+Absolutely. Our plugin includes an option to share each content item on social networks such as Facebook and Twitter. Any click on these share buttons will create a share link directing users to your website.
+
+= Does PlayBuzz work on mobile and tablet versions of my site? =
+Yes. PlayBuzz's UI is responsive and mobile compatible.
+
+= Can I create my own content? = 
+Absolutely. We encourage you to create original playful content using (http://www.playbuzz.com) You may then decide to keep this content private (embed on your website only) or public (enable other partners on the PlayBuzz network to embed your content on their sites as well).
+
+= Does the content include advertisements? =
+No, our content is 100% ad free. You may decide to embed ad units around our content and retain 100% of your revenue. PlayBuzz does not insert its own ad units or otherwise monetize content presented on your website. 
+
+= How does PlayBuzz make money? = 
+In the future, PlayBuzz plans to offer its valued partners several rev-share based business models. At this point you, as a partner, will have the option to take advantage of these offers. Until then, PlayBuzz does not monetize content displayed on your site (but you are welcomed to…) 
+
+= Does this plugin slow down my website? = 
+No. Test and see for yourself. PlayBuzz is using a large content delivery network to ensure prompt delivery.
+
+= I got more Questions! =
+For more information contact us at(http://www.playbuzz.com/contact) or [contact us](mailto:publishers@playbuzz.com).
+
+
 == Screenshots ==
 1. A "funz"/"animals" Quiz, That can be implemented in any post/page
 2. A "Sports" hub. When a user clicks the game opens inside the hub!
@@ -66,7 +91,7 @@ For any questions or more information please contact publishers@playbuzz.com
 == Changelog ==
 
 = 0.1.1 =
-* Fixed plugin installations scripts
+* Improved plugin installations scripts
 * Updated readme with new information
 * Added helpers in the plugin's settings page
 
