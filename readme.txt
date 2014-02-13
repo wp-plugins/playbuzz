@@ -76,7 +76,7 @@ In the future, PlayBuzz plans to offer its valued partners several rev-share bas
 No. Test and see for yourself. PlayBuzz is using a large content delivery network to ensure prompt delivery.
 
 = I got more Questions! =
-For more information contact us at(http://www.playbuzz.com/contact) or [contact us](mailto:publishers@playbuzz.com).
+For more information contact us at (http://www.playbuzz.com/contact) or [contact us](mailto:publishers@playbuzz.com).
 
 
 == Screenshots ==
@@ -93,7 +93,7 @@ For more information contact us at(http://www.playbuzz.com/contact) or [contact 
 = 0.1.2 =
 * PlayBuzz widget now support a title
 * Activation/Deactivation saves settings
-* Added an FAQ section
+* Added FAQ section
 
 = 0.1.1 =
 * Improved plugin installations scripts
