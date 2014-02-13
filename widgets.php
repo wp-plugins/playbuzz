@@ -45,12 +45,16 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		$key     = $options['key'];
 		$links   = $options['links'];
+		
 
 		$view    = empty( $instance['view'] )  ? '' : apply_filters( 'view',  $instance['view']  );
 		$items   = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
+		$title	 = empty( $instance['title'] ) ? '' : apply_filters( 'title', $instance['title'] );
 		$tags    = pb_tags( $instance );
 
 		echo $before_widget;
+		if ( ! empty( $title ) )
+			echo $args['before_title'] . $title . $args['after_title'];
 		echo '
 			<script type="text/javascript" src="http://www.playbuzz.com/bundles/widgets"></script>
 			<div class="pb_recommendations" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="false"></div>
@@ -71,6 +75,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['view']              = strip_tags( stripslashes( $new_instance['view']              ) );
+		$instance['title']             = strip_tags( $new_instance['title']  );
 		$instance['items']             = strip_tags( stripslashes( $new_instance['items']             ) );
 		$instance['tags-funz']         = strip_tags( stripslashes( $new_instance['tags-funz']         ) );
 		$instance['tags-popz']         = strip_tags( stripslashes( $new_instance['tags-popz']         ) );
@@ -99,6 +104,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		// Set default values
 		$defaults = array(
+				'title'				=> 'Play It',
 				'view'              => $options['view'],
 				'items'             => $options['items'],
 				'tags-funz'         => $options['tags-funz'],
@@ -117,6 +123,10 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		// Display the admin form
 		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title', 'playbuzz' ); ?></label>
+			<input value="<?php echo $new_instance['title']; ?>" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text">
+		</p>
 		<p>
 			<label for="view"><?php _e( 'View', 'playbuzz' ); ?></label>
 			<select id="<?php echo $this->get_field_id('view'); ?>" name="<?php echo $this->get_field_name('view'); ?>" class="widefat">

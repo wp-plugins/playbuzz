@@ -69,6 +69,8 @@ class PlayBuzzAdmin {
 	public static function activate() {
 
 		// Set default options when the plugin is activated
+		if ( ! current_user_can( 'activate_plugins' ) )
+		return;
 		
 		// Set API Key
 		if ( 'default' == self::$data['key']  ) {
@@ -83,7 +85,9 @@ class PlayBuzzAdmin {
 			self::$data['key'] = $api;
 		}
 		
-		update_option( self::$option_name, self::$data );
+		if( !get_option( self::$option_name ) ) {
+			update_option( self::$option_name, self::$data );
+		}
 	}
 
 	/*
@@ -92,7 +96,7 @@ class PlayBuzzAdmin {
 	public static function deactivate() {
 
 		// Delete options from the database when the plugin is deactivated
-		delete_option( self::$option_name );
+		//delete_option( self::$option_name );
 
 	}
 
@@ -378,7 +382,7 @@ class PlayBuzzAdmin {
 							<th scope="row"><?php _e( 'Location of PlayBuzz hub', 'playbuzz' ); ?></th>
 							<td>
 								<input type="text" name="<?php echo $this->get_option_name(); ?>[links]" value="<?php echo $options['links']; ?>" class="regular-text">
-								<p class="description"><?php _e( 'URL where you displayed playbuzz posts/games. Default: http://www.playbuzz.com', 'playbuzz' ); ?></p>
+								<p class="description"><?php _e( 'The URL of the page containing the HUB shortcode. Default: http://www.playbuzz.com', 'playbuzz' ); ?></p>
 							</td>
 								
 						</tr>
