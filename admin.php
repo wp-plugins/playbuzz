@@ -45,10 +45,14 @@ class PlayBuzzAdmin {
 	public function __construct() {
 
 		add_action( 'init', array( $this, 'init' ) );
-
+		
 		// Text domain for localization and translation
-		load_plugin_textdomain( 'playbuzz', false, plugin_dir_path( __FILE__ ) . '/lang' );
-
+		try {
+			load_plugin_textdomain( 'playbuzz', false, plugin_dir_path( __FILE__ ) . '/lang' );
+		} catch (Exception $e) {
+			// Nothing
+		}
+		
 		// Admin sub-menu
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'add_page'   ) );
