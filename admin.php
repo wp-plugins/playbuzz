@@ -302,7 +302,7 @@ class PlayBuzzAdmin {
 								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-popz]"         value="1" <?php if ( '1' == $options['tags-popz']         ) echo 'checked="checked"'; ?>> <?php _e( 'Popz',           'playbuzz' ); ?><br/>
 								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-brainz]"       value="1" <?php if ( '1' == $options['tags-brainz']       ) echo 'checked="checked"'; ?>> <?php _e( 'Brainz',         'playbuzz' ); ?><br/>
 								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-sportz]"       value="1" <?php if ( '1' == $options['tags-sportz']       ) echo 'checked="checked"'; ?>> <?php _e( 'Sportz',         'playbuzz' ); ?><br/>
-								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( '1' == $options['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?><br/>
+								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( '1' == $options['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'editorspicks', 'playbuzz' ); ?><br/>
 								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-tv]"           value="1" <?php if ( '1' == $options['tags-tv']           ) echo 'checked="checked"'; ?>> <?php _e( 'TV',             'playbuzz' ); ?><br/>
 								<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-celebrities]"  value="1" <?php if ( '1' == $options['tags-celebrities']  ) echo 'checked="checked"'; ?>> <?php _e( 'Celebrities',    'playbuzz' ); ?>
 							</td>
