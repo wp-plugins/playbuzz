@@ -1,9 +1,9 @@
 ﻿=== PlayBuzz Playful Content ===
-Contributors: playbuzz
+Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, outbrain, post,Entertainment, celebs, celebrities, animals
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 
 PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yourself Quizzes, Lists and more. Customizable & ads free!
 
@@ -89,6 +89,10 @@ For more information contact us at (http://www.playbuzz.com/contact) or [contact
 
 
 == Changelog ==
+= 0.1.4 =
+* Enabled the embedding of Playful hub in pages rather than posts only
+* Fixed an issue with EditorsPick tags
+
 = 0.1.3 =
 * Solved a problem with WordPress installation on IIS
 
