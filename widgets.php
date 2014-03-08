@@ -75,7 +75,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['view']              = strip_tags( stripslashes( $new_instance['view']              ) );
-		$instance['title']             = strip_tags( $new_instance['title']  );
+		$instance['title']             = strip_tags( $new_instance['title']                             );
 		$instance['items']             = strip_tags( stripslashes( $new_instance['items']             ) );
 		$instance['tags-funz']         = strip_tags( stripslashes( $new_instance['tags-funz']         ) );
 		$instance['tags-popz']         = strip_tags( stripslashes( $new_instance['tags-popz']         ) );

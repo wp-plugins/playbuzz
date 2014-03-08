@@ -51,11 +51,11 @@ function playbuzz_shortcode( $atts ) {
 	// Attributes with default values
 	extract( shortcode_atts(
 		array(
-			'key'       => $options['key'],                                // api key allowing configuration and analytics
-			'tags'      => pb_tags( $options ),                            // filter by tags
-			'game'      => '',                                             // defines the game that will be loaded by the IFrame
-			'info'      => ( '1' == $options['info'] ? 'true' : 'false' ), // show game info (thumbnail, name, description, editor, etc)
-			'social'    => ( '1' == $options['social'] ? 'true' : 'false' ), // show sharing buttons and comments control from the game page.
+			'key'       => $options['key'],                                     // api key allowing configuration and analytics
+			'tags'      => pb_tags( $options ),                                 // filter by tags
+			'game'      => '',                                                  // defines the game that will be loaded by the IFrame
+			'info'      => ( '1' == $options['info'] ? 'true' : 'false' ),      // show game info (thumbnail, name, description, editor, etc)
+			'social'    => ( '1' == $options['social'] ? 'true' : 'false' ),    // show sharing buttons and comments control from the game page.
 			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more games
 		), $atts )
 	);
@@ -89,11 +89,11 @@ function playbuzz_hub_shortcode( $atts ) {
 	// Attributes with default values
 	extract( shortcode_atts(
 		array(
-			'key'       => $options['key'],                                // api key allowing configuration and analytics
-			'tags'      => pb_tags( $options ),                            // filter by tags
-			'game'      => '',                                             // defines the game that will be loaded by the IFrame
-			'info'      => ( '1' == $options['info'] ? 'true' : 'false' ), // show game info (thumbnail, name, description, editor, etc)
-			'social'    => ( '1' == $options['social'] ? 'true' : 'false' ), // show sharing buttons and comments control from the game page.
+			'key'       => $options['key'],                                     // api key allowing configuration and analytics
+			'tags'      => pb_tags( $options ),                                 // filter by tags
+			'game'      => '',                                                  // defines the game that will be loaded by the IFrame
+			'info'      => ( '1' == $options['info'] ? 'true' : 'false' ),      // show game info (thumbnail, name, description, editor, etc)
+			'social'    => ( '1' == $options['social'] ? 'true' : 'false' ),    // show sharing buttons and comments control from the game page.
 			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more games
 		), $atts )
 	);

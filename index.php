@@ -36,10 +36,10 @@ include_once ( plugin_dir_path( __FILE__ ) . 'widgets.php' );
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'playbuzz_settings_link' );
 
 // Add settings link on plugin page
-function playbuzz_settings_link($links) { 
-  $settings_link = '<a href="options-general.php?page=playbuzz">Settings</a>';
-  array_unshift($links, $settings_link); 
-  return $links; 
+function playbuzz_settings_link($links) {
+	$settings_link = '<a href="options-general.php?page=playbuzz">Settings</a>';
+	array_unshift($links, $settings_link); 
+	return $links; 
 }
 
 

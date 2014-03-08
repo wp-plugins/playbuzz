@@ -58,12 +58,18 @@ class PlayBuzzAdmin {
 		add_action( 'admin_menu', array( $this, 'add_page'   ) );
 
 	}
-	
+
+	/*
+	 * Get option name
+	 */
 	public function get_option_name(){
 		return self::$option_name;
 	}
-	
-		public function get_data(){
+
+	/*
+	 * Get data
+	 */
+	public function get_data(){
 		return self::$data;
 	}
 
@@ -218,44 +224,31 @@ class PlayBuzzAdmin {
 				<br>
 
 				<h4><?php _e( 'Game / Post Shortcode', 'playbuzz' ); ?></h4>
-				<p>
-				Choose any Playful Content item from <a href="http://www.playbuzz.com">http://www.playbuzz.com</a> and easily embed it in a post.
-				The short code used is:
-				<p>
-				<p>
-					<code>[playbuzz-game game="URL OF Game/Post"]</code> <span style="font-size:10px">(Change defaults in "Games" tab)</span><br>
-					<p>
-					(e.g game="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section")<br/>
-					Create your own Playful items (quizzes,lists,etc) on PlayBuzz's website and embed them in the exact same way.<br/>
-					
-					You can override defaults with the following attributes: info="true/false", recommend="true/false", social="true/false".
-					</p>
-				</p>
+				<p><?php _e( 'Choose any Playful Content item from <a href="http://www.playbuzz.com">http://www.playbuzz.com</a> and easily embed it in a post.', 'playbuzz' ); ?></p>
+				<p><?php _e( 'The short code used is:', 'playbuzz' ); ?></p>
+				<p><code>[playbuzz-game game="URL OF Game/Post"]</code> <span style="font-size:10px"><?php _e( '(Change defaults in "Games" tab)', 'playbuzz' ); ?></span></p>
+				<p><?php _e( '(e.g game="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section")', 'playbuzz' ); ?></p>
+				<p><?php _e( 'Create your own Playful items (quizzes,lists,etc) on PlayBuzz\'s website and embed them in the exact same way.', 'playbuzz' ); ?></p>
+				<p><?php _e( 'You can override defaults with the following attributes: info="true/false", recommend="true/false", social="true/false".', 'playbuzz' ); ?></p>
 				<br>
 
 				<h4><?php _e( 'Hub / Archive Shortcode', 'playbuzz' ); ?></h4>
-				<p>A list of Playful Items in a specific vertical. This is best used as a "Playful Section" displaying games and posts in
-					the selected tags (topics).</p>
-				<p>
-					<code>[playbuzz-hub]</code> <span style="font-size:10px">(Change defaults in "Games" tab)</span><br/>
-					<p>
-					You can override defaults with the following attributes: tags="Any PlayBuzz Tag", recommend="true/false", social="true/false".
-					</p>
-					
-				</p>
+				<p><?php _e( 'A list of Playful Items in a specific vertical. This is best used as a "Playful Section" displaying games and posts in the selected tags (topics).', 'playbuzz' ); ?></p>
+				<p><code>[playbuzz-hub]</code> <span style="font-size:10px"><?php _e( '(Change defaults in "Games" tab)', 'playbuzz' ); ?></span></p>
+				<p><?php _e( 'You can override defaults with the following attributes: tags="Any PlayBuzz Tag", recommend="true/false", social="true/false".', 'playbuzz' ); ?></p>
 				<br>
 
 				<h4><?php _e( 'Recommendations / Related-Content Shortcode', 'playbuzz' ); ?></h4>
-				<p> Embedding PlayBuzz related playful content links and recommendations on your sites sidebar using customizable WordPress widget.</p>
+				<p><?php _e( 'Embedding PlayBuzz related playful content links and recommendations on your sites sidebar using customizable WordPress widget.', 'playbuzz' ); ?></p>
+				<p><code>[playbuzz-recommendations]</code> <span style="font-size:10px"><?php _e( '(Change defaults in "Recommendations" tab)', 'playbuzz' ); ?><span></p>
+				<p><?php _e( 'You can override defaults with the following attributes: tags="Any PlayBuzz Tag", recommend="true/false", social="true/false".', 'playbuzz' ); ?></p>
+				<p><?php _e( 'For the links to open on YOUR site you need to do the following:', 'playbuzz' ); ?></p>
 				<p>
-					<code>[playbuzz-recommendations]</code> <span style="font-size:10px">(Change defaults in "Recommendations" tab)<span><br/>
-					<p>
-					You can override defaults with the following attributes: tags="Any PlayBuzz Tag", recommend="true/false", social="true/false".<br/>
-					For the links to open on YOUR site you need to do the following:<br>
-					1. Include the PlayBuzz hub's page shortcode in a designated page/post<br/>
-					2. Copy the URL (location) of the page that contains PlayBuzz's hub<br/>
-					3. Paste the URL in the "Location of PlayBuzz hub" field under "Recommendations"
-					</p>
+					<ol>
+						<li><?php _e( 'Include the PlayBuzz hub\'s page shortcode in a designated page/post.', 'playbuzz' ); ?></li>
+						<li><?php _e( 'Copy the URL (location) of the page that contains PlayBuzz\'s hub.', 'playbuzz' ); ?></li>
+						<li><?php _e( 'Paste the URL in the "Location of PlayBuzz hub" field under "Recommendations".', 'playbuzz' ); ?></li>
+					</ol>
 				</p>
 				<br>
 
@@ -268,7 +261,6 @@ class PlayBuzzAdmin {
 					<?php settings_fields( 'playbuzz' ); ?>
 
 					<input type="hidden" name="<?php echo $this->get_option_name(); ?>[key]"    value="<?php echo $options['key'];    ?>">
-
 					<input type="hidden" name="<?php echo $this->get_option_name(); ?>[active]" value="<?php echo $options['active']; ?>">
 					<input type="hidden" name="<?php echo $this->get_option_name(); ?>[show]"   value="<?php echo $options['show'];   ?>">
 					<input type="hidden" name="<?php echo $this->get_option_name(); ?>[view]"   value="<?php echo $options['view'];   ?>">
@@ -464,5 +456,3 @@ function pb_tags( $options ) {
 	return $tags;
 
 }
-
-
