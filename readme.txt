@@ -9,13 +9,13 @@ PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yoursel
 
 == Description ==
 The PlayBuzz plugin enables site owners to easily embed playful content items such as quizzes, lists, polls and more, and offer them as a native part of the site’s offering. You’ve seen the highly engaging content on sites such as Buzzfeed, Upworthy, 9Gag, and others. PlayBuzz enables you to have similar content packages on your site as well.
+
 = Features =
 *	Access to hundreds of Quizzes, Test yourself Quizzes, Lists, etc.
 *	Content is available in multiple verticals: Entertainment, Funz, Sportz, Celebrities, Music, Animals, and more.
 *	Filter system enables you to select the content relevant to your site 
 *	Create your own Playful Content items and embed them
 *	Everything is free, no subscription or ads
-
 
 = Embedding options =
 PlayBuzz plugin has 3 embedding options:
@@ -43,7 +43,6 @@ Embedding PlayBuzz related Playful Content links and recommendations on your sit
 **PlayBuzz is different from other similar plugins because:** 	
 1. PlayBuzz features playful content items such as quizzes, lists, polls (coming soon), etc.
 2. You get free content that is embedded on your site! rather than redirecting users out of the site.
-
 
 = More Information =
 For any questions or more information please contact publishers@playbuzz.com
@@ -78,7 +77,6 @@ No. Test and see for yourself. PlayBuzz is using a large content delivery networ
 = I got more Questions! =
 For more information contact us at (http://www.playbuzz.com/contact) or [contact us](mailto:publishers@playbuzz.com).
 
-
 == Screenshots ==
 1. A "funz"/"animals" Quiz, That can be implemented in any post/page
 2. A "Sports" hub. When a user clicks the game opens inside the hub!
@@ -87,8 +85,12 @@ For more information contact us at (http://www.playbuzz.com/contact) or [contact
 5. Settings section for the related links.
 6. Customize the related content widget.
 
-
 == Changelog ==
+= 0.1.5 =
+* Bug fix - allow to embed code in post and pages (not only posts).
+* Better Internationalization (I18n) support.
+* Update hebrew (he_IL) translation.
+
 = 0.1.4 =
 * Enabled the embedding of Playful hub in pages rather than posts only
 * Fixed an issue with EditorsPick tags
