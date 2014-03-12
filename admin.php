@@ -140,8 +140,8 @@ class PlayBuzzAdmin {
 			// Add embed code
 			if ( 'true' == $active ) {
 
-				// Add embed code only to posts
-				if ( is_single() ) {
+				// Add embed code only to posts and pages
+				if ( is_singular() ) {
 
 					// Add to header or footer
 					if ( 'header' == $show ) {

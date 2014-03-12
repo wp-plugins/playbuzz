@@ -61,7 +61,7 @@ function playbuzz_shortcode( $atts ) {
 	);
 
 	// PlayBuzz Embed Code
-	if ( is_single() ) {
+	if ( is_singular() ) {
 
 		return '
 			<script type="text/javascript" src="http://www.playbuzz.com/bundles/feed"></script>
@@ -123,7 +123,7 @@ function playbuzz_recommendations_shortcode( $atts ) {
 	);
 
 	// PlayBuzz Embed Code
-	if ( is_single() ) {
+	if ( is_singular() ) {
 
 		return '
 			<script type="text/javascript" src="http://www.playbuzz.com/bundles/widgets"></script>
