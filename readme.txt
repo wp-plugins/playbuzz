@@ -3,7 +3,7 @@ Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, outbrain, post,Entertainment, celebs, celebrities, animals
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 0.1.4
+Stable tag: 0.1.5
 
 PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yourself Quizzes, Lists and more. Customizable & ads free!
 
