@@ -77,10 +77,9 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$instance['view']              = strip_tags( stripslashes( $new_instance['view']              ) );
 		$instance['title']             = strip_tags( $new_instance['title']                             );
 		$instance['items']             = strip_tags( stripslashes( $new_instance['items']             ) );
-		$instance['tags-funz']         = strip_tags( stripslashes( $new_instance['tags-funz']         ) );
-		$instance['tags-popz']         = strip_tags( stripslashes( $new_instance['tags-popz']         ) );
-		$instance['tags-brainz']       = strip_tags( stripslashes( $new_instance['tags-brainz']       ) );
-		$instance['tags-sportz']       = strip_tags( stripslashes( $new_instance['tags-sportz']       ) );
+		$instance['tags-pop']          = strip_tags( stripslashes( $new_instance['tags-pop']         ) );
+		$instance['tags-geek']         = strip_tags( stripslashes( $new_instance['tags-geek']       ) );
+		$instance['tags-sports']       = strip_tags( stripslashes( $new_instance['tags-sports']       ) );
 		$instance['tags-editors-pick'] = strip_tags( stripslashes( $new_instance['tags-editors-pick'] ) );
 		$instance['tags-mix']          = strip_tags( stripslashes( $new_instance['tags-mix']          ) );
 		$instance['tags-tv']           = strip_tags( stripslashes( $new_instance['tags-tv']           ) );
@@ -107,14 +106,11 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 				'title'				=> 'Play It',
 				'view'              => $options['view'],
 				'items'             => $options['items'],
-				'tags-funz'         => $options['tags-funz'],
-				'tags-popz'         => $options['tags-popz'],
-				'tags-brainz'       => $options['tags-brainz'],
-				'tags-sportz'       => $options['tags-sportz'],
+				'tags-fun'          => $options['tags-fun'],
+				'tags-pop'          => $options['tags-pop'],
+				'tags-geek'         => $options['tags-geek'],
 				'tags-editors-pick' => $options['tags-editors-pick'],
 				'tags-mix'          => $options['tags-mix'],
-				'tags-tv'           => $options['tags-tv'],
-				'tags-celebrities'  => $options['tags-celebrities'],
 				'more-tags'         => $options['more-tags'],
 			);
 
@@ -157,13 +153,11 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		<p>
 			<label for="tags"><?php _e( 'Simple Tags', 'playbuzz' ); ?></label><br>
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-mix');          ?>" value="1" <?php if ( '1' == $new_instance['tags-mix']          ) echo 'checked="checked"'; ?>> <?php _e( 'Mix',            'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-funz');         ?>" value="1" <?php if ( '1' == $new_instance['tags-funz']         ) echo 'checked="checked"'; ?>> <?php _e( 'Funz',           'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-popz');         ?>" value="1" <?php if ( '1' == $new_instance['tags-popz']         ) echo 'checked="checked"'; ?>> <?php _e( 'Popz',           'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-brainz');       ?>" value="1" <?php if ( '1' == $new_instance['tags-brainz']       ) echo 'checked="checked"'; ?>> <?php _e( 'Brainz',         'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-sportz');       ?>" value="1" <?php if ( '1' == $new_instance['tags-sportz']       ) echo 'checked="checked"'; ?>> <?php _e( 'Sportz',         'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo $this->get_field_name('tags-fun');         ?>" value="1" <?php if ( '1' == $new_instance['tags-fun']         ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',           'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo $this->get_field_name('tags-pop');         ?>" value="1" <?php if ( '1' == $new_instance['tags-pop']         ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',           'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo $this->get_field_name('tags-geek');       ?>" value="1" <?php if ( '1' == $new_instance['tags-geek']       ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',         'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo $this->get_field_name('tags-sports');       ?>" value="1" <?php if ( '1' == $new_instance['tags-sports']       ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',         'playbuzz' ); ?> 
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-editors-pick'); ?>" value="1" <?php if ( '1' == $new_instance['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-tv');           ?>" value="1" <?php if ( '1' == $new_instance['tags-tv']           ) echo 'checked="checked"'; ?>> <?php _e( 'TV',             'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-celebrities');  ?>" value="1" <?php if ( '1' == $new_instance['tags-celebrities']  ) echo 'checked="checked"'; ?>> <?php _e( 'Celebrities',    'playbuzz' ); ?> 
 		</p>
 		<p>
 			<label for="tags"><?php _e( 'Advanced Tags', 'playbuzz' ); ?></label>

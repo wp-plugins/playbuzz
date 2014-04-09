@@ -1,9 +1,9 @@
 ﻿=== PlayBuzz Playful Content ===
 Contributors: playBuzz
-Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, outbrain, post,Entertainment, celebs, celebrities, animals
+Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, buzzfeed, post,Entertainment, celebs, celebrities, animals
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 0.1.5
+Tested up to: 3.8.2
+Stable tag: 0.2.0
 
 PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yourself Quizzes, Lists and more. Customizable & ads free!
 
@@ -45,7 +45,7 @@ Embedding PlayBuzz related Playful Content links and recommendations on your sit
 2. You get free content that is embedded on your site! rather than redirecting users out of the site.
 
 = More Information =
-For any questions or more information please contact publishers@playbuzz.com
+For any questions or more information please [contact us](http://www.playbuzz.com/contact)
 
 == Installation ==
 1. Upload the plugin to the "/wp-content/plugins/" directory.
@@ -75,7 +75,7 @@ In the future, PlayBuzz plans to offer its valued partners several rev-share bas
 No. Test and see for yourself. PlayBuzz is using a large content delivery network to ensure prompt delivery.
 
 = I got more Questions! =
-For more information contact us at (http://www.playbuzz.com/contact) or [contact us](mailto:publishers@playbuzz.com).
+For more information contact us at (http://www.playbuzz.com/contact)
 
 == Screenshots ==
 1. A "funz"/"animals" Quiz, That can be implemented in any post/page
@@ -86,6 +86,12 @@ For more information contact us at (http://www.playbuzz.com/contact) or [contact
 6. Customize the related content widget.
 
 == Changelog ==
+= 0.2.0 =
+* Added new categories!
+* Separate control for Comments and Share Buttons (Previous Social settings is obsolete)
+* Websites with top floating bars can now set margin for playbuzz score bar
+* Verified compatibility with WordPress 3.8.2
+
 = 0.1.5 =
 * Bug fix - allow to embed code in post and pages (not only posts).
 * Better Internationalization (I18n) support.
