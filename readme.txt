@@ -2,47 +2,35 @@
 Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, buzzfeed, post,Entertainment, celebs, celebrities, animals
 Requires at least: 3.0
-Tested up to: 3.8.2
-Stable tag: 0.2.0
+Tested up to: 4.0
+Stable tag: 0.3.0
 
-PlayBuzz lets you embed syndicated Playful Content such as Quizzes, Test Yourself Quizzes, Lists and more. Customizable & ads free!
+PlayBuzz lets you embed customized Playful Content such as Quizzes, Lists, Polls and more.
 
 == Description ==
 The PlayBuzz plugin enables site owners to easily embed playful content items such as quizzes, lists, polls and more, and offer them as a native part of the site’s offering. You’ve seen the highly engaging content on sites such as Buzzfeed, Upworthy, 9Gag, and others. PlayBuzz enables you to have similar content packages on your site as well.
 
 = Features =
-*	Access to hundreds of Quizzes, Test yourself Quizzes, Lists, etc.
-*	Content is available in multiple verticals: Entertainment, Funz, Sportz, Celebrities, Music, Animals, and more.
-*	Filter system enables you to select the content relevant to your site 
-*	Create your own Playful Content items and embed them
-*	Everything is free, no subscription or ads
+* Access to hundreds of Trivia Quizzes, Personality Quizzes, Lists, etc.
+* Content is available in multiple verticals: Entertainment, Sports, Celebrities, Music, Animals, and more.
+* Filter system enables you to select only the content relevant to your site.
+* Create your own Playful Content items and embed them.
+* Everything is free, no subscription fee.
 
 = Embedding options =
-PlayBuzz plugin has 3 embedding options:
+PlayBuzz plugin has two embedding options:
 
-**Specific Item** 
-Choose any Playful Content item from [playbuzz.com](http://www.playbuzz.com) and easily embed it in a post.
-The short code used is:
-`[playbuzz-game game="<Any Item from PlayBuzz.com>"]`
-(e.g game="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section").
-Embed any PlayBuzz item by using the aforementioned shortcode with the game/post URL. 
-Create your own Playful items (quizzes,lists,etc) on PlayBuzz's website and embed them in the exact same way.
+**Embed specific Item** 
+Choose any Playful Content item (or create your own!) from [playbuzz.com](http://www.playbuzz.com) and easily embed it in a post using this shortcode:
+`[playbuzz-item url="Item_Any"]`
+(e.g [playbuzz-item url="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section"] ).
+Embed any existing PlayBuzz item or create your own on PlayBuzz.com
 
-**Embed a hub of games** 
-A list of Playful Items in a specific vertical. This is best used as a "Playful Section" displaying games and posts in
-the selected tags (topics).
-`[playbuzz-hub tags="<Any Tag>"]`
-(e.g tags="Games")
+**Embed a site section** 
+Create a playfull section on your site and embed a list of Playful Content items.  You can choose which topics to show using the "tags" attribute.
 
-**Recommendations Widget** 
-Embedding PlayBuzz related Playful Content links and recommendations on your site's sidebar using customizable WordPress widget.
- Once you install the plugin A widget is available in the widget's menu. There's also a shortcode:
-`[playbuzz-recommendations tags="<Any Tag>"]`
-(e.g tags="Celebrities")
-
-**PlayBuzz is different from other similar plugins because:** 	
-1. PlayBuzz features playful content items such as quizzes, lists, polls (coming soon), etc.
-2. You get free content that is embedded on your site! rather than redirecting users out of the site.
+`[playbuzz-section tags="Any_Tag"]`
+(e.g  [playbuzz-section tags="Games, food"] )
 
 = More Information =
 For any questions or more information please [contact us](http://www.playbuzz.com/contact)
@@ -63,29 +51,31 @@ Absolutely. Our plugin includes an option to share each content item on social n
 Yes. PlayBuzz's UI is responsive and mobile compatible.
 
 = Can I create my own content? = 
-Absolutely. We encourage you to create original playful content using (http://www.playbuzz.com) You may then decide to keep this content private (embed on your website only) or public (enable other partners on the PlayBuzz network to embed your content on their sites as well).
-
-= Does the content include advertisements? =
-No, our content is 100% ad free. You may decide to embed ad units around our content and retain 100% of your revenue. PlayBuzz does not insert its own ad units or otherwise monetize content presented on your website. 
-
-= How does PlayBuzz make money? = 
-In the future, PlayBuzz plans to offer its valued partners several rev-share based business models. At this point you, as a partner, will have the option to take advantage of these offers. Until then, PlayBuzz does not monetize content displayed on your site (but you are welcomed to…) 
+Absolutely. We encourage you to create original playful content using (http://www.playbuzz.com). You may then decide to keep this content private (embed on your website only) or public (enable other partners on the PlayBuzz network to embed your content on their sites as well).
 
 = Does this plugin slow down my website? = 
 No. Test and see for yourself. PlayBuzz is using a large content delivery network to ensure prompt delivery.
 
-= I got more Questions! =
+= I've got more questions! =
 For more information contact us at (http://www.playbuzz.com/contact)
 
 == Screenshots ==
-1. A "funz"/"animals" Quiz, That can be implemented in any post/page
-2. A "Sports" hub. When a user clicks the game opens inside the hub!
-3. Related Playful Content links that will open on your website
-4. Easy to embed, using simple wordpress shortcodes.
-5. Settings section for the related links.
-6. Customize the related content widget.
+1. Settings section for the admin screen.
+2. Easy to embed, using simple WordPress shortcodes.
+3. A "Sports" site section. When a user clicks a quiz, the quiz opens inside your site!
+4. A "funz"/"animals" Quiz, that can be implemented in any page.
 
 == Changelog ==
+= 0.3.0 =
+* Verified compatibility up to WordPress 4.0
+* Setting page design overhaul
+* New shortcodes: [playbuzz-item url=""]
+* New shortcodes: [playbuzz-section tag=""]
+* Old shortcodes are still in use for backwards compatibility
+* New option to control the "WordPress Theme Visibility"
+* Fix translation bug
+* Update hebrew (he_IL) translation
+
 = 0.2.0 =
 * Added new categories!
 * Separate control for Comments and Share Buttons (Previous Social settings is obsolete)
@@ -93,9 +83,9 @@ For more information contact us at (http://www.playbuzz.com/contact)
 * Verified compatibility with WordPress 3.8.2
 
 = 0.1.5 =
-* Bug fix - allow to embed code in post and pages (not only posts).
-* Better Internationalization (I18n) support.
-* Update hebrew (he_IL) translation.
+* Bug fix - allow to embed code in post and pages (not only posts)
+* Better Internationalization (I18n) support
+* Update hebrew (he_IL) translation
 
 = 0.1.4 =
 * Enabled the embedding of Playful hub in pages rather than posts only
@@ -115,12 +105,12 @@ For more information contact us at (http://www.playbuzz.com/contact)
 * Added helpers in the plugin's settings page
 
 = 0.1.0 =
-* Initial release.
-* Widget: PlayBuzz recommendations and related playful content links.
+* Initial release
+* Widget: PlayBuzz recommendations and related playful content links
 * Shortcodes: [playbuzz-game] / [playbuzz-post]
 * Shortcodes: [playbuzz-hub] / [playbuzz-archive]
 * Shortcodes: [playbuzz-related] / [playbuzz-recommendations]
-* Admin: Settings Page - API Key, data provider, ect...
-* Admin: PlayBuzz Games - configure the playful games.
-* Admin: PlayBuzz Recommendations - insert related playful content links and recommendations to posts header/footer.
-* Admin: Shortcodes documentation.
+* Admin: Settings Page - API Key, data provider, ect.
+* Admin: PlayBuzz Games - configure the playful games
+* Admin: PlayBuzz Recommendations - insert related playful content links and recommendations to posts header/footer
+* Admin: Shortcodes documentation
