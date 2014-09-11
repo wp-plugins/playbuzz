@@ -1,0 +1,500 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: playbuzz\n"
+"POT-Creation-Date: 2014-09-11 12:40+0200\n"
+"PO-Revision-Date: 2014-09-11 12:40+0200\n"
+"Last-Translator: Rami Y <r_a_m_i@hotmail.com>\n"
+"Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin.php:191
+msgid "PlayBuzz"
+msgstr "PlayBuzz"
+
+#: ../admin.php:211
+msgid "Getting Started"
+msgstr "אופן שימוש"
+
+#: ../admin.php:212
+msgid "Embed Options"
+msgstr "אפשרויות הטמעה"
+
+#: ../admin.php:213
+msgid "Help"
+msgstr "עזרה"
+
+#: ../admin.php:218 ../admin.php:271 ../admin.php:460
+msgid "PlayBuzz Plugin"
+msgstr "PlayBuzz"
+
+#: ../admin.php:222
+msgid "Embeding an Item"
+msgstr "הטמעת פריט"
+
+#: ../admin.php:225
+#, php-format
+msgid ""
+"<strong>Choose your content</strong>: Go to %s to choose the item you want "
+"to embed in your post."
+msgstr ""
+"<strong>בחרו תכנים:</strong> גשו אל %s כדי לבחור את הפריטים שיוטמעו באתר."
+
+#: ../admin.php:228
+msgid ""
+"Use the following <strong>shortcode</strong> where you want to embed the "
+"item:"
+msgstr "השתמשו ב<strong>קוד הטמעה</strong> הבא היכן שברצונכם להטמיע את הפריט:"
+
+#: ../admin.php:230 ../admin.php:249 ../admin.php:468 ../admin.php:522
+msgid "For example:"
+msgstr "לדוגמא:"
+
+#: ../admin.php:234
+#, php-format
+msgid ""
+"<a href=\"%s\">Tweak the item's settings</a> or read about more <a href=\"%s"
+"\">advanced shortcode attributes</a>."
+msgstr ""
+"<a href=\"%s\">התאימו את התצוגה לכל הפריטים המוטמעים באתר</a> או קראו פרטים "
+"נוספים על הוספת <a href=\"%s\">פרמטרים מתקדמים לקוד ההטמעה ספציפי</a>."
+
+#: ../admin.php:241
+msgid "Embeding a Section"
+msgstr "הטמעת רשימה"
+
+#: ../admin.php:244
+#, php-format
+msgid ""
+"<strong>Choose your list of playful content items</strong>: Go to %s to "
+"choose the tag you want to embed in your page."
+msgstr ""
+"<strong>בחרו תכנים:</strong> גשו אל %s כדי לבחור את התגיות של התכנים שיוטמעו "
+"באתר."
+
+#: ../admin.php:247
+msgid ""
+"Use the following <strong>shortcode</strong> where you want to embed the "
+"Playful Items list:"
+msgstr "השתמשו בקוד הבא באזור בו ברצונכם להטמיע את רשימת הפריטים:"
+
+#: ../admin.php:253
+#, php-format
+msgid "Customize by using <a href=\"%s\">advanced shortcode attributes</a>."
+msgstr ""
+"התאימו את התצוגה על ידי הוספת <a href=\"%s\">פרמטרים מתקדמים לקוד ההטמעה "
+"ספציפי</a>."
+
+#: ../admin.php:261
+msgid "API Key"
+msgstr "מפתח API"
+
+#: ../admin.php:279
+msgid "Item Embed Options"
+msgstr "אפשרויות הטמעת פריט"
+
+#: ../admin.php:283
+msgid "Item Info"
+msgstr "פרטים"
+
+#: ../admin.php:285
+msgid "Show item info (thumbnail, title, description, etc.)"
+msgstr "הצגת פרטים (תמונה, כותרת, תיאור, יוצר וכו...)"
+
+#: ../admin.php:289
+msgid "Sharing"
+msgstr "שיתוף"
+
+#: ../admin.php:291
+msgid "Show sharing buttons (recommended - redirects to your page)."
+msgstr "הצגת כפתורי שיתוף (מומלץ - מבצע העברה חזרה לאתר)"
+
+#: ../admin.php:295
+msgid "Comments"
+msgstr "תגובות"
+
+#: ../admin.php:297
+msgid "Enable facebook comments."
+msgstr "הפעלת תגובות פייסבוק"
+
+#: ../admin.php:306
+msgid "Recommendations"
+msgstr "המלצות"
+
+#: ../admin.php:308 ../admin.php:495 ../admin.php:543
+msgid "Show recommendations for more items."
+msgstr "הצגת המלצות לפריטים נוספים"
+
+#: ../admin.php:311
+msgid "Tags"
+msgstr "תגיות"
+
+#: ../admin.php:313
+msgid "All"
+msgstr "הכל"
+
+#: ../admin.php:314 ../widgets.php:155
+msgid "Fun"
+msgstr "כיף"
+
+#: ../admin.php:315 ../widgets.php:156
+msgid "Pop"
+msgstr "פופולריים"
+
+#: ../admin.php:316 ../widgets.php:157
+msgid "Geek"
+msgstr "גיקים"
+
+#: ../admin.php:317 ../widgets.php:158
+msgid "Sports"
+msgstr "ספורט"
+
+#: ../admin.php:318 ../widgets.php:159
+msgid "Editor's Pick"
+msgstr "בחירת העורכים"
+
+#: ../admin.php:322
+msgid "Custom Tags"
+msgstr "תגיות מותאמות אישית"
+
+#: ../admin.php:324
+msgid "Comma separated tags"
+msgstr "תגיות מופרדות בפסיקים"
+
+#: ../admin.php:325
+msgid "Example: food, rap, weather"
+msgstr "לדוגמא: food, rap, weather"
+
+#: ../admin.php:337
+msgid "Margin Top"
+msgstr "ריווח עליון"
+
+#: ../admin.php:339
+msgid "Default: 0px"
+msgstr "ברירת מחדל: 0px"
+
+#: ../admin.php:340
+msgid "Use in case of a floating bar."
+msgstr "השתמש במקרה של תפריט מרחף."
+
+#: ../admin.php:349
+msgid "WordPress Theme Visibility"
+msgstr "תצוגה בתבניות וורדפרס"
+
+#: ../admin.php:352
+msgid "Show embedded content in posts/pages only"
+msgstr "הצגת תכנים מוטמעים בעמודי תוכן בלבד - פוסטים/עמודים"
+
+#: ../admin.php:353
+msgid "Show embedded content in all pages (singular, archive, ect.)"
+msgstr "הצגת תכנים מוטמעים בכל העמודים (עמודי תוכן, עמודי ארכיון, וכ'ו...)"
+
+#: ../admin.php:355
+#, php-format
+msgid ""
+"Whether to show the embedded content only in <a href=\"%s\">singular pages</"
+"a>, or <a href=\"%s\">archive page</a> too."
+msgstr ""
+"האם להציג את התכנים המוטמעים ב<a href=\"%s\">עמודי תוכן</a>, או גם ב<a href="
+"\"%s\">עמודי ארכיון</a>."
+
+#: ../admin.php:366
+msgid "Related Content Embed Options"
+msgstr "הטמעת תכנים באותו נושא"
+
+#: ../admin.php:370 ../widgets.php:134
+msgid "Number of Items"
+msgstr "מספר פריטים להצגה"
+
+#: ../admin.php:391
+msgid "Style"
+msgstr "תצוגה"
+
+#: ../admin.php:393 ../widgets.php:128
+msgid "Large Images"
+msgstr "תמונות גדולות"
+
+#: ../admin.php:394 ../widgets.php:129
+msgid "Horizontal Images"
+msgstr "תמונות אנכיות"
+
+#: ../admin.php:395 ../widgets.php:130
+msgid "No Images"
+msgstr "ללא תמונות"
+
+#: ../admin.php:418
+msgid "Location of PlayBuzz hub"
+msgstr "המיקום של עמוד האב/ארכיון"
+
+#: ../admin.php:421
+msgid ""
+"The URL of the page containing the HUB shortcode. Default: http://www."
+"playbuzz.com"
+msgstr ""
+"ה-URL של העמוד אשר מכיל קוד הטמעה של HUB. ברירת מחדל: http://www.playbuzz.com"
+
+#: ../admin.php:430
+msgid "Automatically Add Recommendations"
+msgstr "הוספת המלצות באופן אוטומטי"
+
+#: ../admin.php:433
+msgid "Active"
+msgstr "הפעל"
+
+#: ../admin.php:436
+msgid "Disable"
+msgstr "כבה"
+
+#: ../admin.php:437
+msgid "Enable"
+msgstr "הפעל"
+
+#: ../admin.php:442
+msgid "Location"
+msgstr "מיקום"
+
+#: ../admin.php:445
+msgid "Above the content"
+msgstr "מעל התוכן"
+
+#: ../admin.php:446
+msgid "Bellow the content"
+msgstr "מתחת לתוכן"
+
+#: ../admin.php:464
+msgid "Item Shortcode"
+msgstr "קוד הטמעה לפריט"
+
+#: ../admin.php:465
+#, php-format
+msgid "Choose any Playful Content item from %s and easily embed it in a post."
+msgstr "בחרו פריט מידע כלשהו מאתר %s והטמיעו אותו בקלות באתר."
+
+#: ../admin.php:466 ../admin.php:520
+msgid "Use the following shortcode where you want to embed the item:"
+msgstr "השתמשו בקוד הבא באזור בו ברצונכם להטמיע את הפריט:"
+
+#: ../admin.php:470
+#, php-format
+msgid ""
+"You can tweak the general settings for all embedded  content in the <a href="
+"\"%s\">Embed Options</a> tab."
+msgstr ""
+"ניתן להתאים את התצוגה של כל הפריטים המוטמעים באתר דרך <a href=\"%s"
+"\">אפשרויות הטמעה</a>."
+
+#: ../admin.php:471
+msgid ""
+"Or you can override and customize each embedded content with the following "
+"shortcode attributes:"
+msgstr ""
+"ניתן לעקוף את אפשרויות ההטמעה ולתת הגדרות ספציפיות לכל פריט, על ידי הוספת "
+"הפרמטרים המתקדמים הבאים לקוד ההטמעה:"
+
+#: ../admin.php:475
+msgid "The URL of the item that will be displayed."
+msgstr "ה-URL של הפריט שיוצג"
+
+#: ../admin.php:476 ../admin.php:529
+msgid "Type: URL"
+msgstr "סוג: URL"
+
+#: ../admin.php:480
+msgid "Show item info (thumbnail, name, description, editor, etc)."
+msgstr "הצגת פרטי הפריט (תמונה, כותרת, תיאור, יוצר וכו...)"
+
+#: ../admin.php:481 ../admin.php:486 ../admin.php:491 ../admin.php:496
+#: ../admin.php:534 ../admin.php:539 ../admin.php:544
+msgid "Type: Boolean (true/false) ; Default: true"
+msgstr "סוג: בוליאני (כן/לא) ; ברירת מחדל: כן"
+
+#: ../admin.php:485 ../admin.php:533
+msgid "Show sharing buttons."
+msgstr "הצגת כפתורי שיתוף"
+
+#: ../admin.php:490 ../admin.php:538
+msgid "Show comments control from the item page."
+msgstr "הצגת כפתורי שיתוף בעמוד הפריט."
+
+#: ../admin.php:500 ../admin.php:548
+msgid "Define custom width in pixels."
+msgstr "הגדרת רוחב מותאם אישית בפיקסלים."
+
+#: ../admin.php:501 ../admin.php:506 ../admin.php:549 ../admin.php:554
+msgid "Type: String ; Default: auto"
+msgstr "סוג: מחרוזת ; ברירת מחדל: auto"
+
+#: ../admin.php:505 ../admin.php:553
+msgid "Define custom height in pixels."
+msgstr "הגדרת גובה מותאם אישית בפיקסלים."
+
+#: ../admin.php:510 ../admin.php:558
+msgid "Define custom margin-top in pixels."
+msgstr "הגדרת ריווח עליון מותאם אישית בפיקסלים."
+
+#: ../admin.php:511 ../admin.php:559
+msgid "Type: String ; Default: 0px"
+msgstr "סוג: מחרוזת ; ברירת מחדל: 0px"
+
+#: ../admin.php:518
+msgid "Section Shortcode"
+msgstr "קוד הטמעה לרשימת פריטים"
+
+#: ../admin.php:519
+#, php-format
+msgid ""
+"Choose any list of Playful Items in a specific vertical from %s and easily "
+"embed it in a post. This is best used as a \"Playful Section\" displaying "
+"items in the selected tags (topics)."
+msgstr ""
+"בחרו רשימת פריטים מקטגוריה מסויימת באתר %s והטמיעו אותה בקלות באתר. זו הדרך "
+"הטובה ביותר ליצור \"אזורים\" חדשים המציגים מגוון רחב של פריטים המבוססים על "
+"תגית מסויימת."
+
+#: ../admin.php:524
+msgid ""
+"You can tweak the general settings for the section with the following "
+"shortcode attributes:"
+msgstr ""
+"ניתן לעקוף את אפשרויות ההטמעה ולתת הגדרות ספציפיות לכל רשימה, על ידי הוספת "
+"הפרמטרים המתקדמים הבאים לקוד ההטמעה:"
+
+#: ../admin.php:528
+msgid "Filters the content shown by comma separated tags."
+msgstr "סינון התכנים המוצגים על ידי תגיות המופרדות בפסיקים."
+
+#: ../index.php:37
+msgid "Settings"
+msgstr "הגדרות"
+
+#: ../widgets.php:24
+msgid "PlayBuzz Recommendations"
+msgstr "המלצות PlayBuzz"
+
+#: ../widgets.php:27
+msgid "Related playful content links and recommendations by PlayBuzz."
+msgstr "המלצות ותכנים באותו נושא של PlayBuzz."
+
+#: ../widgets.php:122
+msgid "Title"
+msgstr "כותרת"
+
+#: ../widgets.php:126
+msgid "View"
+msgstr "תצורה"
+
+#: ../widgets.php:153
+msgid "Simple Tags"
+msgstr "תגיות רגילות"
+
+#: ../widgets.php:154
+msgid "Mix"
+msgstr "מעורב"
+
+#: ../widgets.php:162
+msgid "Advanced Tags"
+msgstr "תגיות מתקדמות"
+
+#~ msgid "General Details"
+#~ msgstr "פרטים כללים"
+
+#~ msgid "Games"
+#~ msgstr "משחקים"
+
+#~ msgid "General"
+#~ msgstr "כללי"
+
+#~ msgid "Embedding content is easy, just use a simple shortcode:"
+#~ msgstr ""
+#~ "הטמעת תכנים מתבצעת בצורה פשוטה למדי, פשוט הוסיפו את אחת מפקודות-המקרו "
+#~ "הבאות לאזור תוכן:"
+
+#~ msgid "Game / Post Shortcode"
+#~ msgstr "פקודת מקרו להטמעת משחקים/פוסטים"
+
+#~ msgid "The short code used is:"
+#~ msgstr "פקודת המקרו:"
+
+#~ msgid "(Change defaults in \"Games\" tab)"
+#~ msgstr "(שינוי ערכי ברירת מחדל בתפריט \"משחקים\")"
+
+#~ msgid "Hub / Archive Shortcode"
+#~ msgstr "פקודת מקרו להטמעת האב/ארכיון"
+
+#~ msgid "Recommendations / Related-Content Shortcode"
+#~ msgstr "פקודת מקרו להטמעת המלצות/באותו-נושא"
+
+#~ msgid "(Change defaults in \"Recommendations\" tab)"
+#~ msgstr "(שינוי ערכי ברירת מחדל בתפריט \"המלצות\")"
+
+#~ msgid "Social"
+#~ msgstr "חברתי"
+
+#~ msgid "Brainz"
+#~ msgstr "מחשבה"
+
+#~ msgid "editorspicks"
+#~ msgstr "בחירת העורכים"
+
+#~ msgid "TV"
+#~ msgstr "טלוויזיה"
+
+#~ msgid "Celebrities"
+#~ msgstr "מפורסמים"
+
+#~ msgid "editorsPicks"
+#~ msgstr "בחירת העורכים"
+
+#~ msgid "Usage:"
+#~ msgstr "אופן שימוש:"
+
+#~ msgid "Activation"
+#~ msgstr "הפעלה"
+
+#~ msgid "Deactivate"
+#~ msgstr "כבה"
+
+#~ msgid "Open links on"
+#~ msgstr "פתח קישורים ב"
+
+#~ msgid ""
+#~ "PlayBuzz uniq API key allowing configuration and analytics. If you have "
+#~ "no API key, enter your domain name i.e. example.com"
+#~ msgstr ""
+#~ "מפתח API מאפשר לבצע התאמות אישיות ולספק סטטיסטיקות ואנליטיקה. אם אין לך "
+#~ "מפתח API, ניתן להזין את שם הדומיין, למשל: example.com"
+
+#~ msgid "Links"
+#~ msgstr "קישורים"
+
+#~ msgid "Provider"
+#~ msgstr "ספק תוכן"
+
+#~ msgid "Content provider. Default: playbuzz"
+#~ msgstr "ספק תוכן.ברירת מחדל: playbuzz"
+
+#~ msgid "Insert into post"
+#~ msgstr "הוסף לתוכן"
+
+#~ msgid "No"
+#~ msgstr "ללא"
+
+#~ msgid "Insert into post header"
+#~ msgstr "הוסף לראש התוכן"
+
+#~ msgid "Insert into post footer"
+#~ msgstr "הוסף לתחתית התוכן"
+
+#~ msgid "Width"
+#~ msgstr "רוחב"
+
+#~ msgid "Height"
+#~ msgstr "גובה"
