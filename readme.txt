@@ -1,19 +1,22 @@
 ﻿=== PlayBuzz Playful Content ===
 Contributors: playBuzz
-Tags: PlayBuzz, playful content, feed, feeds, content, related, syndication, related content, quiz, test yourself, list, poll, nrelate, buzzfeed, post,Entertainment, celebs, celebrities, animals
+Tags: PlayBuzz, playful content, feed, feeds, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.3.0
+Stable tag: 0.3.1
 
-PlayBuzz lets you embed customized Playful Content such as Quizzes, Lists, Polls and more.
+PlayBuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
 
 == Description ==
-The PlayBuzz plugin enables site owners to easily embed playful content items such as quizzes, lists, polls and more, and offer them as a native part of the site’s offering. You’ve seen the highly engaging content on sites such as Buzzfeed, Upworthy, 9Gag, and others. PlayBuzz enables you to have similar content packages on your site as well.
+The PlayBuzz plugin enables site owners to easily embed playful content items such as quizzes, lists, polls and more, and offer them as a native part of their site?s offering. 
+
+Upgrade your site to include highly engaging viral content, using Playbuzz's Playful Content.
+You can have all this content on your site in under a minute!
 
 = Features =
-* Access to hundreds of Trivia Quizzes, Personality Quizzes, Lists, etc.
-* Content is available in multiple verticals: Entertainment, Sports, Celebrities, Music, Animals, and more.
-* Filter system enables you to select only the content relevant to your site.
+* Access to hundreds of trivia quizzes, personality quizzes, lists, etc.
+* Content is available in multiple categories: Entertainment, Sports, Celebrities, Music, Animals, and more.
+* Display only the content relevant to your site, using category filters.
 * Create your own Playful Content items and embed them.
 * Everything is free, no subscription fee.
 
@@ -39,7 +42,7 @@ For example:
 `[playbuzz-section tags="Games, food"]`
 
 = More Information =
-For any questions or more information please [contact us](http://www.playbuzz.com/contact)
+For any questions or more information please [contact us](http://www.playbuzz.com/contact).
 
 == Installation ==
 1. Upload the plugin to the "/wp-content/plugins/" directory.
@@ -57,13 +60,13 @@ Absolutely. Our plugin includes an option to share each content item on social n
 Yes. PlayBuzz's UI is responsive and mobile compatible.
 
 = Can I create my own content? = 
-Absolutely. We encourage you to create original playful content using (http://www.playbuzz.com). You may then decide to keep this content private (embed on your website only) or public (enable other partners on the PlayBuzz network to embed your content on their sites as well).
+Absolutely. We encourage you to create original playful content using (http://www.playbuzz.com).
 
 = Does this plugin slow down my website? = 
 No. Test and see for yourself. PlayBuzz is using a large content delivery network to ensure prompt delivery.
 
 = I've got more questions! =
-For more information contact us at (http://www.playbuzz.com/contact)
+For more information contact us at (http://www.playbuzz.com/contact).
 
 == Screenshots ==
 1. Plugin admin screen.
@@ -72,6 +75,9 @@ For more information contact us at (http://www.playbuzz.com/contact)
 4. A "funz"/"animals" Quiz, that can be implemented in any page.
 
 == Changelog ==
+= 0.3.1 =
+* BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
+
 = 0.3.0 =
 * Verified compatibility up to WordPress 4.0
 * Setting page design overhaul

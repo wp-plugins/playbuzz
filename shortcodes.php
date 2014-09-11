@@ -83,7 +83,8 @@ function playbuzz_shortcode( $atts ) {
 		// Show in all pages
 		return $code;
 	} else {
-		return '';
+		// BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
+		return $code;
 	}
 
 }
@@ -131,7 +132,8 @@ function playbuzz_hub_shortcode( $atts ) {
 		// Show in all pages
 		return $code;
 	} else {
-		return '';
+		// BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
+		return $code;
 	}
 
 }
@@ -174,7 +176,8 @@ function playbuzz_recommendations_shortcode( $atts ) {
 		// Show in all pages
 		return $code;
 	} else {
-		return '';
+		// BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
+		return $code;
 	}
 
 }
