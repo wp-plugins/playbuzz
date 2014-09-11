@@ -76,7 +76,7 @@ For more information contact us at (http://www.playbuzz.com/contact).
 
 == Changelog ==
 = 0.3.1 =
-* BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
+* BUGFIX: after update to v0.3, no "embeddedon' defined ; the content not shown, unless you actively go to the plugin setting page and press "save changes" ; v0.3.1 shows the embedded content any way
 
 = 0.3.0 =
 * Verified compatibility up to WordPress 4.0
