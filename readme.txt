@@ -20,17 +20,23 @@ The PlayBuzz plugin enables site owners to easily embed playful content items su
 = Embedding options =
 PlayBuzz plugin has two embedding options:
 
-**Embed specific Item** 
+**Embed specific Item**
+
 Choose any Playful Content item (or create your own!) from [playbuzz.com](http://www.playbuzz.com) and easily embed it in a post using this shortcode:
-`[playbuzz-item url="Item_Any"]`
-(e.g [playbuzz-item url="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section"] ).
+`[playbuzz-item url="Item_URL"]`
+
+For example:
+`[playbuzz-item url="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section"]`
+
 Embed any existing PlayBuzz item or create your own on PlayBuzz.com
 
-**Embed a site section** 
-Create a playfull section on your site and embed a list of Playful Content items.  You can choose which topics to show using the "tags" attribute.
+**Embed a site section**
 
+Create a playfull section on your site and embed a list of Playful Content items.  You can choose which topics to show using the "tags" attribute.
 `[playbuzz-section tags="Any_Tag"]`
-(e.g  [playbuzz-section tags="Games, food"] )
+
+For example:
+`[playbuzz-section tags="Games, food"]`
 
 = More Information =
 For any questions or more information please [contact us](http://www.playbuzz.com/contact)
@@ -60,7 +66,7 @@ No. Test and see for yourself. PlayBuzz is using a large content delivery networ
 For more information contact us at (http://www.playbuzz.com/contact)
 
 == Screenshots ==
-1. Settings section for the admin screen.
+1. Plugin admin screen.
 2. Easy to embed, using simple WordPress shortcodes.
 3. A "Sports" site section. When a user clicks a quiz, the quiz opens inside your site!
 4. A "funz"/"animals" Quiz, that can be implemented in any page.
