@@ -44,8 +44,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$options = get_option( 'playbuzz' );
 
 		$key     = $options['key'];
-		$links   = $options['links'];
-
+		$links   = empty( $instance['links'] ) ? '' : apply_filters( 'links', $instance['links'] );
 		$view    = empty( $instance['view'] )  ? '' : apply_filters( 'view',  $instance['view']  );
 		$items   = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
 		$title	 = empty( $instance['title'] ) ? '' : apply_filters( 'title', $instance['title'] );
@@ -84,6 +83,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$instance['tags-tv']           = strip_tags( stripslashes( $new_instance['tags-tv']           ) );
 		$instance['tags-celebrities']  = strip_tags( stripslashes( $new_instance['tags-celebrities']  ) );
 		$instance['more-tags']         = strip_tags( stripslashes( $new_instance['more-tags']         ) );
+		$instance['links']             = strip_tags( $new_instance['links']                             );
 
 		return $instance;
 
@@ -111,6 +111,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 				'tags-editors-pick' => $options['tags-editors-pick'],
 				'tags-mix'          => $options['tags-mix'],
 				'more-tags'         => $options['more-tags'],
+				'links'             => $options['links'],
 			);
 
 		// New instance (use defaults if empty)
@@ -159,8 +160,12 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-editors-pick'); ?>" value="1" <?php if ( '1' == $new_instance['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?> 
 		</p>
 		<p>
-			<label for="tags"><?php _e( 'Advanced Tags', 'playbuzz' ); ?></label>
+			<label for="more-tags"><?php _e( 'Advanced Tags', 'playbuzz' ); ?></label>
 			<input type="input" name="<?php echo $this->get_field_name('more-tags'); ?>" value="<?php echo $new_instance['more-tags']; ?>" class="widefat">
+		</p>
+		<p>
+			<label for="links"><?php _e( 'Displayed Link', 'playbuzz' ); ?></label>
+			<input type="input" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" class="widefat">
 		</p>
 		<?php
 	}

@@ -3,7 +3,7 @@ Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 
 PlayBuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
 
@@ -45,8 +45,23 @@ For example:
 For any questions or more information please [contact us](http://www.playbuzz.com/contact).
 
 == Installation ==
-1. Upload the plugin to the "/wp-content/plugins/" directory.
-1. Activate the plugin through the "Plugins" menu in WordPress.
+
+= Minimum Requirements =
+
+* WordPress 3.0 or greater
+* PHP version 5.2.4 or greater
+* MySQL version 5.0 or greater
+
+= Installation =
+
+1. In your WordPress Dashboard go to "Plugins" -> "Add Plugin".
+2. Search for "PlayBuzz".
+3. Install PlayBuzz plugin by pressing the plugin "Install" button.
+4. Activate the PlayBuzz plugin.
+5. Configure the plugin by going to the "Settings" -> "PlayBuzz".
+
+= Updating =
+* Use WordPress automatic updates to upgrade to the latest version. Ensure to backup your site just in case.
 
 == Frequently Asked Questions ==
 
@@ -75,6 +90,9 @@ For more information contact us at (http://www.playbuzz.com/contact).
 4. A "funz"/"animals" Quiz, that can be implemented in any page.
 
 == Changelog ==
+= 0.3.2 =
+* Add 'links' parameter to the recommendations widget
+
 = 0.3.1 =
 * BUGFIX: after update to v0.3, no "embeddedon' defined ; the content not shown, unless you actively go to the plugin setting page and press "save changes" ; v0.3.1 shows the embedded content any way
 
