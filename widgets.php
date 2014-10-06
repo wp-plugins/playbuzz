@@ -151,7 +151,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="tags"><?php _e( 'Simple Tags', 'playbuzz' ); ?></label><br>
+			<label for="tags"><?php _e( 'Tags', 'playbuzz' ); ?></label><br>
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-mix');          ?>" value="1" <?php if ( '1' == $new_instance['tags-mix']          ) echo 'checked="checked"'; ?>> <?php _e( 'Mix',            'playbuzz' ); ?> 
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-fun');          ?>" value="1" <?php if ( '1' == $new_instance['tags-fun']          ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?> 
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-pop');          ?>" value="1" <?php if ( '1' == $new_instance['tags-pop']          ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',            'playbuzz' ); ?> 
@@ -160,12 +160,13 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 			<input type="checkbox" name="<?php echo $this->get_field_name('tags-editors-pick'); ?>" value="1" <?php if ( '1' == $new_instance['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?> 
 		</p>
 		<p>
-			<label for="more-tags"><?php _e( 'Advanced Tags', 'playbuzz' ); ?></label>
-			<input type="input" name="<?php echo $this->get_field_name('more-tags'); ?>" value="<?php echo $new_instance['more-tags']; ?>" class="widefat">
+			<label for="more-tags"><?php _e( 'Custom Tags', 'playbuzz' ); ?></label>
+			<input type="input" name="<?php echo $this->get_field_name('more-tags'); ?>" value="<?php echo $new_instance['more-tags']; ?>" class="widefat" placeholder="<?php _e( 'Comma separated tags', 'playbuzz' ); ?>">
 		</p>
 		<p>
-			<label for="links"><?php _e( 'Displayed Link', 'playbuzz' ); ?></label>
-			<input type="input" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" class="widefat">
+			<label for="links"><?php _e( 'Open items in', 'playbuzz' ); ?></label>
+			<input type="input" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" class="widefat" placeholder="http://www.playbuzz.com/">
+			<p class="description"><?php _e( 'Specify where to open the item. Create new page/post with a section shortcode.', 'playbuzz' ); ?></p>
 		</p>
 		<?php
 	}

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playbuzz\n"
-"POT-Creation-Date: 2014-09-11 12:40+0200\n"
-"PO-Revision-Date: 2014-09-11 12:40+0200\n"
+"POT-Creation-Date: 2014-10-06 13:09+0200\n"
+"PO-Revision-Date: 2014-10-06 13:09+0200\n"
 "Last-Translator: ramiy <r_a_m_i@hotmail.com>\n"
 "Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
 "Language: en\n"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Show recommendations for more items."
 msgstr ""
 
-#: ../admin.php:311
+#: ../admin.php:311 ../widgets.php:154
 msgid "Tags"
 msgstr ""
 
@@ -134,31 +134,31 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: ../admin.php:314 ../widgets.php:155
+#: ../admin.php:314 ../widgets.php:156
 msgid "Fun"
 msgstr ""
 
-#: ../admin.php:315 ../widgets.php:156
+#: ../admin.php:315 ../widgets.php:157
 msgid "Pop"
 msgstr ""
 
-#: ../admin.php:316 ../widgets.php:157
+#: ../admin.php:316 ../widgets.php:158
 msgid "Geek"
 msgstr ""
 
-#: ../admin.php:317 ../widgets.php:158
+#: ../admin.php:317 ../widgets.php:159
 msgid "Sports"
 msgstr ""
 
-#: ../admin.php:318 ../widgets.php:159
+#: ../admin.php:318 ../widgets.php:160
 msgid "Editor's Pick"
 msgstr ""
 
-#: ../admin.php:322
+#: ../admin.php:322 ../widgets.php:163
 msgid "Custom Tags"
 msgstr ""
 
-#: ../admin.php:324
+#: ../admin.php:324 ../widgets.php:164
 msgid "Comma separated tags"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Related Content Embed Options"
 msgstr ""
 
-#: ../admin.php:370 ../widgets.php:134
+#: ../admin.php:370 ../widgets.php:135
 msgid "Number of Items"
 msgstr ""
 
@@ -209,15 +209,15 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
-#: ../admin.php:393 ../widgets.php:128
+#: ../admin.php:393 ../widgets.php:129
 msgid "Large Images"
 msgstr ""
 
-#: ../admin.php:394 ../widgets.php:129
+#: ../admin.php:394 ../widgets.php:130
 msgid "Horizontal Images"
 msgstr ""
 
-#: ../admin.php:395 ../widgets.php:130
+#: ../admin.php:395 ../widgets.php:131
 msgid "No Images"
 msgstr ""
 
@@ -364,22 +364,24 @@ msgstr ""
 msgid "Related playful content links and recommendations by PlayBuzz."
 msgstr ""
 
-#: ../widgets.php:122
+#: ../widgets.php:123
 msgid "Title"
 msgstr ""
 
-#: ../widgets.php:126
+#: ../widgets.php:127
 msgid "View"
 msgstr ""
 
-#: ../widgets.php:153
-msgid "Simple Tags"
-msgstr ""
-
-#: ../widgets.php:154
+#: ../widgets.php:155
 msgid "Mix"
 msgstr ""
 
-#: ../widgets.php:162
-msgid "Advanced Tags"
+#: ../widgets.php:167
+msgid "Open items in"
+msgstr ""
+
+#: ../widgets.php:169
+msgid ""
+"Specify where to open the item. Create new page/post with a section "
+"shortcode."
 msgstr ""

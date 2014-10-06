@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playbuzz\n"
-"POT-Creation-Date: 2014-09-11 12:40+0200\n"
-"PO-Revision-Date: 2014-09-11 12:40+0200\n"
+"POT-Creation-Date: 2014-10-06 13:07+0200\n"
+"PO-Revision-Date: 2014-10-06 13:09+0200\n"
 "Last-Translator: Rami Y <r_a_m_i@hotmail.com>\n"
 "Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
 "Language: he\n"
@@ -133,7 +133,7 @@ msgstr "המלצות"
 msgid "Show recommendations for more items."
 msgstr "הצגת המלצות לפריטים נוספים"
 
-#: ../admin.php:311
+#: ../admin.php:311 ../widgets.php:154
 msgid "Tags"
 msgstr "תגיות"
 
@@ -141,31 +141,31 @@ msgstr "תגיות"
 msgid "All"
 msgstr "הכל"
 
-#: ../admin.php:314 ../widgets.php:155
+#: ../admin.php:314 ../widgets.php:156
 msgid "Fun"
 msgstr "כיף"
 
-#: ../admin.php:315 ../widgets.php:156
+#: ../admin.php:315 ../widgets.php:157
 msgid "Pop"
 msgstr "פופולריים"
 
-#: ../admin.php:316 ../widgets.php:157
+#: ../admin.php:316 ../widgets.php:158
 msgid "Geek"
 msgstr "גיקים"
 
-#: ../admin.php:317 ../widgets.php:158
+#: ../admin.php:317 ../widgets.php:159
 msgid "Sports"
 msgstr "ספורט"
 
-#: ../admin.php:318 ../widgets.php:159
+#: ../admin.php:318 ../widgets.php:160
 msgid "Editor's Pick"
 msgstr "בחירת העורכים"
 
-#: ../admin.php:322
+#: ../admin.php:322 ../widgets.php:163
 msgid "Custom Tags"
 msgstr "תגיות מותאמות אישית"
 
-#: ../admin.php:324
+#: ../admin.php:324 ../widgets.php:164
 msgid "Comma separated tags"
 msgstr "תגיות מופרדות בפסיקים"
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Related Content Embed Options"
 msgstr "הטמעת תכנים באותו נושא"
 
-#: ../admin.php:370 ../widgets.php:134
+#: ../admin.php:370 ../widgets.php:135
 msgid "Number of Items"
 msgstr "מספר פריטים להצגה"
 
@@ -218,15 +218,15 @@ msgstr "מספר פריטים להצגה"
 msgid "Style"
 msgstr "תצוגה"
 
-#: ../admin.php:393 ../widgets.php:128
+#: ../admin.php:393 ../widgets.php:129
 msgid "Large Images"
 msgstr "תמונות גדולות"
 
-#: ../admin.php:394 ../widgets.php:129
+#: ../admin.php:394 ../widgets.php:130
 msgid "Horizontal Images"
 msgstr "תמונות אנכיות"
 
-#: ../admin.php:395 ../widgets.php:130
+#: ../admin.php:395 ../widgets.php:131
 msgid "No Images"
 msgstr "ללא תמונות"
 
@@ -383,25 +383,36 @@ msgstr "המלצות PlayBuzz"
 msgid "Related playful content links and recommendations by PlayBuzz."
 msgstr "המלצות ותכנים באותו נושא של PlayBuzz."
 
-#: ../widgets.php:122
+#: ../widgets.php:123
 msgid "Title"
 msgstr "כותרת"
 
-#: ../widgets.php:126
+#: ../widgets.php:127
 msgid "View"
 msgstr "תצורה"
 
-#: ../widgets.php:153
-msgid "Simple Tags"
-msgstr "תגיות רגילות"
-
-#: ../widgets.php:154
+#: ../widgets.php:155
 msgid "Mix"
 msgstr "מעורב"
 
-#: ../widgets.php:162
-msgid "Advanced Tags"
-msgstr "תגיות מתקדמות"
+#: ../widgets.php:167
+msgid "Open items in"
+msgstr "פתח פריטים ב"
+
+#: ../widgets.php:169
+msgid ""
+"Specify where to open the item. Create new page/post with a section "
+"shortcode."
+msgstr "הגדר היכן לפתוח את פריטים. צור פוסט/עמוד עם קוד הטמעה לרשימת פריטים."
+
+#~ msgid "Simple Tags"
+#~ msgstr "תגיות רגילות"
+
+#~ msgid "Advanced Tags"
+#~ msgstr "תגיות מתקדמות"
+
+#~ msgid "Section Link"
+#~ msgstr "קישור לעמוד רשימה בו יפתח "
 
 #~ msgid "General Details"
 #~ msgstr "פרטים כללים"
@@ -461,9 +472,6 @@ msgstr "תגיות מתקדמות"
 
 #~ msgid "Deactivate"
 #~ msgstr "כבה"
-
-#~ msgid "Open links on"
-#~ msgstr "פתח קישורים ב"
 
 #~ msgid ""
 #~ "PlayBuzz uniq API key allowing configuration and analytics. If you have "
