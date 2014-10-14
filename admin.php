@@ -226,7 +226,7 @@ class PlayBuzzAdmin {
 						</li>
 						<li>
 							<p><?php _e( 'Use the following <strong>shortcode</strong> where you want to embed the item:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-item url="Item_URL"]</code></p>
+							<p><code> [playbuzz-item]</code></p>
 							<p><?php _e( 'For example:', 'playbuzz' ); ?></p>
 							<p><code> [playbuzz-item url="http://www.playbuzz.com/llamap10/how-weird-are-you"]</code></p>
 						</li>
@@ -245,9 +245,9 @@ class PlayBuzzAdmin {
 						</li>
 						<li>
 							<p><?php _e( 'Use the following <strong>shortcode</strong> where you want to embed the Playful Items list:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-section tags="Any_Tag"]</code></p>
+							<p><code> [playbuzz-section]</code></p>
 							<p><?php _e( 'For example:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-section tag="funny, cats"]</code></p>
+							<p><code> [playbuzz-section tags="funny, cats"]</code></p>
 						</li>
 						<li>
 							<p><?php printf( __( 'Customize by using <a href="%s">advanced shortcode attributes</a>.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=help') ); ?></p>
@@ -352,7 +352,7 @@ class PlayBuzzAdmin {
 										<option value="content" <?php if ( 'content' == $options['embeddedon'] ) echo 'selected'; ?>><?php _e( 'Show embedded content in posts/pages only',                    'playbuzz' ); ?></option>
 										<option value="all"     <?php if ( 'all'     == $options['embeddedon'] ) echo 'selected'; ?>><?php _e( 'Show embedded content in all pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
 									</select>
-									<p class="description"><?php printf( __( 'Whether to show the embedded content only in <a href="%s">singular pages</a>, or <a href="%s">archive page</a> too.', 'playbuzz' ), 'http://codex.wordpress.org/Function_Reference/is_singular', 'http://codex.wordpress.org/Template_Hierarchy' ); ?></p>
+									<p class="description"><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'http://codex.wordpress.org/Function_Reference/is_singular', 'http://codex.wordpress.org/Template_Hierarchy' ); ?></p>
 								</td>
 							</tr>
 						</table>

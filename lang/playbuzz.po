@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playbuzz\n"
-"POT-Creation-Date: 2014-10-06 13:09+0200\n"
-"PO-Revision-Date: 2014-10-06 13:09+0200\n"
+"POT-Creation-Date: 2014-10-14 14:50+0200\n"
+"PO-Revision-Date: 2014-10-14 14:50+0200\n"
 "Last-Translator: ramiy <r_a_m_i@hotmail.com>\n"
 "Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
 "Language: en\n"
@@ -126,39 +126,39 @@ msgstr ""
 msgid "Show recommendations for more items."
 msgstr ""
 
-#: ../admin.php:311 ../widgets.php:154
+#: ../admin.php:311 ../widgets.php:164
 msgid "Tags"
 msgstr ""
 
-#: ../admin.php:313
+#: ../admin.php:313 ../widgets.php:165
 msgid "All"
 msgstr ""
 
-#: ../admin.php:314 ../widgets.php:156
+#: ../admin.php:314 ../widgets.php:166
 msgid "Fun"
 msgstr ""
 
-#: ../admin.php:315 ../widgets.php:157
+#: ../admin.php:315 ../widgets.php:167
 msgid "Pop"
 msgstr ""
 
-#: ../admin.php:316 ../widgets.php:158
+#: ../admin.php:316 ../widgets.php:168
 msgid "Geek"
 msgstr ""
 
-#: ../admin.php:317 ../widgets.php:159
+#: ../admin.php:317 ../widgets.php:169
 msgid "Sports"
 msgstr ""
 
-#: ../admin.php:318 ../widgets.php:160
+#: ../admin.php:318 ../widgets.php:170
 msgid "Editor's Pick"
 msgstr ""
 
-#: ../admin.php:322 ../widgets.php:163
+#: ../admin.php:322 ../widgets.php:173
 msgid "Custom Tags"
 msgstr ""
 
-#: ../admin.php:324 ../widgets.php:164
+#: ../admin.php:324 ../widgets.php:174
 msgid "Comma separated tags"
 msgstr ""
 
@@ -193,15 +193,16 @@ msgstr ""
 #: ../admin.php:355
 #, php-format
 msgid ""
-"Whether to show the embedded content only in <a href=\"%s\">singular pages</"
-"a>, or <a href=\"%s\">archive page</a> too."
+"Whether to show the embedded content only in <a href=\"%s\" target=\"_blank"
+"\">singular pages</a>, or <a href=\"%s\" target=\"_blank\">archive page</a> "
+"too."
 msgstr ""
 
 #: ../admin.php:366
 msgid "Related Content Embed Options"
 msgstr ""
 
-#: ../admin.php:370 ../widgets.php:135
+#: ../admin.php:370 ../widgets.php:145
 msgid "Number of Items"
 msgstr ""
 
@@ -209,15 +210,15 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
-#: ../admin.php:393 ../widgets.php:129
+#: ../admin.php:393 ../widgets.php:139
 msgid "Large Images"
 msgstr ""
 
-#: ../admin.php:394 ../widgets.php:130
+#: ../admin.php:394 ../widgets.php:140
 msgid "Horizontal Images"
 msgstr ""
 
-#: ../admin.php:395 ../widgets.php:131
+#: ../admin.php:395 ../widgets.php:141
 msgid "No Images"
 msgstr ""
 
@@ -364,24 +365,30 @@ msgstr ""
 msgid "Related playful content links and recommendations by PlayBuzz."
 msgstr ""
 
-#: ../widgets.php:123
+#: ../widgets.php:133
 msgid "Title"
 msgstr ""
 
-#: ../widgets.php:127
-msgid "View"
+#: ../widgets.php:134
+msgid "Widget title"
 msgstr ""
 
-#: ../widgets.php:155
-msgid "Mix"
+#: ../widgets.php:137
+msgid "Items layout"
 msgstr ""
 
-#: ../widgets.php:167
-msgid "Open items in"
+#: ../widgets.php:177
+msgid "Open Items at (location of section)"
 msgstr ""
 
-#: ../widgets.php:169
+#: ../widgets.php:178
+#, php-format
 msgid ""
-"Specify where to open the item. Create new page/post with a section "
-"shortcode."
+"<a href=\"%s\" target=\"_blank\">Create</a> a new page containing the "
+"<code>[playbuzz-section]</code> shortcode. Then select it below as the "
+"destination page where items will open:"
+msgstr ""
+
+#: ../widgets.php:179
+msgid "&mdash; Select &mdash;"
 msgstr ""

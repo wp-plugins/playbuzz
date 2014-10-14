@@ -3,7 +3,7 @@ Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.3.2
+Stable tag: 0.3.3
 
 PlayBuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
 
@@ -26,7 +26,7 @@ PlayBuzz plugin has two embedding options:
 **Embed specific Item**
 
 Choose any Playful Content item (or create your own!) from [playbuzz.com](http://www.playbuzz.com) and easily embed it in a post using this shortcode:
-`[playbuzz-item url="Item_URL"]`
+`[playbuzz-item]`
 
 For example:
 `[playbuzz-item url="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section"]`
@@ -36,7 +36,7 @@ Embed any existing PlayBuzz item or create your own on PlayBuzz.com
 **Embed a site section**
 
 Create a playfull section on your site and embed a list of Playful Content items.  You can choose which topics to show using the "tags" attribute.
-`[playbuzz-section tags="Any_Tag"]`
+`[playbuzz-section]`
 
 For example:
 `[playbuzz-section tags="Games, food"]`
@@ -90,6 +90,9 @@ For more information contact us at (http://www.playbuzz.com/contact).
 4. A "funz"/"animals" Quiz, that can be implemented in any page.
 
 == Changelog ==
+= 0.3.3 =
+* Use page dropdown in the recommendations widget.
+
 = 0.3.2 =
 * Add 'links' parameter to the recommendations widget
 
@@ -103,6 +106,8 @@ For more information contact us at (http://www.playbuzz.com/contact).
 * New shortcodes: [playbuzz-section tag=""]
 * Old shortcodes are still in use for backwards compatibility
 * New option to control the "WordPress Theme Visibility"
+* Update all embed scripts
+* Use embed scripts in CDN
 * Fix translation bug
 * Update hebrew (he_IL) translation
 

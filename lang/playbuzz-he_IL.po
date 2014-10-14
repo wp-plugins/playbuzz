@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playbuzz\n"
-"POT-Creation-Date: 2014-10-06 13:07+0200\n"
-"PO-Revision-Date: 2014-10-06 13:09+0200\n"
+"POT-Creation-Date: 2014-10-14 14:49+0200\n"
+"PO-Revision-Date: 2014-10-14 14:49+0200\n"
 "Last-Translator: Rami Y <r_a_m_i@hotmail.com>\n"
 "Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
 "Language: he\n"
@@ -133,39 +133,39 @@ msgstr "המלצות"
 msgid "Show recommendations for more items."
 msgstr "הצגת המלצות לפריטים נוספים"
 
-#: ../admin.php:311 ../widgets.php:154
+#: ../admin.php:311 ../widgets.php:164
 msgid "Tags"
 msgstr "תגיות"
 
-#: ../admin.php:313
+#: ../admin.php:313 ../widgets.php:165
 msgid "All"
 msgstr "הכל"
 
-#: ../admin.php:314 ../widgets.php:156
+#: ../admin.php:314 ../widgets.php:166
 msgid "Fun"
 msgstr "כיף"
 
-#: ../admin.php:315 ../widgets.php:157
+#: ../admin.php:315 ../widgets.php:167
 msgid "Pop"
 msgstr "פופולריים"
 
-#: ../admin.php:316 ../widgets.php:158
+#: ../admin.php:316 ../widgets.php:168
 msgid "Geek"
 msgstr "גיקים"
 
-#: ../admin.php:317 ../widgets.php:159
+#: ../admin.php:317 ../widgets.php:169
 msgid "Sports"
 msgstr "ספורט"
 
-#: ../admin.php:318 ../widgets.php:160
+#: ../admin.php:318 ../widgets.php:170
 msgid "Editor's Pick"
 msgstr "בחירת העורכים"
 
-#: ../admin.php:322 ../widgets.php:163
+#: ../admin.php:322 ../widgets.php:173
 msgid "Custom Tags"
 msgstr "תגיות מותאמות אישית"
 
-#: ../admin.php:324 ../widgets.php:164
+#: ../admin.php:324 ../widgets.php:174
 msgid "Comma separated tags"
 msgstr "תגיות מופרדות בפסיקים"
 
@@ -200,8 +200,9 @@ msgstr "הצגת תכנים מוטמעים בכל העמודים (עמודי ת�
 #: ../admin.php:355
 #, php-format
 msgid ""
-"Whether to show the embedded content only in <a href=\"%s\">singular pages</"
-"a>, or <a href=\"%s\">archive page</a> too."
+"Whether to show the embedded content only in <a href=\"%s\" target=\"_blank"
+"\">singular pages</a>, or <a href=\"%s\" target=\"_blank\">archive page</a> "
+"too."
 msgstr ""
 "האם להציג את התכנים המוטמעים ב<a href=\"%s\">עמודי תוכן</a>, או גם ב<a href="
 "\"%s\">עמודי ארכיון</a>."
@@ -210,7 +211,7 @@ msgstr ""
 msgid "Related Content Embed Options"
 msgstr "הטמעת תכנים באותו נושא"
 
-#: ../admin.php:370 ../widgets.php:135
+#: ../admin.php:370 ../widgets.php:145
 msgid "Number of Items"
 msgstr "מספר פריטים להצגה"
 
@@ -218,15 +219,15 @@ msgstr "מספר פריטים להצגה"
 msgid "Style"
 msgstr "תצוגה"
 
-#: ../admin.php:393 ../widgets.php:129
+#: ../admin.php:393 ../widgets.php:139
 msgid "Large Images"
 msgstr "תמונות גדולות"
 
-#: ../admin.php:394 ../widgets.php:130
+#: ../admin.php:394 ../widgets.php:140
 msgid "Horizontal Images"
 msgstr "תמונות אנכיות"
 
-#: ../admin.php:395 ../widgets.php:131
+#: ../admin.php:395 ../widgets.php:141
 msgid "No Images"
 msgstr "ללא תמונות"
 
@@ -371,7 +372,7 @@ msgstr ""
 msgid "Filters the content shown by comma separated tags."
 msgstr "סינון התכנים המוצגים על ידי תגיות המופרדות בפסיקים."
 
-#: ../index.php:37
+#: ../index.php:53
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -383,36 +384,57 @@ msgstr "המלצות PlayBuzz"
 msgid "Related playful content links and recommendations by PlayBuzz."
 msgstr "המלצות ותכנים באותו נושא של PlayBuzz."
 
-#: ../widgets.php:123
+#: ../widgets.php:133
 msgid "Title"
 msgstr "כותרת"
 
-#: ../widgets.php:127
-msgid "View"
-msgstr "תצורה"
+#: ../widgets.php:134
+msgid "Widget title"
+msgstr "כותרת הוידג'ט"
 
-#: ../widgets.php:155
-msgid "Mix"
-msgstr "מעורב"
+#: ../widgets.php:137
+msgid "Items layout"
+msgstr "פריסת פריטים"
 
-#: ../widgets.php:167
-msgid "Open items in"
-msgstr "פתח פריטים ב"
+#: ../widgets.php:177
+msgid "Open Items at (location of section)"
+msgstr "מיקום רשימת הפריטים (שם יפתחו הפריטים שהוקלקו)"
 
-#: ../widgets.php:169
+#: ../widgets.php:178
+#, php-format
 msgid ""
-"Specify where to open the item. Create new page/post with a section "
-"shortcode."
-msgstr "הגדר היכן לפתוח את פריטים. צור פוסט/עמוד עם קוד הטמעה לרשימת פריטים."
+"<a href=\"%s\" target=\"_blank\">Create</a> a new page containing the "
+"<code>[playbuzz-section]</code> shortcode. Then select it below as the "
+"destination page where items will open:"
+msgstr ""
+"<a href=\"%s\" target=\"_blank\">צרו עמוד חדש</a> עם קוד ההטמעה "
+"<code>[playbuzz-section]</code>. הגדירו את העמוד כמיקום של רשימת הפריטים בו "
+"יפתחו פריטים שהוקלקו:"
+
+#: ../widgets.php:179
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; בחירה &mdash;"
+
+#~ msgid "View"
+#~ msgstr "תצורה"
+
+#~ msgid "Mix"
+#~ msgstr "מעורב"
+
+#~ msgid "Open items in"
+#~ msgstr "פתח פריטים ב"
+
+#~ msgid ""
+#~ "Specify where to open the item. Create new page/post with a section "
+#~ "shortcode."
+#~ msgstr ""
+#~ "הגדר היכן לפתוח את פריטים. צור פוסט/עמוד עם קוד הטמעה לרשימת פריטים."
 
 #~ msgid "Simple Tags"
 #~ msgstr "תגיות רגילות"
 
 #~ msgid "Advanced Tags"
 #~ msgstr "תגיות מתקדמות"
-
-#~ msgid "Section Link"
-#~ msgstr "קישור לעמוד רשימה בו יפתח "
 
 #~ msgid "General Details"
 #~ msgstr "פרטים כללים"
