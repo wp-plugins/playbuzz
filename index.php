@@ -3,7 +3,7 @@
 Plugin Name: PlayBuzz
 Plugin URI: http://www.PlayBuzz.com/
 Description: Plugin for embedding PlayBuzz playful content in WordPress sites.
-Version: 0.3.3
+Version: 0.3.4
 Author: PlayBuzz
 Author URI: http://www.PlayBuzz.com/
 Text Domain: playbuzz

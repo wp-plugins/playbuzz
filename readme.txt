@@ -3,7 +3,7 @@ Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.3.3
+Stable tag: 0.3.4
 
 PlayBuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
 
@@ -87,17 +87,24 @@ For more information contact us at (http://www.playbuzz.com/contact).
 1. Plugin admin screen.
 2. Easy to embed, using simple WordPress shortcodes.
 3. A "Sports" site section. When a user clicks a quiz, the quiz opens inside your site!
-4. A "funz"/"animals" Quiz, that can be implemented in any page.
+4. A "fun"/"animals" Quiz, that can be implemented in any page.
 
 == Changelog ==
+= 0.3.4 =
+* Admin: UI css fix for older WordPress version (3.7 and before)
+* Admin: Fix debug mode notices
+* Widget: Fix undefined widget default values
+* Widget: Use 6 consistent tags across the plugin
+* Widget: Use page dropdown in the recommendations widget
+
 = 0.3.3 =
-* Use page dropdown in the recommendations widget.
+* Widget: Use page dropdown in the recommendations
 
 = 0.3.2 =
-* Add 'links' parameter to the recommendations widget
+* Widget: Add 'links' parameter to the recommendations
 
 = 0.3.1 =
-* BUGFIX: after update to v0.3, no "embeddedon' defined ; the content not shown, unless you actively go to the plugin setting page and press "save changes" ; v0.3.1 shows the embedded content any way
+* BUGFIX: after update to v0.3, no "embeddedon' defined ; the content not shown, unless you actively go to the plugin setting page and press "save changes" ; this fix shows the embedded content without going to the settings page
 
 = 0.3.0 =
 * Verified compatibility up to WordPress 4.0

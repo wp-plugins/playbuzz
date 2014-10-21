@@ -44,12 +44,12 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$options = get_option( 'playbuzz' );
 
 		// set values
-		$key          = $options['key'];
-		$view         = empty( $instance['view'] )         ? '' : apply_filters( 'view',         $instance['view']         );
-		$items        = empty( $instance['items'] )        ? '' : apply_filters( 'items',        $instance['items']        );
-		$title	      = empty( $instance['title'] )        ? '' : apply_filters( 'title',        $instance['title']        );
-		$tags         = pb_tags( $instance );
-		$links        = empty( $instance['links'] )        ? '' : apply_filters( 'links',        $instance['links']        );
+		$title = empty( $instance['title'] ) ? '' : apply_filters( 'title', $instance['title'] );
+		$key   = $options['key'];
+		$tags  = pb_tags( $instance );
+		$view  = empty( $instance['view']  ) ? '' : apply_filters( 'view',  $instance['view']  );
+		$items = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
+		$links = empty( $instance['links'] ) ? '' : apply_filters( 'links', $instance['links'] );
 
 		// Output
 		echo $before_widget;
@@ -77,13 +77,12 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		$instance['title']             = strip_tags( $new_instance['title']                             );
 		$instance['view']              = strip_tags( stripslashes( $new_instance['view']              ) );
 		$instance['items']             = strip_tags( stripslashes( $new_instance['items']             ) );
+		$instance['tags-mix']          = strip_tags( stripslashes( $new_instance['tags-mix']          ) );
+		$instance['tags-fun']          = strip_tags( stripslashes( $new_instance['tags-fun']          ) );
 		$instance['tags-pop']          = strip_tags( stripslashes( $new_instance['tags-pop']          ) );
 		$instance['tags-geek']         = strip_tags( stripslashes( $new_instance['tags-geek']         ) );
 		$instance['tags-sports']       = strip_tags( stripslashes( $new_instance['tags-sports']       ) );
 		$instance['tags-editors-pick'] = strip_tags( stripslashes( $new_instance['tags-editors-pick'] ) );
-		$instance['tags-mix']          = strip_tags( stripslashes( $new_instance['tags-mix']          ) );
-		$instance['tags-tv']           = strip_tags( stripslashes( $new_instance['tags-tv']           ) );
-		$instance['tags-celebrities']  = strip_tags( stripslashes( $new_instance['tags-celebrities']  ) );
 		$instance['more-tags']         = strip_tags( stripslashes( $new_instance['more-tags']         ) );
 		$instance['section-page']      = $new_instance['section-page'];
 
@@ -111,17 +110,17 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		// Set default values
 		$defaults = array(
-				'title'				=> 'Play It',
-				'view'              => $options['view'],
-				'items'             => $options['items'],
-				'tags-fun'          => $options['tags-fun'],
-				'tags-pop'          => $options['tags-pop'],
-				'tags-geek'         => $options['tags-geek'],
-				'tags-editors-pick' => $options['tags-editors-pick'],
-				'tags-mix'          => $options['tags-mix'],
-				'more-tags'         => $options['more-tags'],
-				'links'             => $options['links'],
-				'section-page'      => $options['section-page'],
+				'title'				=> __( 'Play It', 'playbuzz' ),
+				'view'              => ( isset( $options['view']              ) ? $options['view']              : 'large_images' ),
+				'items'             => ( isset( $options['items']             ) ? $options['items']             : '3' ),
+				'tags-mix'          => ( isset( $options['tags-mix']          ) ? $options['tags-mix']          : '1' ),
+				'tags-fun'          => ( isset( $options['tags-fun']          ) ? $options['tags-fun']          : ''  ),
+				'tags-pop'          => ( isset( $options['tags-pop']          ) ? $options['tags-pop']          : ''  ),
+				'tags-geek'         => ( isset( $options['tags-geek']         ) ? $options['tags-geek']         : ''  ),
+				'tags-editors-pick' => ( isset( $options['tags-editors-pick'] ) ? $options['tags-editors-pick'] : ''  ),
+				'more-tags'         => ( isset( $options['more-tags']         ) ? $options['more-tags']         : ''  ),
+				'links'             => ( isset( $options['links']             ) ? $options['links']             : ''  ),
+				'section-page'      => ( isset( $options['section-page']      ) ? $options['section-page']      : ''  ),
 			);
 
 		// New instance (use defaults if empty)
@@ -176,7 +175,14 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('links'); ?>"><?php _e( 'Open Items at (location of section)', 'playbuzz' ); ?></label><br>
 			<p class="description"><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
-			<?php wp_dropdown_pages( array( 'selected' => $new_instance['section-page'], 'post_type' => 'page', 'hierarchical' => 1, 'class' => 'widefat', 'id' => $this->get_field_id('section-page'), 'name' => $this->get_field_name('section-page'), 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0' ) ); ?>
+			<?php
+			if ( isset( $new_instance['section-page'] ) ) {
+				$link_page_id = $new_instance['section-page'];
+			} else {
+				$link_page_id = 0;
+			}
+			?>
+			<?php wp_dropdown_pages( array( 'selected' => $link_page_id, 'post_type' => 'page', 'hierarchical' => 1, 'class' => 'widefat', 'id' => $this->get_field_id('section-page'), 'name' => $this->get_field_name('section-page'), 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0' ) ); ?>
 			<input type="hidden" class="widefat" id="<?php echo $this->get_field_id('links'); ?>" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" placeholder="http://www.playbuzz.com/">
 		</p>
 		<?php

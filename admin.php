@@ -27,6 +27,7 @@ class PlayBuzzAdmin {
 		'view'              => 'large_images',
 		'items'             => '3',
 		'links'             => 'http://www.playbuzz.com',
+		'section-page'		=>	'',
 
 		// Tags
 		'tags-mix'          => '1',
@@ -282,19 +283,19 @@ class PlayBuzzAdmin {
 							<tr>
 								<th scope="row"><?php _e( 'Item Info', 'playbuzz' ); ?></th>
 								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[info]" value="1" <?php if ( '1' == $options['info'] ) echo 'checked="checked"'; ?>> <?php _e( 'Show item info (thumbnail, title, description, etc.)', 'playbuzz' ); ?>
+									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[info]" value="1" <?php if ( isset( $options['info'] ) && ( '1' == $options['info'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Show item info (thumbnail, title, description, etc.)', 'playbuzz' ); ?>
 								</td>
 							</tr>
 							<tr>
 								<th scope="row"><?php _e( 'Sharing', 'playbuzz' ); ?></th>
 								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[shares]" value="1" <?php if ( '1' == $options['shares'] ) echo 'checked="checked"'; ?>> <?php _e( 'Show sharing buttons (recommended - redirects to your page).', 'playbuzz' ); ?>
+									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[shares]" value="1" <?php if ( isset( $options['shares'] ) && ( '1' == $options['shares'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Show sharing buttons (recommended - redirects to your page).', 'playbuzz' ); ?>
 								</td>
 							</tr>
 							<tr>
 								<th scope="row"><?php _e( 'Comments', 'playbuzz' ); ?></th>
 								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[comments]" value="1" <?php if ( '1' == $options['comments'] ) echo 'checked="checked"'; ?>> <?php _e( 'Enable facebook comments.', 'playbuzz' ); ?>
+									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[comments]" value="1" <?php if ( isset( $options['comments'] ) && ( '1' == $options['comments'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Enable facebook comments.', 'playbuzz' ); ?>
 								</td>
 							</tr>
 							<tr class="separator">
@@ -305,17 +306,17 @@ class PlayBuzzAdmin {
 							<tr>
 								<th scope="row"><?php _e( 'Recommendations', 'playbuzz' ); ?></th>
 								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[recommend]" value="1" <?php if ( '1' == $options['recommend'] ) echo 'checked="checked"'; ?>> <?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?>
+									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[recommend]" value="1" <?php if ( isset( $options['comments'] ) && ( '1' == $options['recommend'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?>
 									<table class="form-table">
 										<tr valign="top">
 											<th scope="row"><?php _e( 'Tags', 'playbuzz' ); ?></th>
 											<td>
-												<input type="checkbox" class="checkbox"        name="<?php echo $this->get_option_name(); ?>[tags-mix]"          value="1" <?php if ( '1' == $options['tags-mix']          ) echo 'checked="checked"'; ?>> <?php _e( 'All',            'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-fun]"          value="1" <?php if ( '1' == $options['tags-fun']          ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-pop]"          value="1" <?php if ( '1' == $options['tags-pop']          ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',            'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-geek]"         value="1" <?php if ( '1' == $options['tags-geek']         ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',           'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-sports]"       value="1" <?php if ( '1' == $options['tags-sports']       ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',         'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( '1' == $options['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?><br/>
+												<input type="checkbox" class="checkbox"        name="<?php echo $this->get_option_name(); ?>[tags-mix]"          value="1" <?php if ( isset( $options['tags-mix']          ) && ( '1' == $options['tags-mix']          ) ) echo 'checked="checked"'; ?>> <?php _e( 'All',            'playbuzz' ); ?><br/>
+												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-fun]"          value="1" <?php if ( isset( $options['tags-fun']          ) && ( '1' == $options['tags-fun']          ) ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?><br/>
+												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-pop]"          value="1" <?php if ( isset( $options['tags-pop']          ) && ( '1' == $options['tags-pop']          ) ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',            'playbuzz' ); ?><br/>
+												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-geek]"         value="1" <?php if ( isset( $options['tags-geek']         ) && ( '1' == $options['tags-geek']         ) ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',           'playbuzz' ); ?><br/>
+												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-sports]"       value="1" <?php if ( isset( $options['tags-sports']       ) && ( '1' == $options['tags-sports']       ) ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',         'playbuzz' ); ?><br/>
+												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( isset( $options['tags-editors-pick'] ) && ( '1' == $options['tags-editors-pick'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?><br/>
 											</td>
 										</tr>
 										<tr valign="top">
@@ -349,8 +350,8 @@ class PlayBuzzAdmin {
 								<th scope="row"><?php _e( 'WordPress Theme Visibility', 'playbuzz' ); ?></th>
 								<td>
 									<select name="<?php echo $this->get_option_name(); ?>[embeddedon]">
-										<option value="content" <?php if ( 'content' == $options['embeddedon'] ) echo 'selected'; ?>><?php _e( 'Show embedded content in posts/pages only',                    'playbuzz' ); ?></option>
-										<option value="all"     <?php if ( 'all'     == $options['embeddedon'] ) echo 'selected'; ?>><?php _e( 'Show embedded content in all pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
+										<option value="content" <?php if ( isset( $options['embeddedon'] ) && ( 'content' == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in posts/pages only',                    'playbuzz' ); ?></option>
+										<option value="all"     <?php if ( isset( $options['embeddedon'] ) && ( 'all'     == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in all pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
 									</select>
 									<p class="description"><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'http://codex.wordpress.org/Function_Reference/is_singular', 'http://codex.wordpress.org/Template_Hierarchy' ); ?></p>
 								</td>
@@ -399,12 +400,12 @@ class PlayBuzzAdmin {
 							<tr valign="top">
 								<th scope="row"><?php _e( 'Simple Tags', 'playbuzz' ); ?></th>
 								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-mix]"          value="1" <?php if ( '1' == $options['tags-mix']             ) echo 'checked="checked"'; ?>> <?php _e( 'All',          'playbuzz' ); ?><br/>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-fun]"          value="1" <?php if ( '1' == $options['tags-fun']             ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',          'playbuzz' ); ?><br/>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-pop]"          value="1" <?php if ( '1' == $options['tags-pop']             ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',          'playbuzz' ); ?><br/>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-geek]"         value="1" <?php if ( '1' == $options['tags-geek']            ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',         'playbuzz' ); ?><br/>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-sports]"       value="1" <?php if ( '1' == $options['tags-sports']          ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',       'playbuzz' ); ?><br/>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( '1' == $options['tags-editors-pick']    ) echo 'checked="checked"'; ?>> <?php _e( 'editorsPicks', 'playbuzz' ); ?><br/>
+									<input type="checkbox" class="checkbox"        name="<?php echo $this->get_option_name(); ?>[tags-mix]"          value="1" <?php if ( '1' == $options['tags-mix']          ) echo 'checked="checked"'; ?>> <?php _e( 'All',            'playbuzz' ); ?><br/>
+									<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-fun]"          value="1" <?php if ( '1' == $options['tags-fun']          ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?><br/>
+									<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-pop]"          value="1" <?php if ( '1' == $options['tags-pop']          ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',            'playbuzz' ); ?><br/>
+									<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-geek]"         value="1" <?php if ( '1' == $options['tags-geek']         ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',           'playbuzz' ); ?><br/>
+									<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-sports]"       value="1" <?php if ( '1' == $options['tags-sports']       ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',         'playbuzz' ); ?><br/>
+									<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( '1' == $options['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?><br/>
 								</td>
 							</tr>
 							<tr valign="top">
@@ -415,10 +416,18 @@ class PlayBuzzAdmin {
 							</tr>
 							*/ ?>
 							<tr>
-								<th scope="row"><?php _e( 'Location of PlayBuzz hub', 'playbuzz' ); ?></th>
+								<th scope="row"><?php _e( 'Open Items at', 'playbuzz' ); ?></th>
 								<td>
-									<input type="text" name="<?php echo $this->get_option_name(); ?>[links]" value="<?php echo $options['links']; ?>" class="regular-text">
-									<p class="description"><?php _e( 'The URL of the page containing the HUB shortcode. Default: http://www.playbuzz.com', 'playbuzz' ); ?></p>
+									<p class="description"><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
+									<?php
+									if ( isset( $options['section-page'] ) ) {
+										$link_page_id = $options['section-page'];
+									} else {
+										$link_page_id = 0;
+									}
+									wp_dropdown_pages( array( 'selected' => $link_page_id, 'post_type' => 'page', 'hierarchical' => 1, 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0' ) );
+									?>
+									<input type="hidden" name="<?php echo $this->get_option_name(); ?>[links]" value="<?php echo $options['links']; ?>" class="regular-text" placeholder="http://www.playbuzz.com/">
 								</td>
 							</tr>
 							<tr class="separator">
@@ -590,8 +599,6 @@ function pb_tags( $options ) {
 	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
 	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
 	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
-	if ( '1' == $options['tags-tv']           ) $tags .= 'TV,';
-	if ( '1' == $options['tags-celebrities']  ) $tags .= 'Celebrities,';
 
 	// Custom tags
 	$tags .= $options['more-tags'];
