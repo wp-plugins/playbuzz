@@ -117,6 +117,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 				'tags-fun'          => ( isset( $options['tags-fun']          ) ? $options['tags-fun']          : ''  ),
 				'tags-pop'          => ( isset( $options['tags-pop']          ) ? $options['tags-pop']          : ''  ),
 				'tags-geek'         => ( isset( $options['tags-geek']         ) ? $options['tags-geek']         : ''  ),
+				'tags-sports'       => ( isset( $options['tags-sports']       ) ? $options['tags-sports']       : ''  ),
 				'tags-editors-pick' => ( isset( $options['tags-editors-pick'] ) ? $options['tags-editors-pick'] : ''  ),
 				'more-tags'         => ( isset( $options['more-tags']         ) ? $options['more-tags']         : ''  ),
 				'links'             => ( isset( $options['links']             ) ? $options['links']             : ''  ),
