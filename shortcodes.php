@@ -3,9 +3,9 @@
  * Item Shortcode
  * Display a specific item in a desired location on your content.
  *
- * usage: [playbuzz-item game="jonathang/players-and-playmates-playoffs"]
+ * usage: [playbuzz-item url="jonathang/players-and-playmates-playoffs"]
  *
- * @since 0.1
+ * @since 0.1.0
  */
 add_shortcode( 'playbuzz-item', 'playbuzz_shortcode' );
 add_shortcode( 'playbuzz-game', 'playbuzz_shortcode' );
@@ -19,7 +19,7 @@ add_shortcode( 'playbuzz-post', 'playbuzz_shortcode' );
  *
  * usage: [playbuzz-section tags="Celebrities"]
  *
- * @since 0.1
+ * @since 0.1.0
  */
 add_shortcode( 'playbuzz-section', 'playbuzz_hub_shortcode' );
 add_shortcode( 'playbuzz-hub',     'playbuzz_hub_shortcode' );
@@ -33,7 +33,7 @@ add_shortcode( 'playbuzz-archive', 'playbuzz_hub_shortcode' );
  *
  * usage: [playbuzz-recommendations tags="Celebrities" links="http://www.mysite.com/url_in_your_site_where_you_displayed_playbuzz_items"]
  *
- * @since 0.1
+ * @since 0.1.0
  */
 add_shortcode( 'playbuzz-related',         'playbuzz_recommendations_shortcode' );
 add_shortcode( 'playbuzz-recommendations', 'playbuzz_recommendations_shortcode' );
@@ -57,9 +57,9 @@ function playbuzz_shortcode( $atts ) {
 			'tags'      => pb_tags( $options ),                                 // filter by tags
 			'game'      => '',                                                  // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
 			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
-			'info'      => ( '1' == $options['info'] ? 'true' : 'false' ),      // show item info (thumbnail, name, description, editor, etc)
-			'shares'    => ( '1' == $options['shares'] ? 'true' : 'false' ),    // show sharing buttons 
-			'comments'  => ( '1' == $options['comments'] ? 'true' : 'false' ),  // show comments control from the item page.
+			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
+			'shares'    => ( '1' == $options['shares']    ? 'true' : 'false' ), // show sharing buttons 
+			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page.
 			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more items
 			'width'     => 'auto',                                              // define custom width (added in 0.3)
 			'height'    => 'auto',                                              // define custom height (added in 0.3)
@@ -106,9 +106,9 @@ function playbuzz_hub_shortcode( $atts ) {
 			'tags'      => pb_tags( $options ),                                 // filter by tags
 			'game'      => '',                                                  // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
 			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
-			'info'      => ( '1' == $options['info'] ? 'true' : 'false' ),      // show item info (thumbnail, name, description, editor, etc)
-			'shares'    => ( '1' == $options['shares'] ? 'true' : 'false' ),    // show sharing buttons 
-			'comments'  => ( '1' == $options['comments'] ? 'true' : 'false' ),  // show comments control from the item page.
+			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
+			'shares'    => ( '1' == $options['shares']    ? 'true' : 'false' ), // show sharing buttons 
+			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page.
 			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more items
 			'width'     => 'auto',                                              // defines the width (added in 0.3)
 			'height'    => 'auto',                                              // defines the height (added in 0.3)

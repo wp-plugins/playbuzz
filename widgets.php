@@ -3,7 +3,7 @@
  * Recommendations Widget
  * WordPress widget that displays playbuzz related playful content links and recommendations on sites sidebar.
  *
- * @since 0.1
+ * @since 0.1.0
  */
 class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
@@ -175,7 +175,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('links'); ?>"><?php _e( 'Open Items at (location of section)', 'playbuzz' ); ?></label><br>
-			<p class="description"><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
+			<p><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
 			<?php
 			if ( isset( $new_instance['section-page'] ) ) {
 				$link_page_id = $new_instance['section-page'];
@@ -201,7 +201,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 	/*
 	 * Fired when the plugin is activated.
 	 *
-	 * @param		boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
+	 * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
 	 */
 	public function activate( $network_wide ) {
 		// Define activation functionality here

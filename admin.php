@@ -3,7 +3,7 @@
  * PlayBuzz Admin
  * Displays playbuzz menus in WordPress dashboard.
  *
- * @since 0.1
+ * @since 0.1.0
  */
 class PlayBuzzAdmin {
 
@@ -189,7 +189,7 @@ class PlayBuzzAdmin {
 	 */
 	public function add_page() {
 
-		add_options_page( __('PlayBuzz', 'playbuzz' ), __( 'PlayBuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'options_do_page' ) );
+		add_options_page( __( 'PlayBuzz', 'playbuzz' ), __( 'PlayBuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'options_do_page' ) );
 
 	}
 
@@ -323,7 +323,7 @@ class PlayBuzzAdmin {
 											<th scope="row"><?php _e( 'Custom Tags', 'playbuzz' ); ?></th>
 											<td>
 												<input type="text" name="<?php echo $this->get_option_name(); ?>[more-tags]" value="<?php echo $options['more-tags']; ?>" class="regular-text" placeholder="<?php _e( 'Comma separated tags', 'playbuzz' ); ?>">
-												<p class="description"><?php _e( 'Example: food, rap, weather', 'playbuzz' ); ?></p>
+												<p><?php _e( 'Example: food, rap, weather', 'playbuzz' ); ?></p>
 											</td>
 										</tr>
 									</table>
@@ -338,7 +338,7 @@ class PlayBuzzAdmin {
 								<th scope="row"><?php _e( 'Margin Top', 'playbuzz' ); ?></th>
 								<td>
 									<input type="text" name="<?php echo $this->get_option_name(); ?>[margin-top]" value="<?php echo $options['margin-top']; ?>" class="regular-text" placeholder="<?php _e( 'Default: 0px', 'playbuzz' ); ?>"><br>
-									<p class="description"><?php _e( 'Use in case of a floating bar.', 'playbuzz' ); ?></p>
+									<p><?php _e( 'Use in case of a floating bar.', 'playbuzz' ); ?></p>
 								</td>
 							</tr>
 							<tr class="separator">
@@ -353,7 +353,7 @@ class PlayBuzzAdmin {
 										<option value="content" <?php if ( isset( $options['embeddedon'] ) && ( 'content' == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in posts/pages only',                    'playbuzz' ); ?></option>
 										<option value="all"     <?php if ( isset( $options['embeddedon'] ) && ( 'all'     == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in all pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
 									</select>
-									<p class="description"><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'http://codex.wordpress.org/Function_Reference/is_singular', 'http://codex.wordpress.org/Template_Hierarchy' ); ?></p>
+									<p><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'http://codex.wordpress.org/Function_Reference/is_singular', 'http://codex.wordpress.org/Template_Hierarchy' ); ?></p>
 								</td>
 							</tr>
 						</table>
@@ -389,7 +389,7 @@ class PlayBuzzAdmin {
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><?php _e( 'Style', 'playbuzz' ); ?></th>
+								<th scope="row"><?php _e( 'Items layout', 'playbuzz' ); ?></th>
 								<td valign="top">
 									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="large_images"      <?php if ( 'large_images'      == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Large Images',      'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/tumbs.jpg',      __FILE__); ?>" title="<?php _e( 'Large Images',      'playbuzz' ); ?>"><br><br>
 									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="horizontal_images" <?php if ( 'horizontal_images' == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Horizontal Images', 'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/image-list.jpg', __FILE__); ?>" title="<?php _e( 'Horizontal Images', 'playbuzz' ); ?>"><br><br>
@@ -398,7 +398,7 @@ class PlayBuzzAdmin {
 							</tr>
 							<?php /*
 							<tr valign="top">
-								<th scope="row"><?php _e( 'Simple Tags', 'playbuzz' ); ?></th>
+								<th scope="row"><?php _e( 'Tags', 'playbuzz' ); ?></th>
 								<td>
 									<input type="checkbox" class="checkbox"        name="<?php echo $this->get_option_name(); ?>[tags-mix]"          value="1" <?php if ( '1' == $options['tags-mix']          ) echo 'checked="checked"'; ?>> <?php _e( 'All',            'playbuzz' ); ?><br/>
 									<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-fun]"          value="1" <?php if ( '1' == $options['tags-fun']          ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?><br/>
@@ -409,7 +409,7 @@ class PlayBuzzAdmin {
 								</td>
 							</tr>
 							<tr valign="top">
-								<th scope="row"><?php _e( 'Advanced Tags', 'playbuzz' ); ?></th>
+								<th scope="row"><?php _e( 'Custom Tags', 'playbuzz' ); ?></th>
 								<td>
 									<input type="text" name="<?php echo $this->get_option_name(); ?>[more-tags]" value="<?php echo $options['more-tags']; ?>" class="regular-text" placeholder="<?php _e( 'Comma separated tags', 'playbuzz' ); ?>">
 								</td>
@@ -418,7 +418,7 @@ class PlayBuzzAdmin {
 							<tr>
 								<th scope="row"><?php _e( 'Open Items at', 'playbuzz' ); ?></th>
 								<td>
-									<p class="description"><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
+									<p><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
 									<?php
 									if ( isset( $options['section-page'] ) ) {
 										$link_page_id = $options['section-page'];
@@ -482,42 +482,42 @@ class PlayBuzzAdmin {
 						<dt>url</dt>
 						<dd>
 							<p><?php _e( 'The URL of the item that will be displayed.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: URL', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: URL', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>info</dt>
 						<dd>
 							<p><?php _e( 'Show item info (thumbnail, name, description, editor, etc).', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>shares</dt>
 						<dd>
 							<p><?php _e( 'Show sharing buttons.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>comments</dt>
 						<dd>
 							<p><?php _e( 'Show comments control from the item page.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>recommend</dt>
 						<dd>
 							<p><?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>width</dt>
 						<dd>
 							<p><?php _e( 'Define custom width in pixels.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>height</dt>
 						<dd>
 							<p><?php _e( 'Define custom height in pixels.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>margin-top</dt>
 						<dd>
 							<p><?php _e( 'Define custom margin-top in pixels.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: String ; Default: 0px', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: 0px', 'playbuzz' ); ?></p>
 						</dd>
 					</dl>
 
@@ -535,37 +535,37 @@ class PlayBuzzAdmin {
 						<dt>tags</dt>
 						<dd>
 							<p><?php _e( 'Filters the content shown by comma separated tags.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: URL', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: All', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>shares</dt>
 						<dd>
 							<p><?php _e( 'Show sharing buttons.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>comments</dt>
 						<dd>
 							<p><?php _e( 'Show comments control from the item page.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>recommend</dt>
 						<dd>
 							<p><?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>width</dt>
 						<dd>
 							<p><?php _e( 'Define custom width in pixels.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>height</dt>
 						<dd>
 							<p><?php _e( 'Define custom height in pixels.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: auto', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>margin-top</dt>
 						<dd>
 							<p><?php _e( 'Define custom margin-top in pixels.', 'playbuzz' ); ?></p>
-							<p class="description"><?php _e( 'Type: String ; Default: 0px', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: String ; Default: 0px', 'playbuzz' ); ?></p>
 						</dd>
 					</dl>
 
@@ -585,7 +585,7 @@ class PlayBuzzAdmin {
 /*
  * Extract tags list
  *
- * @since 0.1
+ * @since 0.1.0
  */
 function pb_tags( $options ) {
 
