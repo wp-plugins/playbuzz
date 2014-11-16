@@ -24,7 +24,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 			__( 'PlayBuzz Recommendations', 'playbuzz' ),
 			array(
 				'classname'   => 'playbuzz-recommendations',
-				'description' => __( 'Related playful content links and recommendations by PlayBuzz.', 'playbuzz' )
+				'description' => __( 'Related Playful Content links and recommendations by PlayBuzz.', 'playbuzz' )
 			)
 		);
 

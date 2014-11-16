@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playbuzz\n"
-"POT-Creation-Date: 2014-10-30 14:41+0200\n"
-"PO-Revision-Date: 2014-10-30 14:41+0200\n"
+"POT-Creation-Date: 2014-11-16 10:42+0200\n"
+"PO-Revision-Date: 2014-11-16 10:42+0200\n"
 "Last-Translator: Rami Y <r_a_m_i@hotmail.com>\n"
 "Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
 "Language: he\n"
@@ -74,7 +74,7 @@ msgstr "הטמעת רשימה"
 #: ../admin.php:245
 #, php-format
 msgid ""
-"<strong>Choose your list of playful content items</strong>: Go to %s to "
+"<strong>Choose your list of Playful Content items</strong>: Go to %s to "
 "choose the tag you want to embed in your page."
 msgstr ""
 "<strong>בחרו תכנים:</strong> גשו אל %s כדי לבחור את התגיות של התכנים שיוטמעו "
@@ -384,7 +384,7 @@ msgstr "סינון התכנים המוצגים על ידי תגיות המופר
 msgid "Type: String ; Default: All"
 msgstr "סוג: מחרוזת ; ברירת מחדל: All"
 
-#: ../index.php:52
+#: ../index.php:46
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -393,8 +393,8 @@ msgid "PlayBuzz Recommendations"
 msgstr "המלצות פלייבאז"
 
 #: ../widgets.php:27
-msgid "Related playful content links and recommendations by PlayBuzz."
-msgstr "המלצות ותכנים באותו נושא של פלייבאז."
+msgid "Related Playful Content links and recommendations by PlayBuzz."
+msgstr "המלצות של פלייבאז ותכנים באותו נושא."
 
 #: ../widgets.php:113
 msgid "Play It"

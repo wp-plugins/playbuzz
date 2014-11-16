@@ -3,12 +3,12 @@ Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.4.0
+Stable tag: 0.4.1
 
 PlayBuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
 
 == Description ==
-The PlayBuzz plugin enables site owners to easily embed playful content items such as quizzes, lists, polls and more, and offer them as a native part of their site?s offering. 
+The PlayBuzz plugin enables site owners to easily embed Playful Content items such as quizzes, lists, polls and more, and offer them as a native part of their site?s offering. 
 
 Upgrade your site to include highly engaging viral content, using PlayBuzz's Playful Content.
 You can have all this content on your site in under a minute!
@@ -73,7 +73,7 @@ Absolutely. Our plugin includes an option to share each content item on social n
 Yes. PlayBuzz's UI is responsive and mobile compatible.
 
 = Can I create my own content? = 	
-Absolutely. We encourage you to create original playful content using http://www.playbuzz.com/create
+Absolutely. We encourage you to create original Playful Content using http://www.playbuzz.com/create
 
 = Does this plugin slow down my website? = 
 No. Test and see for yourself. PlayBuzz is using a large content delivery network to ensure prompt delivery.
@@ -93,9 +93,12 @@ For more information please [contact us](http://www.playbuzz.com/contact).
 
 == Changelog ==
 
+= 0.4.1 =
+* Shortcodes: Add 'links' parameter to allow user's to open clicked items in new pages
+
 = 0.4.0 =
-* Editor: Add PlayBuzz button to TineMCE visual editor, making it easy to create customizable PlayBuzz shortcodes
-* Editor: Inside the visual editor, replace PlayBuzz shortcodes with a placeholder image to indicate visually where the item will be embedded
+* Editor: Add PlayBuzz button to the visual editor, making it easy to create customizable PlayBuzz shortcodes
+* Editor: Inside the visual editor, replace PlayBuzz shortcodes with a placeholder image
 * Editor: Show shortcode settings popup when clicking the PlayBuzz shortcodes placeholder image
 * Uninstall: Delete site option in multisite installation
 * i18n: Update hebrew (he_IL) translation

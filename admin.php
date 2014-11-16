@@ -242,7 +242,7 @@ class PlayBuzzAdmin {
 					<h3><?php _e( 'Embeding a Section', 'playbuzz' ); ?></h3>
 					<ol class="circles-list">
 						<li>
-							<p><?php printf( __( '<strong>Choose your list of playful content items</strong>: Go to %s to choose the tag you want to embed in your page.', 'playbuzz' ), '<a href="http://playbuzz.com/" target="_blank">PlayBuzz.com</a>' ); ?></p>
+							<p><?php printf( __( '<strong>Choose your list of Playful Content items</strong>: Go to %s to choose the tag you want to embed in your page.', 'playbuzz' ), '<a href="http://playbuzz.com/" target="_blank">PlayBuzz.com</a>' ); ?></p>
 						</li>
 						<li>
 							<p><?php _e( 'Use the following <strong>shortcode</strong> where you want to embed the Playful Items list:', 'playbuzz' ); ?></p>

@@ -59,8 +59,9 @@ function playbuzz_shortcode( $atts ) {
 			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
 			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
 			'shares'    => ( '1' == $options['shares']    ? 'true' : 'false' ), // show sharing buttons 
-			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page.
+			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page
 			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more items
+			'links'     => '',                                                  // destination url in your site where new items will be displayed
 			'width'     => 'auto',                                              // define custom width (added in 0.3)
 			'height'    => 'auto',                                              // define custom height (added in 0.3)
 			'margintop' => $options['margin-top'],                              // margin top for score bar in case there is a floating bar
@@ -70,7 +71,7 @@ function playbuzz_shortcode( $atts ) {
 	// PlayBuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="' . $shares . '" data-recommend="' . $recommend . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
+		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="' . $shares . '" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
 	';
 
 	// Theme Visibility
@@ -108,8 +109,9 @@ function playbuzz_hub_shortcode( $atts ) {
 			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
 			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
 			'shares'    => ( '1' == $options['shares']    ? 'true' : 'false' ), // show sharing buttons 
-			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page.
+			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page
 			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more items
+			'links'     => '',                                                  // destination url in your site where new items will be displayed
 			'width'     => 'auto',                                              // defines the width (added in 0.3)
 			'height'    => 'auto',                                              // defines the height (added in 0.3)
 			'margintop' => $options['margin-top'],                              // margin top for score bar in case there is a floating bar
@@ -119,7 +121,7 @@ function playbuzz_hub_shortcode( $atts ) {
 	// PlayBuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="true" data-recommend="' . $recommend . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
+		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="true" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
 	';
 
 	// Theme Visibility
@@ -154,7 +156,7 @@ function playbuzz_recommendations_shortcode( $atts ) {
 			'key'     => $options['key'],     // api key allowing configuration and analytics
 			'view'    => $options['view'],    // set view type
 			'items'   => $options['items'],   // number of items to display
-			'links'   => $options['links'],   // url in your site where you displayed playbuzz posts
+			'links'   => $options['links'],   // destination url in your site where new items will be displayed
 			'tags'    => pb_tags( $options ), // filter by tags
 			'nostyle' => 'false',             // set style
 		), $atts )
