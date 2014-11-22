@@ -2,7 +2,7 @@
 Contributors: playBuzz
 Tags: PlayBuzz, playful content, feed, feeds, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.0.1
 Stable tag: 0.4.1
 
 PlayBuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
