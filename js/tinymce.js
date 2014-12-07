@@ -68,7 +68,7 @@
 
 			// Open popup
 			editor.windowManager.open( {
-				title: 'Embed PlayBuzz Playful Content',
+				title: 'Embed playbuzz Playful Content',
 				width : 550,
 				height : 380,
 				body: [
@@ -218,7 +218,7 @@
 		// Add button
 		editor.addButton( 'playbuzz', {
 			icon: 'playbuzz',
-			tooltip: 'PlayBuzz',
+			tooltip: 'Playbuzz',
 			onclick: function() {
 				editor.execCommand( popup_name, '', {
 					item_url   : '',

@@ -5,7 +5,7 @@
  *
  * @since 0.1.0
  */
-class PlayBuzz_Recommendations_Widget extends WP_Widget {
+class Playbuzz_Recommendations_Widget extends WP_Widget {
 
 	/*
 	 * Constructor
@@ -21,10 +21,10 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 		parent::__construct(
 			'playbuzz-recommendations-id',
-			__( 'PlayBuzz Recommendations', 'playbuzz' ),
+			__( 'Playbuzz Recommendations', 'playbuzz' ),
 			array(
 				'classname'   => 'playbuzz-recommendations',
-				'description' => __( 'Related Playful Content links and recommendations by PlayBuzz.', 'playbuzz' )
+				'description' => __( 'Related Playful Content links and recommendations by playbuzz.', 'playbuzz' )
 			)
 		);
 
@@ -184,7 +184,7 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 			}
 			?>
 			<?php wp_dropdown_pages( array( 'selected' => $link_page_id, 'post_type' => 'page', 'hierarchical' => 1, 'class' => 'widefat', 'id' => $this->get_field_id('section-page'), 'name' => $this->get_field_name('section-page'), 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0' ) ); ?>
-			<input type="hidden" class="widefat" id="<?php echo $this->get_field_id('links'); ?>" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" placeholder="http://www.playbuzz.com/">
+			<input type="hidden" class="widefat" id="<?php echo $this->get_field_id('links'); ?>" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" placeholder="https://www.playbuzz.com/">
 		</p>
 		<?php
 	}
@@ -219,4 +219,4 @@ class PlayBuzz_Recommendations_Widget extends WP_Widget {
 
 }
 
-add_action( 'widgets_init', create_function( '', 'register_widget("PlayBuzz_Recommendations_Widget");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("Playbuzz_Recommendations_Widget");' ) );

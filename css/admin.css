@@ -28,6 +28,11 @@
 .playbuzz_embed h3,
 .playbuzz_help h3 {
 	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+.playbuzz_getting_started h3 {
+	margin-bottom: 2em;
 }
 
 table.form-table th,
@@ -55,7 +60,7 @@ table.form-table tr.separator td {
 
 .playbuzz_getting_started ol.circles-list > li{
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 2em;
 	min-height: 2em;
 }
 

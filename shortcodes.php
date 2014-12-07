@@ -3,13 +3,13 @@
  * Item Shortcode
  * Display a specific item in a desired location on your content.
  *
- * usage: [playbuzz-item url="jonathang/players-and-playmates-playoffs"]
+ * usage: [playbuzz-item url="https://www.playbuzz.com/jonathang/players-and-playmates-playoffs"]
  *
  * @since 0.1.0
  */
-add_shortcode( 'playbuzz-item', 'playbuzz_shortcode' );
-add_shortcode( 'playbuzz-game', 'playbuzz_shortcode' );
-add_shortcode( 'playbuzz-post', 'playbuzz_shortcode' );
+add_shortcode( 'playbuzz-item', 'playbuzz_item_shortcode' );
+add_shortcode( 'playbuzz-game', 'playbuzz_item_shortcode' );
+add_shortcode( 'playbuzz-post', 'playbuzz_item_shortcode' );
 
 
 
@@ -21,17 +21,17 @@ add_shortcode( 'playbuzz-post', 'playbuzz_shortcode' );
  *
  * @since 0.1.0
  */
-add_shortcode( 'playbuzz-section', 'playbuzz_hub_shortcode' );
-add_shortcode( 'playbuzz-hub',     'playbuzz_hub_shortcode' );
-add_shortcode( 'playbuzz-archive', 'playbuzz_hub_shortcode' );
+add_shortcode( 'playbuzz-section', 'playbuzz_section_shortcode' );
+add_shortcode( 'playbuzz-hub',     'playbuzz_section_shortcode' );
+add_shortcode( 'playbuzz-archive', 'playbuzz_section_shortcode' );
 
 
 
 /*
  * Recommendations / Related-Content Shortcode
- * Display Playbuzz related playful content links and recommendations according specific tags in a desired location on your content.
+ * Display playbuzz related playful content links and recommendations according specific tags in a desired location on your content.
  *
- * usage: [playbuzz-recommendations tags="Celebrities" links="http://www.mysite.com/url_in_your_site_where_you_displayed_playbuzz_items"]
+ * usage: [playbuzz-recommendations tags="Celebrities" links="https://www.mysite.com/url_in_your_site_where_you_displayed_playbuzz_items"]
  *
  * @since 0.1.0
  */
@@ -45,7 +45,7 @@ add_shortcode( 'playbuzz-recommendations', 'playbuzz_recommendations_shortcode' 
  *
  * @since 0.1.1
  */
-function playbuzz_shortcode( $atts ) {
+function playbuzz_item_shortcode( $atts ) {
 
 	// Load publisher options from DB defined 
 	$options = get_option( 'playbuzz' );
@@ -68,7 +68,7 @@ function playbuzz_shortcode( $atts ) {
 		), $atts )
 	);
 
-	// PlayBuzz Embed Code
+	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
 		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="' . $shares . '" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
@@ -95,7 +95,7 @@ function playbuzz_shortcode( $atts ) {
  *
  * @since 0.1.4
  */
-function playbuzz_hub_shortcode( $atts ) {
+function playbuzz_section_shortcode( $atts ) {
 
 	// Load options
 	$options = get_option( 'playbuzz' );
@@ -118,7 +118,7 @@ function playbuzz_hub_shortcode( $atts ) {
 		), $atts )
 	);
 
-	// PlayBuzz Embed Code
+	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
 		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="true" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
@@ -162,7 +162,7 @@ function playbuzz_recommendations_shortcode( $atts ) {
 		), $atts )
 	);
 
-	// PlayBuzz Embed Code
+	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/widget.js"></script>
 		<div class="pb_recommendations" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="' . $nostyle . '"></div>

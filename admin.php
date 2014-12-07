@@ -1,11 +1,11 @@
 <?php
 /*
- * PlayBuzz Admin
+ * Playbuzz Admin
  * Displays playbuzz menus in WordPress dashboard.
  *
  * @since 0.1.0
  */
-class PlayBuzzAdmin {
+class PlaybuzzAdmin {
 
 	protected static $option_name = 'playbuzz';
 	protected static $data = array(
@@ -26,7 +26,7 @@ class PlayBuzzAdmin {
 		'show'              => 'footer',
 		'view'              => 'large_images',
 		'items'             => '3',
-		'links'             => 'http://www.playbuzz.com',
+		'links'             => 'https://www.playbuzz.com',
 		'section-page'		=>	'',
 
 		// Tags
@@ -189,7 +189,7 @@ class PlayBuzzAdmin {
 	 */
 	public function add_page() {
 
-		add_options_page( __( 'PlayBuzz', 'playbuzz' ), __( 'PlayBuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'options_do_page' ) );
+		add_options_page( __( 'Playbuzz', 'playbuzz' ), __( 'Playbuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'options_do_page' ) );
 
 	}
 
@@ -216,41 +216,43 @@ class PlayBuzzAdmin {
 
 			<?php if( $active_tab == 'start' ) { ?>
 
-				<h1><?php _e( 'PlayBuzz Plugin', 'playbuzz' ); ?></h1>
+				<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
 
 				<div class="playbuzz_getting_started">
 					<img src="<?php echo plugins_url( 'img/blog-item.png', __FILE__ ); ?>" class="location_img">
-					<h3><?php _e( 'Embeding an Item', 'playbuzz' ); ?></h3>
+					<h3><?php _e( 'Embedding an Item', 'playbuzz' ); ?></h3>
 					<ol class="circles-list">
 						<li>
-							<p><?php printf( __( '<strong>Choose your content</strong>: Go to %s to choose the item you want to embed in your post.', 'playbuzz' ), '<a href="http://playbuzz.com/" target="_blank">PlayBuzz.com</a>' ); ?></p>
+							<p><?php printf( __( '<strong>Choose your content</strong>: Go to %s to choose the item you want to embed in your post.', 'playbuzz' ), '<a href="https://playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
 						</li>
 						<li>
-							<p><?php _e( 'Use the following <strong>shortcode</strong> where you want to embed the item:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-item]</code></p>
-							<p><?php _e( 'For example:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-item url="http://www.playbuzz.com/llamap10/how-weird-are-you"]</code></p>
+							<p><?php _e( 'For basic use, copy the item URL and paste it into your text editor.', 'playbuzz' ); ?></p>
+							<p><code> https://www.playbuzz.com/llamap10/how-weird-are-you</code></p>
+							<p><?php _e( 'Check the visual editor to make sure the item loads.', 'playbuzz' ); ?></p>
 						</li>
 						<li>
-							<p><?php printf( __( '<a href="%s">Tweak the item\'s settings</a> or read about more <a href="%s">advanced shortcode attributes</a>.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed'), ('?page='.$this->get_option_name().'&tab=help') ); ?></p>
+							<p><?php _e( 'Advanced users can use the following <strong>shortcode</strong> to embed items and tweak them:', 'playbuzz' ); ?></p>
+							<p><code> [playbuzz-item url="https://www.playbuzz.com/llamap10/how-weird-are-you" comments="false"]</code></p>
+							<p><?php printf( __( 'You can <a href="%s">tweak the item\'s default settings</a> or read about more <a href="%s">advanced shortcode attributes</a>.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed'), ('?page='.$this->get_option_name().'&tab=help') ); ?></p>
 						</li>
 					</ol>
 				</div>
 
 				<div class="playbuzz_getting_started">
 					<img src="<?php echo plugins_url( 'img/blog-section.png', __FILE__ ); ?>" class="location_img">
-					<h3><?php _e( 'Embeding a Section', 'playbuzz' ); ?></h3>
+					<h3><?php _e( 'Embedding a Section', 'playbuzz' ); ?></h3>
 					<ol class="circles-list">
 						<li>
-							<p><?php printf( __( '<strong>Choose your list of Playful Content items</strong>: Go to %s to choose the tag you want to embed in your page.', 'playbuzz' ), '<a href="http://playbuzz.com/" target="_blank">PlayBuzz.com</a>' ); ?></p>
+							<p><?php printf( __( '<strong>Choose your list of Playful Content items</strong>: Go to %s to choose the tag you want to embed in your page.', 'playbuzz' ), '<a href="https://playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
+						</li>
+						<li>
+							<p><?php _e( 'For basic use, copy the section URL and paste it into your text editor.', 'playbuzz' ); ?></p>
+							<p><code> https://www.playbuzz.com/fun</code></p>
+							<p><?php _e( 'Check the visual editor to make sure the section loads.', 'playbuzz' ); ?></p>
 						</li>
 						<li>
 							<p><?php _e( 'Use the following <strong>shortcode</strong> where you want to embed the Playful Items list:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-section]</code></p>
-							<p><?php _e( 'For example:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-section tags="funny, cats"]</code></p>
-						</li>
-						<li>
+							<p><code> [playbuzz-section tags="fun,cats" width="600"]</code></p>
 							<p><?php printf( __( 'Customize by using <a href="%s">advanced shortcode attributes</a>.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=help') ); ?></p>
 						</li>
 					</ol>
@@ -269,7 +271,7 @@ class PlayBuzzAdmin {
 
 			<?php } elseif( $active_tab == 'embed' ) { ?>
 
-				<h1><?php _e( 'PlayBuzz Plugin', 'playbuzz' ); ?></h1>
+				<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
 
 				<form method="post" action="options.php">
 
@@ -353,7 +355,7 @@ class PlayBuzzAdmin {
 										<option value="content" <?php if ( isset( $options['embeddedon'] ) && ( 'content' == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in posts/pages only',                    'playbuzz' ); ?></option>
 										<option value="all"     <?php if ( isset( $options['embeddedon'] ) && ( 'all'     == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in all pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
 									</select>
-									<p><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'http://codex.wordpress.org/Function_Reference/is_singular', 'http://codex.wordpress.org/Template_Hierarchy' ); ?></p>
+									<p><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'https://codex.wordpress.org/Function_Reference/is_singular', 'https://codex.wordpress.org/Template_Hierarchy' ); ?></p>
 								</td>
 							</tr>
 						</table>
@@ -391,9 +393,9 @@ class PlayBuzzAdmin {
 							<tr>
 								<th scope="row"><?php _e( 'Items layout', 'playbuzz' ); ?></th>
 								<td valign="top">
-									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="large_images"      <?php if ( 'large_images'      == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Large Images',      'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/tumbs.jpg',      __FILE__); ?>" title="<?php _e( 'Large Images',      'playbuzz' ); ?>"><br><br>
-									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="horizontal_images" <?php if ( 'horizontal_images' == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Horizontal Images', 'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/image-list.jpg', __FILE__); ?>" title="<?php _e( 'Horizontal Images', 'playbuzz' ); ?>"><br><br>
-									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="no_images"         <?php if ( 'no_images'         == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'No Images',         'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/list.jpg',       __FILE__); ?>" title="<?php _e( 'No Images',         'playbuzz' ); ?>">
+									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="large_images"      <?php if ( 'large_images'      == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Large Images',      'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/recommendation-tumbs.jpg',      __FILE__); ?>" title="<?php _e( 'Large Images',      'playbuzz' ); ?>"><br><br>
+									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="horizontal_images" <?php if ( 'horizontal_images' == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'Horizontal Images', 'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/recommendation-image-list.jpg', __FILE__); ?>" title="<?php _e( 'Horizontal Images', 'playbuzz' ); ?>"><br><br>
+									<input type="radio" name="<?php echo $this->get_option_name(); ?>[view]" value="no_images"         <?php if ( 'no_images'         == $options['view'] ) echo 'checked="checked"'; ?>> <?php _e( 'No Images',         'playbuzz' ); ?><br><img src="<?php echo plugins_url( 'img/recommendation-list.jpg',       __FILE__); ?>" title="<?php _e( 'No Images',         'playbuzz' ); ?>">
 								</td>
 							</tr>
 							<?php /*
@@ -427,7 +429,7 @@ class PlayBuzzAdmin {
 									}
 									wp_dropdown_pages( array( 'selected' => $link_page_id, 'post_type' => 'page', 'hierarchical' => 1, 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0' ) );
 									?>
-									<input type="hidden" name="<?php echo $this->get_option_name(); ?>[links]" value="<?php echo $options['links']; ?>" class="regular-text" placeholder="http://www.playbuzz.com/">
+									<input type="hidden" name="<?php echo $this->get_option_name(); ?>[links]" value="<?php echo $options['links']; ?>" class="regular-text" placeholder="https://www.playbuzz.com/">
 								</td>
 							</tr>
 							<tr class="separator">
@@ -466,16 +468,15 @@ class PlayBuzzAdmin {
 
 			<?php } elseif( $active_tab == 'help' ) { ?>
 
-				<h1><?php _e( 'PlayBuzz Plugin', 'playbuzz' ); ?></h1>
+				<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
 
 				<div class="playbuzz_help">
 
 					<h3><?php _e( 'Item Shortcode', 'playbuzz' ); ?></h3>
-					<p><?php printf( __( 'Choose any Playful Content item from %s and easily embed it in a post.', 'playbuzz' ), '<a href="http://playbuzz.com/" target="_blank">PlayBuzz.com</a>' ); ?></p>
-					<p><?php _e( 'Use the following shortcode where you want to embed the item:', 'playbuzz' ); ?></p>
-					<p><code>[playbuzz-item]</code>
-					<p><?php _e( 'For example:', 'playbuzz' ); ?></p>
-					<p><code>[playbuzz-item url="http://www.playbuzz.com/rachaelg/eye-candy-name-the-chocolate-by-its-cross-section"]</code>
+					<p><?php printf( __( 'Choose any Playful Content item from %s and easily embed it in a post.', 'playbuzz' ), '<a href="https://www.playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
+					<p><?php _e( 'For basic use, paste the item URL into your text editor and go to the visual editor to make sure it loads.', 'playbuzz' ); ?></p>
+					<p><?php _e( 'Use the following shortcode if you want to adjust the settings of your embedded item:', 'playbuzz' ); ?></p>
+					<p><code>[playbuzz-item url="https://www.playbuzz.com/llamap10/how-weird-are-you" comments="false"]</code></p>
 					<p><?php printf( __( 'You can tweak the general settings for all embedded  content in the <a href="%s">Embed Options</a> tab.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed') ); ?></p>
 					<p><?php _e( 'Or you can override and customize each embedded content with the following shortcode attributes:', 'playbuzz' ); ?></p>
 					<dl>
@@ -504,6 +505,11 @@ class PlayBuzzAdmin {
 							<p><?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?></p>
 							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
 						</dd>
+						<dt>links</dt>
+						<dd>
+							<p><?php _e( 'Destination page, containing the [playbuzz-section] shortcode, where new items will be displayed.', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: URL ; Default: https://www.playbuzz.com/', 'playbuzz' ); ?></p>
+						</dd>
 						<dt>width</dt>
 						<dd>
 							<p><?php _e( 'Define custom width in pixels.', 'playbuzz' ); ?></p>
@@ -525,11 +531,10 @@ class PlayBuzzAdmin {
 				<div class="playbuzz_help">
 
 					<h3><?php _e( 'Section Shortcode', 'playbuzz' ); ?></h3>
-					<p><?php printf( __( 'Choose any list of Playful Items in a specific vertical from %s and easily embed it in a post. This is best used as a "Playful Section" displaying items in the selected tags (topics).', 'playbuzz' ), '<a href="http://playbuzz.com/" target="_blank">PlayBuzz.com</a>' ); ?></p>
-					<p><?php _e( 'Use the following shortcode where you want to embed the item:', 'playbuzz' ); ?></p>
-					<p><code>[playbuzz-section]</code>
-					<p><?php _e( 'For example:', 'playbuzz' ); ?></p>
-					<p><code>[playbuzz-section tags="All"]</code>
+					<p><?php printf( __( 'Choose any list of Playful Items in a specific vertical from %s and easily embed it in a post. This is best used as a "Playful Section" displaying items in the selected tags (topics).', 'playbuzz' ), '<a href="https://playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
+					<p><?php _e( 'For basic use, paste the section URL into your text editor and go to the visual editor to make sure it loads.', 'playbuzz' ); ?></p>
+					<p><?php _e( 'Use the following shortcode if you want to adjust the settings of your embedded section:', 'playbuzz' ); ?></p>
+					<p><code>[playbuzz-section tags="All" width="600"]</code></p>
 					<p><?php _e( 'You can tweak the general settings for the section with the following shortcode attributes:', 'playbuzz' ); ?></p>
 					<dl>
 						<dt>tags</dt>
@@ -551,6 +556,11 @@ class PlayBuzzAdmin {
 						<dd>
 							<p><?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?></p>
 							<p><?php _e( 'Type: Boolean (true/false) ; Default: true', 'playbuzz' ); ?></p>
+						</dd>
+						<dt>links</dt>
+						<dd>
+							<p><?php _e( 'Destination page, containing the [playbuzz-section] shortcode, where new items will be displayed.', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Type: URL ; Default: https://www.playbuzz.com/', 'playbuzz' ); ?></p>
 						</dd>
 						<dt>width</dt>
 						<dd>

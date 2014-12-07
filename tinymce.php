@@ -1,11 +1,11 @@
 <?php
 /*
- * PlayBuzz TinyMCE Plugin
- * TinyMCE plugin for PlayBuzz on WordPress editor.
+ * Playbuzz TinyMCE Plugin
+ * TinyMCE plugin for playbuzz on WordPress editor.
  *
  * @since 0.4.0
  */
-class PlayBuzzTinyMCE {
+class PlaybuzzTinyMCE {
 
 	public $name = 'playbuzz';
 
@@ -37,10 +37,10 @@ class PlayBuzzTinyMCE {
 		if ( 'false' == get_user_option('rich_editing') )
 			return;
 
-		// Add PlayBuzz button above the editor
+		// Add playbuzz button above the editor
 		//add_action( 'media_buttons', array( $this, 'register_button_above_the_editor' ) );
 
-		// Add PlayBuzz button to the TinyMCE editor
+		// Add playbuzz button to the TinyMCE editor
 		add_filter( 'mce_buttons', array( $this, 'register_tinymce_button' ) );
 
 		// Register TinyMCE editor style CSS
@@ -52,17 +52,17 @@ class PlayBuzzTinyMCE {
 	}
 
 	/*
-	 * Add PlayBuzz button above the editor
+	 * Add playbuzz button above the editor
 	 *
 	function register_button_above_the_editor() {
 
-		echo '<a href="#" id="insert-playbuzz-button" class="button insert-playbuzz playbuzz" data-editor="content">' . __( 'Add PlayBuzz', 'playbuzz' ) . '</a>';
+		echo '<a href="#" id="insert-playbuzz-button" class="button insert-playbuzz playbuzz" data-editor="content">' . __( 'Add playbuzz', 'playbuzz' ) . '</a>';
 
 	}
 	*/
 
 	/*
-	 * Add PlayBuzz button to the TinyMCE editor
+	 * Add playbuzz button to the TinyMCE editor
 	 */
 	function register_tinymce_button( $buttons ) {
 
@@ -80,7 +80,7 @@ class PlayBuzzTinyMCE {
 		if ( ! empty( $mce_css ) )
 			$mce_css .= ',';
 
-		// Add PlayBuzz TinyMCE editor css
+		// Add playbuzz TinyMCE editor css
 		$mce_css .= plugins_url( 'css/editor.css', __FILE__ );
 
 		// Return the css list
