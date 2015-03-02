@@ -1,208 +1,164 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: playbuzz\n"
-"POT-Creation-Date: 2014-12-04 18:51+0200\n"
-"PO-Revision-Date: 2014-12-04 18:51+0200\n"
-"Last-Translator: ramiy <r_a_m_i@hotmail.com>\n"
-"Language-Team: PlayBuzz <publishers@playbuzz.com>\n"
+"Project-Id-Version: Playbuzz\n"
+"POT-Creation-Date: 2015-02-22 15:54+0200\n"
+"PO-Revision-Date: 2015-02-22 15:54+0200\n"
+"Last-Translator: \n"
+"Language-Team: Playbuzz <publishers@playbuzz.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin.php:192
+#: ../admin.php:153
 msgid "Playbuzz"
 msgstr ""
 
-#: ../admin.php:212
-msgid "Getting Started"
-msgstr ""
-
-#: ../admin.php:213
-msgid "Embed Options"
-msgstr ""
-
-#: ../admin.php:214
-msgid "Help"
-msgstr ""
-
-#: ../admin.php:219 ../admin.php:274 ../admin.php:471
+#: ../admin.php:172
 msgid "Playbuzz Plugin"
 msgstr ""
 
-#: ../admin.php:223
-msgid "Embedding an Item"
+#: ../admin.php:174
+msgid "Getting Started"
 msgstr ""
 
-#: ../admin.php:226
-#, php-format
+#: ../admin.php:175
+msgid "Site Settings"
+msgstr ""
+
+#: ../admin.php:176
+msgid "Shortcodes"
+msgstr ""
+
+#: ../admin.php:177
+msgid "Feedback"
+msgstr ""
+
+#: ../admin.php:186
+msgid "Embed Items from Playbuzz"
+msgstr ""
+
+#: ../admin.php:190
+msgid "Create a new post / page"
+msgstr ""
+
+#: ../admin.php:193
+msgid "Click the blue Playbuzz button in the visual editor"
+msgstr ""
+
+#: ../admin.php:196
+msgid "Search for an item you want or select one of our featured items"
+msgstr ""
+
+#: ../admin.php:199
+msgid "To embed the item just click the \"Embed\" button"
+msgstr ""
+
+#: ../admin.php:209
+msgid "Item Customization"
+msgstr ""
+
+#: ../admin.php:213
 msgid ""
-"<strong>Choose your content</strong>: Go to %s to choose the item you want "
-"to embed in your post."
+"After embedding the item in your post, click on the settings icon to open "
+"the item settings panel"
 msgstr ""
 
-#: ../admin.php:229
-msgid "For basic use, copy the item URL and paste it into your text editor."
+#: ../admin.php:216
+msgid "Use site default settings"
+msgstr ""
+
+#: ../admin.php:219
+msgid "Or select the \"Custom\" option to apply customized settings"
+msgstr ""
+
+#: ../admin.php:227 ../admin.php:251
+msgid "Default Site Settings"
 msgstr ""
 
 #: ../admin.php:231
-msgid "Check the visual editor to make sure the item loads."
+#, php-format
+msgid ""
+"Instead of heaving to define each one of the items separately, you can use "
+"the <a href=\"%s\">default site settings</a> option"
 msgstr ""
 
 #: ../admin.php:234
-msgid ""
-"Advanced users can use the following <strong>shortcode</strong> to embed "
-"items and tweak them:"
-msgstr ""
-
-#: ../admin.php:236
 #, php-format
 msgid ""
-"You can <a href=\"%s\">tweak the item's default settings</a> or read about "
-"more <a href=\"%s\">advanced shortcode attributes</a>."
+"This option is always available for you <a href=\"%s\">here</a> and in the "
+"following path: Settings > Playbuzz > Customization"
 msgstr ""
 
-#: ../admin.php:243
-msgid "Embedding a Section"
+#: ../admin.php:237
+msgid "These settings will not apply on items you customize manually"
 msgstr ""
 
-#: ../admin.php:246
-#, php-format
-msgid ""
-"<strong>Choose your list of Playful Content items</strong>: Go to %s to "
-"choose the tag you want to embed in your page."
+#: ../admin.php:255
+msgid "Display item information"
 msgstr ""
 
-#: ../admin.php:249
-msgid "For basic use, copy the section URL and paste it into your text editor."
+#: ../admin.php:257
+msgid "Show item thumbnail, name, description, creator."
 msgstr ""
 
-#: ../admin.php:251
-msgid "Check the visual editor to make sure the section loads."
+#: ../admin.php:261
+msgid "Display share buttons"
 msgstr ""
 
-#: ../admin.php:254
-msgid ""
-"Use the following <strong>shortcode</strong> where you want to embed the "
-"Playful Items list:"
+#: ../admin.php:263
+msgid "Show share buttons with links to YOUR site."
 msgstr ""
 
-#: ../admin.php:256
-#, php-format
-msgid "Customize by using <a href=\"%s\">advanced shortcode attributes</a>."
+#: ../admin.php:267
+msgid "Display Facebook comments"
 msgstr ""
 
-#: ../admin.php:264
-msgid "API Key"
+#: ../admin.php:269
+msgid "Show Facebook comments in your items."
+msgstr ""
+
+#: ../admin.php:275
+msgid "Sticky Header Preferences"
+msgstr ""
+
+#: ../admin.php:278
+msgid "Height"
+msgstr ""
+
+#: ../admin.php:280
+msgid "px"
 msgstr ""
 
 #: ../admin.php:282
-msgid "Item Embed Options"
-msgstr ""
-
-#: ../admin.php:286
-msgid "Item Info"
+msgid ""
+"Use this if your website has top header that's always visible, even while "
+"scrolling down."
 msgstr ""
 
 #: ../admin.php:288
-msgid "Show item info (thumbnail, title, description, etc.)"
+msgid "Appearance Preferences"
 msgstr ""
 
-#: ../admin.php:292
-msgid "Sharing"
+#: ../admin.php:291
+msgid "Display embed on"
+msgstr ""
+
+#: ../admin.php:293
+msgid "Posts & Pages Only"
 msgstr ""
 
 #: ../admin.php:294
-msgid "Show sharing buttons (recommended - redirects to your page)."
+msgid "All pages (singular, archive, ect.)"
 msgstr ""
 
-#: ../admin.php:298
-msgid "Comments"
-msgstr ""
-
-#: ../admin.php:300
-msgid "Enable facebook comments."
-msgstr ""
-
-#: ../admin.php:309
-msgid "Recommendations"
-msgstr ""
-
-#: ../admin.php:311 ../admin.php:505 ../admin.php:557
-msgid "Show recommendations for more items."
-msgstr ""
-
-#: ../admin.php:314 ../widgets.php:164
-msgid "Tags"
-msgstr ""
-
-#: ../admin.php:316 ../widgets.php:165
-msgid "All"
-msgstr ""
-
-#: ../admin.php:317 ../widgets.php:166
-msgid "Fun"
-msgstr ""
-
-#: ../admin.php:318 ../widgets.php:167
-msgid "Pop"
-msgstr ""
-
-#: ../admin.php:319 ../widgets.php:168
-msgid "Geek"
-msgstr ""
-
-#: ../admin.php:320 ../widgets.php:169
-msgid "Sports"
-msgstr ""
-
-#: ../admin.php:321 ../widgets.php:170
-msgid "Editor's Pick"
-msgstr ""
-
-#: ../admin.php:325 ../widgets.php:173
-msgid "Custom Tags"
-msgstr ""
-
-#: ../admin.php:327 ../widgets.php:174
-msgid "Comma separated tags"
-msgstr ""
-
-#: ../admin.php:328
-msgid "Example: food, rap, weather"
-msgstr ""
-
-#: ../admin.php:340
-msgid "Margin Top"
-msgstr ""
-
-#: ../admin.php:342
-msgid "Default: 0px"
-msgstr ""
-
-#: ../admin.php:343
-msgid "Use in case of a floating bar."
-msgstr ""
-
-#: ../admin.php:352
-msgid "WordPress Theme Visibility"
-msgstr ""
-
-#: ../admin.php:355
-msgid "Show embedded content in posts/pages only"
-msgstr ""
-
-#: ../admin.php:356
-msgid "Show embedded content in all pages (singular, archive, ect.)"
-msgstr ""
-
-#: ../admin.php:358
+#: ../admin.php:297
 #, php-format
 msgid ""
 "Whether to show the embedded content only in <a href=\"%s\" target=\"_blank"
@@ -210,35 +166,91 @@ msgid ""
 "too."
 msgstr ""
 
-#: ../admin.php:369
-msgid "Related Content Embed Options"
+#: ../admin.php:303
+msgid "Item Recommendations"
 msgstr ""
 
-#: ../admin.php:373 ../widgets.php:145
+#: ../admin.php:307
+msgid "Display more recommendations"
+msgstr ""
+
+#: ../admin.php:309 ../admin.php:499 ../admin.php:552
+msgid "Show recommendations for more items."
+msgstr ""
+
+#: ../admin.php:317 ../widgets.php:173
+msgid "Tags"
+msgstr ""
+
+#: ../admin.php:320 ../widgets.php:174
+msgid "All"
+msgstr ""
+
+#: ../admin.php:324 ../widgets.php:175
+msgid "Fun"
+msgstr ""
+
+#: ../admin.php:328 ../widgets.php:176
+msgid "Pop"
+msgstr ""
+
+#: ../admin.php:332 ../widgets.php:177
+msgid "Geek"
+msgstr ""
+
+#: ../admin.php:336 ../widgets.php:178
+msgid "Sports"
+msgstr ""
+
+#: ../admin.php:340 ../widgets.php:179
+msgid "Editor's Pick"
+msgstr ""
+
+#: ../admin.php:345 ../widgets.php:182
+msgid "Custom Tags"
+msgstr ""
+
+#: ../admin.php:346
+msgid "Comma separated tags, e.g. food, rap, weather"
+msgstr ""
+
+#: ../admin.php:354
+msgid "Authentication"
+msgstr ""
+
+#: ../admin.php:356
+msgid "API Key"
+msgstr ""
+
+#: ../admin.php:365
+msgid "Related Content Customization"
+msgstr ""
+
+#: ../admin.php:369 ../widgets.php:154
 msgid "Number of Items"
 msgstr ""
 
-#: ../admin.php:394 ../widgets.php:137
+#: ../admin.php:390 ../widgets.php:146
 msgid "Items layout"
 msgstr ""
 
-#: ../admin.php:396 ../widgets.php:139
+#: ../admin.php:392 ../widgets.php:148
 msgid "Large Images"
 msgstr ""
 
-#: ../admin.php:397 ../widgets.php:140
+#: ../admin.php:393 ../widgets.php:149
 msgid "Horizontal Images"
 msgstr ""
 
-#: ../admin.php:398 ../widgets.php:141
+#: ../admin.php:394 ../widgets.php:150
 msgid "No Images"
 msgstr ""
 
-#: ../admin.php:421
+#: ../admin.php:417
 msgid "Open Items at"
 msgstr ""
 
-#: ../admin.php:423 ../widgets.php:178
+#: ../admin.php:419 ../widgets.php:187
 #, php-format
 msgid ""
 "<a href=\"%s\" target=\"_blank\">Create</a> a new page containing the "
@@ -246,132 +258,132 @@ msgid ""
 "destination page where items will open:"
 msgstr ""
 
-#: ../admin.php:430 ../widgets.php:186
+#: ../admin.php:426 ../widgets.php:195
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: ../admin.php:441
+#: ../admin.php:437
 msgid "Automatically Add Recommendations"
 msgstr ""
 
-#: ../admin.php:444
+#: ../admin.php:440
 msgid "Active"
 msgstr ""
 
-#: ../admin.php:447
+#: ../admin.php:443
 msgid "Disable"
 msgstr ""
 
-#: ../admin.php:448
+#: ../admin.php:444
 msgid "Enable"
 msgstr ""
 
-#: ../admin.php:453
+#: ../admin.php:449
 msgid "Location"
 msgstr ""
 
-#: ../admin.php:456
+#: ../admin.php:452
 msgid "Above the content"
 msgstr ""
 
-#: ../admin.php:457
+#: ../admin.php:453
 msgid "Bellow the content"
 msgstr ""
 
-#: ../admin.php:475
+#: ../admin.php:469
 msgid "Item Shortcode"
 msgstr ""
 
-#: ../admin.php:476
+#: ../admin.php:470
 #, php-format
 msgid "Choose any Playful Content item from %s and easily embed it in a post."
 msgstr ""
 
-#: ../admin.php:477
+#: ../admin.php:471
 msgid ""
 "For basic use, paste the item URL into your text editor and go to the visual "
 "editor to make sure it loads."
 msgstr ""
 
-#: ../admin.php:478
+#: ../admin.php:472
 msgid ""
-"Use the following shortcode if you want to adjust the settings of your "
-"embedded item:"
+"For more advance usage, use the following shortcode if you want to adjust "
+"the item appearance:"
 msgstr ""
 
-#: ../admin.php:480
+#: ../admin.php:474
 #, php-format
 msgid ""
-"You can tweak the general settings for all embedded  content in the <a href="
-"\"%s\">Embed Options</a> tab."
+"You can set default appearance settings in the <a href=\"%s\">Site Settings</"
+"a> tab."
 msgstr ""
 
-#: ../admin.php:481
+#: ../admin.php:475
 msgid ""
-"Or you can override and customize each embedded content with the following "
-"shortcode attributes:"
+"Or you can override the default appearance and customize each item with the "
+"following shortcode attributes:"
 msgstr ""
 
-#: ../admin.php:485
+#: ../admin.php:479
 msgid "The URL of the item that will be displayed."
 msgstr ""
 
-#: ../admin.php:486
+#: ../admin.php:480
 msgid "Type: URL"
 msgstr ""
 
-#: ../admin.php:490
+#: ../admin.php:484
 msgid "Show item info (thumbnail, name, description, editor, etc)."
 msgstr ""
 
-#: ../admin.php:491 ../admin.php:496 ../admin.php:501 ../admin.php:506
-#: ../admin.php:548 ../admin.php:553 ../admin.php:558
+#: ../admin.php:485 ../admin.php:490 ../admin.php:495 ../admin.php:500
+#: ../admin.php:543 ../admin.php:548 ../admin.php:553
 msgid "Type: Boolean (true/false) ; Default: true"
 msgstr ""
 
-#: ../admin.php:495 ../admin.php:547
+#: ../admin.php:489 ../admin.php:542
 msgid "Show sharing buttons."
 msgstr ""
 
-#: ../admin.php:500 ../admin.php:552
+#: ../admin.php:494 ../admin.php:547
 msgid "Show comments control from the item page."
 msgstr ""
 
-#: ../admin.php:510 ../admin.php:562
+#: ../admin.php:504 ../admin.php:557
 msgid ""
 "Destination page, containing the [playbuzz-section] shortcode, where new "
 "items will be displayed."
 msgstr ""
 
-#: ../admin.php:511 ../admin.php:563
+#: ../admin.php:505 ../admin.php:558
 msgid "Type: URL ; Default: https://www.playbuzz.com/"
 msgstr ""
 
-#: ../admin.php:515 ../admin.php:567
+#: ../admin.php:509 ../admin.php:562
 msgid "Define custom width in pixels."
 msgstr ""
 
-#: ../admin.php:516 ../admin.php:521 ../admin.php:568 ../admin.php:573
+#: ../admin.php:510 ../admin.php:515 ../admin.php:563 ../admin.php:568
 msgid "Type: String ; Default: auto"
 msgstr ""
 
-#: ../admin.php:520 ../admin.php:572
+#: ../admin.php:514 ../admin.php:567
 msgid "Define custom height in pixels."
 msgstr ""
 
-#: ../admin.php:525 ../admin.php:577
+#: ../admin.php:519 ../admin.php:572
 msgid "Define custom margin-top in pixels."
 msgstr ""
 
-#: ../admin.php:526 ../admin.php:578
+#: ../admin.php:520 ../admin.php:573
 msgid "Type: String ; Default: 0px"
 msgstr ""
 
-#: ../admin.php:533
+#: ../admin.php:528
 msgid "Section Shortcode"
 msgstr ""
 
-#: ../admin.php:534
+#: ../admin.php:529
 #, php-format
 msgid ""
 "Choose any list of Playful Items in a specific vertical from %s and easily "
@@ -379,33 +391,100 @@ msgid ""
 "items in the selected tags (topics)."
 msgstr ""
 
-#: ../admin.php:535
+#: ../admin.php:530
 msgid ""
 "For basic use, paste the section URL into your text editor and go to the "
 "visual editor to make sure it loads."
 msgstr ""
 
-#: ../admin.php:536
+#: ../admin.php:531
 msgid ""
 "Use the following shortcode if you want to adjust the settings of your "
 "embedded section:"
 msgstr ""
 
-#: ../admin.php:538
+#: ../admin.php:533
 msgid ""
 "You can tweak the general settings for the section with the following "
 "shortcode attributes:"
 msgstr ""
 
-#: ../admin.php:542
+#: ../admin.php:537
 msgid "Filters the content shown by comma separated tags."
 msgstr ""
 
-#: ../admin.php:543
+#: ../admin.php:538
 msgid "Type: String ; Default: All"
 msgstr ""
 
-#: ../index.php:60
+#: ../admin.php:583
+msgid "We Are Listening"
+msgstr ""
+
+#: ../admin.php:585
+msgid ""
+"We’d love to know about your experiences with our WordPress plugin and "
+"beyond. Drop us a line using the form below"
+msgstr ""
+
+#: ../admin.php:597
+msgid "Feedback Sent."
+msgstr ""
+
+#: ../admin.php:599
+msgid "Error sending feedback."
+msgstr ""
+
+#: ../admin.php:606
+msgid "Your Name"
+msgstr ""
+
+#: ../admin.php:610
+msgid "Email (so we can write you back)"
+msgstr ""
+
+#: ../admin.php:614
+msgid "Description"
+msgstr ""
+
+#: ../admin.php:615
+msgid "What's on your mind?"
+msgstr ""
+
+#: ../admin.php:617
+msgid "Submit"
+msgstr ""
+
+#: ../admin.php:625
+msgid "Join the Playbuzz Publishers Community"
+msgstr ""
+
+#: ../admin.php:637
+msgid "Enjoying the Playbuzz WordPress Plugin?"
+msgstr ""
+
+#: ../admin.php:638
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\">Rate us</a> on the Wordpress Plugin "
+"Directory to help others to discover the engagement value of Playbuzz embeds!"
+msgstr ""
+
+#: ../admin.php:644
+msgid "Become a Premium Playbuzz Publisher"
+msgstr ""
+
+#: ../admin.php:645
+msgid ""
+"Want to learn how Playbuzz can take your publication’s engagement to new "
+"heights?"
+msgstr ""
+
+#: ../admin.php:646
+msgid "Lets Talk!"
+msgstr ""
+
+#: ../index.php:65
 msgid "Settings"
 msgstr ""
 
@@ -417,18 +496,22 @@ msgstr ""
 msgid "Related Playful Content links and recommendations by playbuzz."
 msgstr ""
 
-#: ../widgets.php:113
+#: ../widgets.php:122
 msgid "Play It"
 msgstr ""
 
-#: ../widgets.php:133
+#: ../widgets.php:142
 msgid "Title"
 msgstr ""
 
-#: ../widgets.php:134
+#: ../widgets.php:143
 msgid "Widget title"
 msgstr ""
 
-#: ../widgets.php:177
+#: ../widgets.php:183
+msgid "Comma separated tags"
+msgstr ""
+
+#: ../widgets.php:186
 msgid "Open Items at (location of section)"
 msgstr ""

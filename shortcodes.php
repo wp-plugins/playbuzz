@@ -47,14 +47,28 @@ add_shortcode( 'playbuzz-recommendations', 'playbuzz_recommendations_shortcode' 
  */
 function playbuzz_item_shortcode( $atts ) {
 
+	// Load globals
+	global $wp_version;
+
 	// Load publisher options from DB defined 
 	$options = get_option( 'playbuzz' );
+
+	// Tags
+	$tags = '';
+	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
+	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
+	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
+	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
+	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
+	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
+	$tags .= $options['more-tags'];
+	$tags = rtrim( $tags, ',');
 
 	// Attributes with default values
 	extract( shortcode_atts(
 		array(
 			'key'       => $options['key'],                                     // api key allowing configuration and analytics
-			'tags'      => pb_tags( $options ),                                 // filter by tags
+			'tags'      => $tags,                                               // filter by tags
 			'game'      => '',                                                  // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
 			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
 			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
@@ -71,7 +85,7 @@ function playbuzz_item_shortcode( $atts ) {
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="' . $shares . '" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
+		<div class="pb_feed" data-provider="WordPress ' . $wp_version . '" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="' . $shares . '" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
 	';
 
 	// Theme Visibility
@@ -97,14 +111,28 @@ function playbuzz_item_shortcode( $atts ) {
  */
 function playbuzz_section_shortcode( $atts ) {
 
-	// Load options
+	// Load globals
+	global $wp_version;
+
+	// Load publisher options from DB defined 
 	$options = get_option( 'playbuzz' );
+
+	// Tags
+	$tags = '';
+	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
+	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
+	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
+	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
+	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
+	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
+	$tags .= $options['more-tags'];
+	$tags = rtrim( $tags, ',');
 
 	// Attributes with default values
 	extract( shortcode_atts(
 		array(
 			'key'       => $options['key'],                                     // api key allowing configuration and analytics
-			'tags'      => pb_tags( $options ),                                 // filter by tags
+			'tags'      => $tags,                                               // filter by tags
 			'game'      => '',                                                  // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
 			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
 			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
@@ -121,7 +149,7 @@ function playbuzz_section_shortcode( $atts ) {
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="true" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
+		<div class="pb_feed" data-provider="WordPress ' . $wp_version . '" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="true" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
 	';
 
 	// Theme Visibility
@@ -147,8 +175,22 @@ function playbuzz_section_shortcode( $atts ) {
  */
 function playbuzz_recommendations_shortcode( $atts ) {
 
-	// Load options
+	// Load globals
+	global $wp_version;
+
+	// Load publisher options from DB defined 
 	$options = get_option( 'playbuzz' );
+
+	// Tags
+	$tags = '';
+	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
+	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
+	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
+	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
+	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
+	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
+	$tags .= $options['more-tags'];
+	$tags = rtrim( $tags, ',');
 
 	// Attributes with default values
 	extract( shortcode_atts(
@@ -157,7 +199,7 @@ function playbuzz_recommendations_shortcode( $atts ) {
 			'view'    => $options['view'],    // set view type
 			'items'   => $options['items'],   // number of items to display
 			'links'   => $options['links'],   // destination url in your site where new items will be displayed
-			'tags'    => pb_tags( $options ), // filter by tags
+			'tags'    => $tags,               // filter by tags
 			'nostyle' => 'false',             // set style
 		), $atts )
 	);
@@ -165,7 +207,7 @@ function playbuzz_recommendations_shortcode( $atts ) {
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/widget.js"></script>
-		<div class="pb_recommendations" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="' . $nostyle . '"></div>
+		<div class="pb_recommendations" data-provider="WordPress ' . $wp_version . '" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="' . $nostyle . '"></div>
 	';
 
 	// Theme Visibility

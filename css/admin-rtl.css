@@ -1,0 +1,160 @@
+/*
+ * ADMIN OPTION PAGE
+ */
+
+.rtl #playbuzz-admin h1 {
+	float: right;
+	padding-right: 0;
+	padding-left: 2em;
+}
+.rtl #playbuzz-admin ol.circles-list > li:before {
+	right: -2.33em;
+}
+.rtl #playbuzz-admin dt {
+	font-weight: bold;
+	float: right;
+}
+.rtl #playbuzz-admin dd {
+	border-left: 0;
+	border-right: 1px solid #ccc;
+}
+.rtl #playbuzz-admin img.location_img {
+	float: left;
+	clear: both;
+}
+@media (max-width: 780px) {
+	.rtl #playbuzz-admin h1 {
+		float: none;
+		padding: 0;
+	}
+	.rtl #playbuzz-admin  img.location_img {
+		float: none;
+	}
+}
+
+
+
+/*
+ * TINYMCE BUTTON
+ */
+
+.rtl #insert-playbuzz-button {
+	background-position: right center;
+	padding-right: 20px;
+	padding-left: 5px;
+}
+
+
+
+/*
+ * ITEM POPUP
+ */
+
+.rtl #playbuzz_item_info .playbuzz_item_thumb {
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+
+
+/*
+ * POPUP - General
+ */
+
+.rtl #playbuzz_popup_close:before {
+	float: left;
+}
+
+
+
+/*
+ * ITEM POPUP
+ */
+
+.rtl .playbuzz_item_header_text {
+	padding-left: 0;
+	padding-right: 20px;
+}
+.rtl #playbuzz_item_preview .playbuzz_item_thumb img {
+	margin-right: 0;
+	margin-left: 25px;
+}
+.rtl #playbuzz_item_preview .playbuzz_item_type {
+	padding-right: 0;
+	padding-left: 1.5em;
+}
+.rtl #playbuzz_item_preview .playbuzz_item_views {
+	padding-right: 0;
+	padding-left: 0.5em;
+	margin-right: 0;
+	margin-left: 0.5em;
+	border-right: 0;
+	border-left: 1px solid #999;
+}
+.rtl #playbuzz_item_settings .playbuzz_item_settings_title span {
+	padding-left: 0;
+	padding-right: 0.5em;
+}
+.rtl #playbuzz_item_settings .playbuzz_item_settings_select {
+	margin-left: 0;
+	margin-right: 25px;
+}
+.rtl #playbuzz_item_settings .settings_half {
+	float: right;
+}
+.rtl #playbuzz_item_settings a {
+	padding-left: 0;
+	padding-right: 0.5em;
+}
+.rtl #playbuzz_item_settings .playbuzz_item_settings_margin_top_text {
+	padding-left: 0;
+	padding-right: 30px;
+}
+.rtl #playbuzz_item_settings .description {
+	padding-left: 0;
+	padding-right: 30px;
+}
+.rtl #playbuzz_item_update input[type=reset] {
+	float: left;
+}
+
+
+
+/*
+ * SEARCH POPUP - General
+ */
+
+.rtl #playbuzz_search_header .playbuzz_search_logo {
+	float: right;
+}
+.rtl #playbuzz_search_header .playbuzz_search {
+	margin: 20px 6% 20px 0;
+}
+.rtl #playbuzz_search_sub_header {
+	padding: 15px 20px 0px 25px;
+}
+.rtl #playbuzz_search_sub_header .playbuzz_search_fields {
+	float: left;
+}
+.rtl #playbuzz_search_results .playbuzz_item_desc div,
+.rtl #playbuzz_search_results .playbuzz_item_type div,
+.rtl #playbuzz_search_results .playbuzz_item_views div {
+	border-right: 0;
+	border-left: 2px solid #ebebeb;
+}
+.rtl #playbuzz_search_results .playbuzz_item_pagination a.playbuzz_prev:before {
+	content: '\f345';
+}
+.rtl #playbuzz_search_results .playbuzz_item_pagination a.playbuzz_next:before {
+	content: '\f341';
+}
+
+
+
+/*
+ * SEARCH POPUP - Features Items
+ */
+
+.rtl #playbuzz_search_results .playbuzz_featured_item {
+	float: right;
+}

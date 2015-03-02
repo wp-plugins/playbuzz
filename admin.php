@@ -8,6 +8,7 @@
 class PlaybuzzAdmin {
 
 	protected static $option_name = 'playbuzz';
+
 	protected static $data = array(
 
 		// General
@@ -45,8 +46,6 @@ class PlaybuzzAdmin {
 	 */
 	public function __construct() {
 
-		add_action( 'init', array( $this, 'init' ) );
-
 		// Text domain for localization and translation
 		try {
 			load_plugin_textdomain( 'playbuzz', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
@@ -57,7 +56,8 @@ class PlaybuzzAdmin {
 		// Admin sub-menu
 		if ( is_admin() ) {
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
-			add_action( 'admin_menu', array( $this, 'add_page'   ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+			add_action( 'admin_menu', array( $this, 'add_settings_page'   ) );
 		}
 
 	}
@@ -118,160 +118,132 @@ class PlaybuzzAdmin {
 	}
 
 	/*
-	 * Init function.
-	 */
-	public function init() {
-
-		// Add Recommendations to the content
-		add_filter( 'the_content', 'pb_content_filter', 20 );
-
-		function pb_content_filter( $content ) {
-
-			global $post;
-
-			$options   = get_option( 'playbuzz' );
-			$key       = $options['key'];
-			$active    = $options['active'];
-			$show      = $options['show'];
-			$view      = $options['view'];
-			$items     = $options['items'];
-			$links     = $options['links'];
-			$tags      = pb_tags( $options );
-
-			// Embed Code
-			$pb_code  = '
-				<script type="text/javascript" src="//cdn.playbuzz.com/widget/widget.js"></script>
-				<div class="pb_recommendations" data-key="' . $key . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-tags="' . $tags . '" data-nostyle="false"></div>
-			';
-
-			// Add embed code
-			if ( 'true' == $active ) {
-
-				// Add embed code only to posts and pages
-				if ( is_singular() ) {
-
-					// Add to header or footer
-					if ( 'header' == $show ) {
-
-						$content = $pb_code . $content;
-
-					} elseif ( 'footer' == $show ) {
-
-						$content = $content . $pb_code;
-
-					}
-
-				}
-
-			}
-
-			// Return the content
-			return $content;
-
-		}
-
-	}
-
-	/*
-	 * White list our options using the Settings API.
+	 * Register setting page using the Settings API.
 	 */
 	public function admin_init() {
 
 		register_setting( 'playbuzz', $this->get_option_name() );
 
-		wp_register_style( 'playbuzz-admin', plugins_url( 'css/admin.css', __FILE__ ), false, '0.3' );
+	}
+
+	/*
+	 * Admin Scripts and Styles
+	 */
+	public function admin_scripts() {
+
+		// Styles
+		wp_register_style( 'playbuzz-admin',     plugins_url( 'css/admin.css',     __FILE__ ), false, '0.6.0' );
+		wp_register_style( 'playbuzz-admin-rtl', plugins_url( 'css/admin-rtl.css', __FILE__ ), false, '0.6.0' );
+
 		wp_enqueue_style(  'playbuzz-admin' );
+		if ( is_rtl() )
+			wp_enqueue_style(  'playbuzz-admin-rtl' );
+
+		// Scripts
+		wp_register_script( 'playbuzz-admin', plugins_url( 'js/playbuzz-admin.js', __FILE__ ), array( 'jquery' ), '0.6.0' );
+		wp_enqueue_script( 'playbuzz-admin' );
 
 	}
 
 	/*
 	 * Add entry in the settings menu.
 	 */
-	public function add_page() {
+	public function add_settings_page() {
 
-		add_options_page( __( 'Playbuzz', 'playbuzz' ), __( 'Playbuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'options_do_page' ) );
+		add_options_page( __( 'Playbuzz', 'playbuzz' ), __( 'Playbuzz', 'playbuzz' ), 'manage_options', 'playbuzz', array( $this, 'playbuzz_settings_page' ) );
 
 	}
 
 	/*
 	 * Print the menu page itself.
 	 */
-	public function options_do_page() {
+	public function playbuzz_settings_page() {
 
 		// Load settings
 		$options = get_option( $this->get_option_name() );
 
 		// Set default tab
 		$active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'start';
+		
+		// Check if feedback mail was sent
+		$feedback = isset( $_GET[ 'mail' ] ) ? $_GET[ 'mail' ] : 'false';
 
 		// Display the page
 		?>
 		<a name="top"></a>
-		<div class="wrap">
+		<div class="wrap" id="playbuzz-admin">
+			<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
 			<h2 class="nav-tab-wrapper">
-				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=start" class="nav-tab <?php echo $active_tab == 'start' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Getting Started', 'playbuzz' ); ?></a>
-				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=embed" class="nav-tab <?php echo $active_tab == 'embed' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Embed Options',   'playbuzz' ); ?></a>
-				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=help"  class="nav-tab <?php echo $active_tab == 'help'  ? 'nav-tab-active' : ''; ?>"><?php _e( 'Help',            'playbuzz' ); ?></a>
+				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=start"      class="nav-tab <?php echo $active_tab == 'start'      ? 'nav-tab-active' : ''; ?>"><?php _e( 'Getting Started', 'playbuzz' ); ?></a>
+				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=embed"      class="nav-tab <?php echo $active_tab == 'embed'      ? 'nav-tab-active' : ''; ?>"><?php _e( 'Site Settings',   'playbuzz' ); ?></a>
+				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=shortcodes" class="nav-tab <?php echo $active_tab == 'shortcodes' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Shortcodes',      'playbuzz' ); ?></a>
+				<a href="?page=<?php echo $this->get_option_name(); ?>&tab=feedback"   class="nav-tab <?php echo $active_tab == 'feedback'   ? 'nav-tab-active' : ''; ?>"><?php _e( 'Feedback',        'playbuzz' ); ?></a>
 			</h2>
 
 			<?php if( $active_tab == 'start' ) { ?>
 
-				<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
+				<div class="playbuzz_start">
 
-				<div class="playbuzz_getting_started">
-					<img src="<?php echo plugins_url( 'img/blog-item.png', __FILE__ ); ?>" class="location_img">
-					<h3><?php _e( 'Embedding an Item', 'playbuzz' ); ?></h3>
+					<img src="<?php echo plugins_url( 'img/admin-embed-items.png', __FILE__ ); ?>" class="location_img">
+
+					<h3><?php _e( 'Embed Items from Playbuzz', 'playbuzz' ); ?></h3>
+
 					<ol class="circles-list">
 						<li>
-							<p><?php printf( __( '<strong>Choose your content</strong>: Go to %s to choose the item you want to embed in your post.', 'playbuzz' ), '<a href="https://playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
+							<p><?php _e( 'Create a new post / page', 'playbuzz' ); ?></p>
 						</li>
 						<li>
-							<p><?php _e( 'For basic use, copy the item URL and paste it into your text editor.', 'playbuzz' ); ?></p>
-							<p><code> https://www.playbuzz.com/llamap10/how-weird-are-you</code></p>
-							<p><?php _e( 'Check the visual editor to make sure the item loads.', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Click the blue Playbuzz button in the visual editor', 'playbuzz' ); ?></p>
 						</li>
 						<li>
-							<p><?php _e( 'Advanced users can use the following <strong>shortcode</strong> to embed items and tweak them:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-item url="https://www.playbuzz.com/llamap10/how-weird-are-you" comments="false"]</code></p>
-							<p><?php printf( __( 'You can <a href="%s">tweak the item\'s default settings</a> or read about more <a href="%s">advanced shortcode attributes</a>.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed'), ('?page='.$this->get_option_name().'&tab=help') ); ?></p>
+							<p><?php _e( 'Search for an item you want or select one of our featured items', 'playbuzz' ); ?></p>
+						</li>
+						<li>
+							<p><?php _e( 'To embed the item just click the "Embed" button', 'playbuzz' ); ?></p>
 						</li>
 					</ol>
+
 				</div>
 
-				<div class="playbuzz_getting_started">
-					<img src="<?php echo plugins_url( 'img/blog-section.png', __FILE__ ); ?>" class="location_img">
-					<h3><?php _e( 'Embedding a Section', 'playbuzz' ); ?></h3>
+				<div class="playbuzz_start">
+
+					<img src="<?php echo plugins_url( 'img/admin-embed-customization.png', __FILE__ ); ?>" class="location_img">
+
+					<h3><?php _e( 'Item Customization', 'playbuzz' ); ?></h3>
+
 					<ol class="circles-list">
 						<li>
-							<p><?php printf( __( '<strong>Choose your list of Playful Content items</strong>: Go to %s to choose the tag you want to embed in your page.', 'playbuzz' ), '<a href="https://playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
+							<p><?php _e( 'After embedding the item in your post, click on the settings icon to open the item settings panel', 'playbuzz' ); ?></p>
 						</li>
 						<li>
-							<p><?php _e( 'For basic use, copy the section URL and paste it into your text editor.', 'playbuzz' ); ?></p>
-							<p><code> https://www.playbuzz.com/fun</code></p>
-							<p><?php _e( 'Check the visual editor to make sure the section loads.', 'playbuzz' ); ?></p>
+							<p><?php _e( 'Use site default settings', 'playbuzz' ); ?></p>
 						</li>
 						<li>
-							<p><?php _e( 'Use the following <strong>shortcode</strong> where you want to embed the Playful Items list:', 'playbuzz' ); ?></p>
-							<p><code> [playbuzz-section tags="fun,cats" width="600"]</code></p>
-							<p><?php printf( __( 'Customize by using <a href="%s">advanced shortcode attributes</a>.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=help') ); ?></p>
+							<p><?php _e( 'Or select the "Custom" option to apply customized settings', 'playbuzz' ); ?></p>
 						</li>
 					</ol>
+
 				</div>
 
-				<!--
-				<table class="form-table">
-					<tr>
-						<th scope="row"><?php _e( 'API Key', 'playbuzz' ); ?></th>
-						<td>
-							<strong><?php echo $options['key']; ?></strong>
-						</td>
-					</tr>
-				</table>
-				-->
+				<div class="playbuzz_start">
+
+					<h3><?php _e( 'Default Site Settings', 'playbuzz' ); ?></h3>
+
+					<ol class="circles-list">
+						<li>
+							<p><?php printf( __( 'Instead of heaving to define each one of the items separately, you can use the <a href="%s">default site settings</a> option', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed') ); ?></p>
+						</li>
+						<li>
+							<p><?php printf( __( 'This option is always available for you <a href="%s">here</a> and in the following path: Settings > Playbuzz > Customization', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed') ); ?></p>
+						</li>
+						<li>
+							<p><?php _e( 'These settings will not apply on items you customize manually', 'playbuzz' ); ?></p>
+						</li>
+					</ol>
+
+				</div>
 
 			<?php } elseif( $active_tab == 'embed' ) { ?>
-
-				<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
 
 				<form method="post" action="options.php">
 
@@ -279,94 +251,121 @@ class PlaybuzzAdmin {
 
 					<div class="playbuzz_embed">
 
-						<h3><?php _e( 'Item Embed Options', 'playbuzz' ); ?></h3>
+						<h3><?php _e( 'Default Site Settings', 'playbuzz' ); ?></h3>
 
-						<table class="form-table">
-							<tr>
-								<th scope="row"><?php _e( 'Item Info', 'playbuzz' ); ?></th>
-								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[info]" value="1" <?php if ( isset( $options['info'] ) && ( '1' == $options['info'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Show item info (thumbnail, title, description, etc.)', 'playbuzz' ); ?>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><?php _e( 'Sharing', 'playbuzz' ); ?></th>
-								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[shares]" value="1" <?php if ( isset( $options['shares'] ) && ( '1' == $options['shares'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Show sharing buttons (recommended - redirects to your page).', 'playbuzz' ); ?>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><?php _e( 'Comments', 'playbuzz' ); ?></th>
-								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[comments]" value="1" <?php if ( isset( $options['comments'] ) && ( '1' == $options['comments'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Enable facebook comments.', 'playbuzz' ); ?>
-								</td>
-							</tr>
-							<tr class="separator">
-								<td colspan="2">
-									<hr>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><?php _e( 'Recommendations', 'playbuzz' ); ?></th>
-								<td>
-									<input type="checkbox" name="<?php echo $this->get_option_name(); ?>[recommend]" value="1" <?php if ( isset( $options['comments'] ) && ( '1' == $options['recommend'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?>
-									<table class="form-table">
-										<tr valign="top">
-											<th scope="row"><?php _e( 'Tags', 'playbuzz' ); ?></th>
-											<td>
-												<input type="checkbox" class="checkbox"        name="<?php echo $this->get_option_name(); ?>[tags-mix]"          value="1" <?php if ( isset( $options['tags-mix']          ) && ( '1' == $options['tags-mix']          ) ) echo 'checked="checked"'; ?>> <?php _e( 'All',            'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-fun]"          value="1" <?php if ( isset( $options['tags-fun']          ) && ( '1' == $options['tags-fun']          ) ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-pop]"          value="1" <?php if ( isset( $options['tags-pop']          ) && ( '1' == $options['tags-pop']          ) ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',            'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-geek]"         value="1" <?php if ( isset( $options['tags-geek']         ) && ( '1' == $options['tags-geek']         ) ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',           'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-sports]"       value="1" <?php if ( isset( $options['tags-sports']       ) && ( '1' == $options['tags-sports']       ) ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',         'playbuzz' ); ?><br/>
-												<input type="checkbox" class="checkbox_indent" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( isset( $options['tags-editors-pick'] ) && ( '1' == $options['tags-editors-pick'] ) ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?><br/>
-											</td>
-										</tr>
-										<tr valign="top">
-											<th scope="row"><?php _e( 'Custom Tags', 'playbuzz' ); ?></th>
-											<td>
-												<input type="text" name="<?php echo $this->get_option_name(); ?>[more-tags]" value="<?php echo $options['more-tags']; ?>" class="regular-text" placeholder="<?php _e( 'Comma separated tags', 'playbuzz' ); ?>">
-												<p><?php _e( 'Example: food, rap, weather', 'playbuzz' ); ?></p>
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-							<tr class="separator">
-								<td colspan="2">
-									<hr>
-								</td>
-							</tr>
-							<tr valign="top">
-								<th scope="row"><?php _e( 'Margin Top', 'playbuzz' ); ?></th>
-								<td>
-									<input type="text" name="<?php echo $this->get_option_name(); ?>[margin-top]" value="<?php echo $options['margin-top']; ?>" class="regular-text" placeholder="<?php _e( 'Default: 0px', 'playbuzz' ); ?>"><br>
-									<p><?php _e( 'Use in case of a floating bar.', 'playbuzz' ); ?></p>
-								</td>
-							</tr>
-							<tr class="separator">
-								<td colspan="2">
-									<hr>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><?php _e( 'WordPress Theme Visibility', 'playbuzz' ); ?></th>
-								<td>
-									<select name="<?php echo $this->get_option_name(); ?>[embeddedon]">
-										<option value="content" <?php if ( isset( $options['embeddedon'] ) && ( 'content' == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in posts/pages only',                    'playbuzz' ); ?></option>
-										<option value="all"     <?php if ( isset( $options['embeddedon'] ) && ( 'all'     == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Show embedded content in all pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
-									</select>
-									<p><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'https://codex.wordpress.org/Function_Reference/is_singular', 'https://codex.wordpress.org/Template_Hierarchy' ); ?></p>
-								</td>
-							</tr>
-						</table>
+						<label for="<?php echo $this->get_option_name(); ?>[info]">
+							<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[info]" name="<?php echo $this->get_option_name(); ?>[info]" value="1" <?php if ( isset( $options['info'] ) && ( '1' == $options['info'] ) ) echo 'checked="checked"'; ?>>
+							<?php _e( 'Display item information', 'playbuzz' ); ?>
+						</label>
+						<p class="description indent"><?php _e( 'Show item thumbnail, name, description, creator.', 'playbuzz' ); ?></p>
 
-						<?php submit_button(); ?> 
+						<label for="<?php echo $this->get_option_name(); ?>[shares]">
+							<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[shares]" name="<?php echo $this->get_option_name(); ?>[shares]" value="1" <?php if ( isset( $options['shares'] ) && ( '1' == $options['shares'] ) ) echo 'checked="checked"'; ?>>
+							<?php _e( 'Display share buttons', 'playbuzz' ); ?>
+						</label>
+						<p class="description indent"><?php _e( 'Show share buttons with links to YOUR site.', 'playbuzz' ); ?></p>
+
+						<label for="<?php echo $this->get_option_name(); ?>[comments]">
+							<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[comments]" name="<?php echo $this->get_option_name(); ?>[comments]" value="1" <?php if ( isset( $options['comments'] ) && ( '1' == $options['comments'] ) ) echo 'checked="checked"'; ?>>
+							<?php _e( 'Display Facebook comments', 'playbuzz' ); ?>
+						</label>
+						<p class="description indent"><?php _e( 'Show Facebook comments in your items.', 'playbuzz' ); ?></p>
 
 					</div>
 
+					<div class="playbuzz_embed">
+
+						<h3><?php _e( 'Sticky Header Preferences', 'playbuzz' ); ?></h3>
+
+						<label for="<?php echo $this->get_option_name(); ?>[margin-top]">
+							<?php _e( 'Height', 'playbuzz' ); ?>
+							<input type="text" id="<?php echo $this->get_option_name(); ?>[margin-top]" name="<?php echo $this->get_option_name(); ?>[margin-top]" value="<?php echo $options['margin-top']; ?>" class="small-text">
+							<?php _e( 'px', 'playbuzz' ); ?>
+						</label>
+						<p class="description"><?php _e( 'Use this if your website has top header that\'s always visible, even while scrolling down.', 'playbuzz' ); ?></p>
+
+					</div>
+
+					<div class="playbuzz_embed">
+
+						<h3><?php _e( 'Appearance Preferences', 'playbuzz' ); ?></h3>
+
+						<label for="<?php echo $this->get_option_name(); ?>[embeddedon]">
+							<?php _e( 'Display embed on', 'playbuzz' ); ?>
+							<select id="<?php echo $this->get_option_name(); ?>[embeddedon]" name="<?php echo $this->get_option_name(); ?>[embeddedon]">
+								<option value="content" <?php if ( isset( $options['embeddedon'] ) && ( 'content' == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'Posts & Pages Only',                    'playbuzz' ); ?></option>
+								<option value="all"     <?php if ( isset( $options['embeddedon'] ) && ( 'all'     == $options['embeddedon'] ) ) echo 'selected'; ?>><?php _e( 'All pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
+							</select>
+						</label>
+						<p class="description"><?php printf( __( 'Whether to show the embedded content only in <a href="%s" target="_blank">singular pages</a>, or <a href="%s" target="_blank">archive page</a> too.', 'playbuzz' ), 'https://codex.wordpress.org/Function_Reference/is_singular', 'https://codex.wordpress.org/Template_Hierarchy' ); ?></p>
+
+					</div>
+
+					<div class="playbuzz_embed">
+
+						<h3><?php _e( 'Item Recommendations', 'playbuzz' ); ?></h3>
+
+						<label for="<?php echo $this->get_option_name(); ?>[recommend]">
+							<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[recommend]" name="<?php echo $this->get_option_name(); ?>[recommend]" class="tags_toggle_triger" value="1" <?php if ( isset( $options['recommend'] ) && ( '1' == $options['recommend'] ) ) echo 'checked="checked"'; ?>>
+							<?php _e( 'Display more recommendations', 'playbuzz' ); ?>
+						</label>
+						<p class="description indent"><?php _e( 'Show recommendations for more items.', 'playbuzz' ); ?></p>
+
+						<div class="tags_toggle">
+
+							<hr class="indent">
+
+							<img src="<?php echo plugins_url( 'img/admin-recommendations.png', __FILE__ ); ?>" class="location_img">
+
+							<label class="indent"><?php _e( 'Tags', 'playbuzz' ); ?></label>
+							<label for="<?php echo $this->get_option_name(); ?>[tags-mix]" class="indent">
+								<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[tags-mix]" name="<?php echo $this->get_option_name(); ?>[tags-mix]" value="1" <?php if ( isset( $options['tags-mix'] ) && ( '1' == $options['tags-mix'] ) ) echo 'checked="checked"'; ?>>
+								<?php _e( 'All', 'playbuzz' ); ?>
+							</label>
+							<label for="<?php echo $this->get_option_name(); ?>[tags-fun]" class="indent">
+								<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[tags-fun]" name="<?php echo $this->get_option_name(); ?>[tags-fun]" value="1" <?php if ( isset( $options['tags-fun'] ) && ( '1' == $options['tags-fun'] ) ) echo 'checked="checked"'; ?>>
+								<?php _e( 'Fun', 'playbuzz' ); ?>
+							</label>
+							<label for="<?php echo $this->get_option_name(); ?>[tags-pop]" class="indent">
+								<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[tags-pop]" name="<?php echo $this->get_option_name(); ?>[tags-pop]" value="1" <?php if ( isset( $options['tags-pop'] ) && ( '1' == $options['tags-pop'] ) ) echo 'checked="checked"'; ?>>
+								<?php _e( 'Pop', 'playbuzz' ); ?>
+							</label>
+							<label for="<?php echo $this->get_option_name(); ?>[tags-geek]" class="indent">
+								<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[tags-geek]" name="<?php echo $this->get_option_name(); ?>[tags-geek]" value="1" <?php if ( isset( $options['tags-geek'] ) && ( '1' == $options['tags-geek'] ) ) echo 'checked="checked"'; ?>>
+								<?php _e( 'Geek', 'playbuzz' ); ?>
+							</label>
+							<label for="<?php echo $this->get_option_name(); ?>[tags-sports]" class="indent">
+								<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[tags-sports]" name="<?php echo $this->get_option_name(); ?>[tags-sports]" value="1" <?php if ( isset( $options['tags-sports'] ) && ( '1' == $options['tags-sports'] ) ) echo 'checked="checked"'; ?>>
+								<?php _e( 'Sports', 'playbuzz' ); ?>
+							</label>
+							<label for="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" class="indent">
+								<input type="checkbox" id="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" name="<?php echo $this->get_option_name(); ?>[tags-editors-pick]" value="1" <?php if ( isset( $options['tags-editors-pick'] ) && ( '1' == $options['tags-editors-pick'] ) ) echo 'checked="checked"'; ?>>
+								<?php _e( 'Editor\'s Pick', 'playbuzz' ); ?>
+							</label>
+
+							<hr class="indent">
+
+							<label for="<?php echo $this->get_option_name(); ?>[more-tags]" class="indent"><?php _e( 'Custom Tags', 'playbuzz' ); ?></label>
+							<input type="text" class="regular-text indent" id="<?php echo $this->get_option_name(); ?>[more-tags]" name="<?php echo $this->get_option_name(); ?>[more-tags]" value="<?php echo $options['more-tags']; ?>" class="regular-text" placeholder="<?php _e( 'Comma separated tags, e.g. food, rap, weather', 'playbuzz' ); ?>">
+
+						</div>
+
+					</div>
+
+					<div class="playbuzz_embed" style="display:none;">
+
+						<h3><?php _e( 'Authentication', 'playbuzz' ); ?></h3>
+
+						<label for="<?php echo $this->get_option_name(); ?>[key]" class="indent"><?php _e( 'API Key', 'playbuzz' ); ?></label>
+						<input type="text" class="regular-text indent" id="<?php echo $this->get_option_name(); ?>[key]" name="<?php echo $this->get_option_name(); ?>[key]" value="<?php if ( $options['key'] ) echo esc_attr( $options['key'] ); else echo esc_attr( str_replace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) ) ); ?>" class="regular-text" placeholder="<?php echo esc_attr( str_replace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) ) ); ?>">
+
+					</div>
+
+					<?php submit_button(); ?> 
+
 					<div class="playbuzz_embed" style="display:none;"> <?php /* Hidden from the user for the next year for backwards compatibility reasons, and then remove the "Related Content Embed" feature from the plugin. */ ?>
 
-						<h3><?php _e( 'Related Content Embed Options', 'playbuzz' ); ?></h3>
+						<h3><?php _e( 'Related Content Customization', 'playbuzz' ); ?></h3>
 
 						<table class="form-table">
 							<tr>
@@ -466,19 +465,17 @@ class PlaybuzzAdmin {
 
 				</form>
 
-			<?php } elseif( $active_tab == 'help' ) { ?>
+			<?php } elseif( $active_tab == 'shortcodes' ) { ?>
 
-				<h1><?php _e( 'Playbuzz Plugin', 'playbuzz' ); ?></h1>
-
-				<div class="playbuzz_help">
+				<div class="playbuzz_shortcodes">
 
 					<h3><?php _e( 'Item Shortcode', 'playbuzz' ); ?></h3>
 					<p><?php printf( __( 'Choose any Playful Content item from %s and easily embed it in a post.', 'playbuzz' ), '<a href="https://www.playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
 					<p><?php _e( 'For basic use, paste the item URL into your text editor and go to the visual editor to make sure it loads.', 'playbuzz' ); ?></p>
-					<p><?php _e( 'Use the following shortcode if you want to adjust the settings of your embedded item:', 'playbuzz' ); ?></p>
+					<p><?php _e( 'For more advance usage, use the following shortcode if you want to adjust the item appearance:', 'playbuzz' ); ?></p>
 					<p><code>[playbuzz-item url="https://www.playbuzz.com/llamap10/how-weird-are-you" comments="false"]</code></p>
-					<p><?php printf( __( 'You can tweak the general settings for all embedded  content in the <a href="%s">Embed Options</a> tab.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed') ); ?></p>
-					<p><?php _e( 'Or you can override and customize each embedded content with the following shortcode attributes:', 'playbuzz' ); ?></p>
+					<p><?php printf( __( 'You can set default appearance settings in the <a href="%s">Site Settings</a> tab.', 'playbuzz' ), ('?page='.$this->get_option_name().'&tab=embed') ); ?></p>
+					<p><?php _e( 'Or you can override the default appearance and customize each item with the following shortcode attributes:', 'playbuzz' ); ?></p>
 					<dl>
 						<dt>url</dt>
 						<dd>
@@ -528,7 +525,8 @@ class PlaybuzzAdmin {
 					</dl>
 
 				</div>
-				<div class="playbuzz_help">
+
+				<div class="playbuzz_shortcodes">
 
 					<h3><?php _e( 'Section Shortcode', 'playbuzz' ); ?></h3>
 					<p><?php printf( __( 'Choose any list of Playful Items in a specific vertical from %s and easily embed it in a post. This is best used as a "Playful Section" displaying items in the selected tags (topics).', 'playbuzz' ), '<a href="https://playbuzz.com/" target="_blank">playbuzz.com</a>' ); ?></p>
@@ -581,6 +579,77 @@ class PlaybuzzAdmin {
 
 				</div>
 
+			<?php } elseif( $active_tab == 'feedback' ) { ?>
+
+				<div class="playbuzz_feedback">
+
+					<h3><?php _e( 'We Are Listening', 'playbuzz' ); ?></h3>
+
+					<p><?php _e( 'We’d love to know about your experiences with our WordPress plugin and beyond. Drop us a line using the form below', 'playbuzz' ); ?></p>
+					<p><br><p>
+
+					<?php if( $feedback == 'true' ) { ?>
+
+						<p><?php
+						$to          = 'support@playbuzz.com';
+						$subject     = 'WordPress plugin feedback from ' . home_url();
+						$message     = $_POST[ 'description' ];
+						$headers[]   = 'From: ' .  $_POST[ 'name' ] . ' <' .  $_POST[ 'email' ] . '>' . "\r\n";
+						$mail_result = wp_mail( $to, $subject, $message, $headers );
+						if ( $mail_result ) {
+							_e( 'Feedback Sent.', 'playbuzz' );
+						} else {
+							_e( 'Error sending feedback.', 'playbuzz' );
+						}
+						?></p>
+
+					<?php } elseif( $active_tab == 'feedback' ) { ?>
+					<form action="options-general.php?page=playbuzz&tab=feedback&mail=true" method="post">
+						<p>
+							<label for="name"><?php _e( 'Your Name', 'playbuzz' ); ?></label>
+							<input type="text" name="name" class="regular-text">
+						</p>
+						<p>
+							<label for="email"><?php _e( 'Email (so we can write you back)', 'playbuzz' ); ?></label>
+							<input type="text" name="email" class="regular-text" value="<?php echo get_bloginfo( 'admin_email' ); ?>">
+						</p>
+						<p>
+							<label for="description"><?php _e( 'Description', 'playbuzz' ); ?></label>
+							<textarea name="description" rows="5" class="widefat" placeholder="<?php _e( 'What\'s on your mind?', 'playbuzz' ); ?>"></textarea>
+						</p>
+						<?php submit_button( __( 'Submit', 'playbuzz' ) ); ?>
+					</form>
+					<?php } ?>
+
+				</div>
+
+				<div class="playbuzz_feedback">
+
+					<h3><?php _e( 'Join the Playbuzz Publishers Community', 'playbuzz' ); ?></h3>
+					<p>
+						<a href="https://www.facebook.com/playbuzz" target="_blank" class="playbuzz_facebook"></a>
+						<a href="https://twitter.com/play_buzz" target="_blank" class="playbuzz_twitter"></a>
+						<a href="https://plus.google.com/+Playbuzz/posts" target="_blank" class="playbuzz_googleplus"></a>
+						<a href="http://instagram.com/play_buzz/" target="_blank" class="playbuzz_instagram"></a>
+					</p>
+
+				</div>
+
+				<div class="playbuzz_feedback">
+
+					<h3><?php _e( 'Enjoying the Playbuzz WordPress Plugin?', 'playbuzz' ); ?></h3>
+					<p><?php printf( __( '<a href="%s" target="_blank">Rate us</a> on the Wordpress Plugin Directory to help others to discover the engagement value of Playbuzz embeds!', 'playbuzz' ), 'https://wordpress.org/support/view/plugin-reviews/playbuzz#postform' ); ?></p>
+
+				</div>
+
+				<div class="playbuzz_feedback">
+
+					<h3><?php _e( 'Become a Premium Playbuzz Publisher', 'playbuzz' ); ?></h3>
+					<p><?php _e( 'Want to learn how Playbuzz can take your publication’s engagement to new heights?', 'playbuzz' ); ?></p>
+					<p><a href="https://publishers.playbuzz.com/" target="_blank"><?php _e( 'Lets Talk!', 'playbuzz' ); ?></a></p>
+
+				</div>
+
 			<?php } ?>
 
 		</div>
@@ -589,34 +658,4 @@ class PlaybuzzAdmin {
 	}
 
 }
-
-
-
-/*
- * Extract tags list
- *
- * @since 0.1.0
- */
-function pb_tags( $options ) {
-
-	// Tags string
-	$tags = '';
-
-	// Default tags
-	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
-	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
-	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
-	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
-	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
-	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
-
-	// Custom tags
-	$tags .= $options['more-tags'];
-
-	// Remove the comma from the end
-	$tags = rtrim( $tags, ',');
-
-	// Return the tag list
-	return $tags;
-
-}
+new PlaybuzzAdmin();

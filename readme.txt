@@ -1,112 +1,108 @@
-﻿=== Playbuzz Playful Content ===
+﻿=== Playbuzz ===
 Contributors: playbuzz
 Tags: Playbuzz, playful content, feed, feeds, embed, oembed, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.7
-Tested up to: 4.1
-Stable tag: 0.5.0
+Tested up to: 4.1.1
+Stable tag: 0.6.0
 
-Playbuzz lets you embed customized Playful Content such as quizzes, listicles, polls and more!
+Playbuzz lets you embed customized Playful Content such as quizzes, listicles and polls!
 
 == Description ==
-The playbuzz plugin enables site owners to easily embed Playful Content items such as quizzes, lists, polls and more, and offer them as a native part of their site's offering.
 
-Upgrade your site to include highly engaging viral content, using playbuzz's Playful Content. You can have all this content on your site in under a minute!
+The Playbuzz plugin enables WordPress users to easily embed [#PlayfulContent](https://twitter.com/search?f=realtime&q=%23PlayfulContent) items like quizzes, lists and polls, publishing these items as content fully integrated into your WordPress site.
+
+Upgrade your site to include the highly engaging, viral content of the Playbuzz publishing platform. You can add all of this content to your site in just minutes!
 
 = Features =
-* Access to hundreds of trivia quizzes, personality quizzes, lists, etc.
-* Content is available in multiple categories: Entertainment, Sports, Celebrities, Music, Animals, and more.
-* Display only the content relevant to your site, using tag filters.
-* Create your own Playful Content items and embed them to your site.
-* Everything is free, no subscription fee.
+* Quickly find the most relevant Playbuzz items to embed in the content you're working on, without leaving your edit screen.
+* Refine results by content category, format, popularity and creation date.
+* Automate the plugin to display only the content relevant to your site, using tag filters.
+* Use of the plugin and content is 100% free.
 
-= Embedding options =
-Playbuzz plugin has two embedding options:
+= How to Embed Playbuzz Items =
 
-**Embed specific Item**
-
-Choose any Playful Content item (or create your own!) from [playbuzz.com](https://www.playbuzz.com), copy the item URL and paste it into your text editor:
-
-`https://www.playbuzz.com/llamap10/how-weird-are-you`
-
-Check the visual editor to make sure the item loads.
-
-Advanced users can use playbuzz shortcode to embed items and tweak them with shortcode attributes:
-
-`[playbuzz-item url="https://www.playbuzz.com/llamap10/how-weird-are-you" comments="false"]`
-
-**Embed a section**
-
-Create a playful section on your site and embed a list of Playful Content items. Just select a category from [playbuzz.com](https://www.playbuzz.com) or create your own tag, copy the URL and paste it into your text editor:
-
-`https://www.playbuzz.com/fun`
-
-Check the visual editor to make sure the section loads.
-
-To customize your section use the section shortcode using advanced attribute:
-`[playbuzz-section tags="fun,cats" width="600"]`
+* New! Use Playbuzz’s instant search panel to search and browse content from Playbuzz. Simply find an item that you like and embed it directly in your post without leaving the editor.
+* Choose any item (or create your own!) from [playbuzz.com](https://www.playbuzz.com), copy the item’s URL and paste it into your text editor. Then simply click over to the visual editor to confirm that the item loads properly.
+* For advanced customization, the plugin supports shortcodes.
 
 = More Information =
-For any questions or more information please [contact us](https://www.playbuzz.com/contact).
+For any questions or more information, please [contact us](https://www.playbuzz.com/contact).
 
 == Installation ==
-
-= Minimum Requirements =
-* WordPress 3.7 or greater
-* PHP version 5.2.4 or greater
-* MySQL version 5.0 or greater
 
 = Installation =
 1. In your WordPress Dashboard go to "Plugins" -> "Add Plugin".
 2. Search for "Playbuzz".
-3. Install playbuzz plugin by pressing the plugin "Install" button.
-4. Activate the playbuzz plugin.
+3. Install Playbuzz plugin by pressing the plugin "Install" button.
+4. Activate the Playbuzz plugin.
 5. Configure the plugin by going to the "Settings" -> "Playbuzz".
 
 = Updating =
 * Use WordPress automatic updates to upgrade to the latest version. Ensure to backup your site just in case.
 
+= Minimum Requirements =
+* WordPress version 3.7 or greater.
+* PHP version 5.2.4 or greater.
+* MySQL version 5.0 or greater.
+
+= Recommended  Requirements =
+* Latest WordPress version.
+* PHP version 5.4 or greater.
+* MySQL version 5.5 or greater.
+
 == Frequently Asked Questions ==
 
-= Why should I embed content from the playbuzz network? =
-Our content is created by our network of partners and our editorial staff. We feature highly engaging items around many popular topics. Embedding these items on your site is likely to boost all of your engagement metrics - page views, ad impressions, time spent online, sharing rate, etc. Above all, it enhances your site’s content offering by complementing it with content packaged in an extremely engaging and viral way.
+= Why should I embed content from the Playbuzz network? =
+Our content is created by our network of partners, our community of users and our editorial staff. We feature highly engaging items around many popular topics. Embedding these items on your site is likely to boost all of your engagement and performance metrics: page views, ad impressions, time on page, time on site, pages per visit, social media share rates and more. Above all, these items enhance your site’s content offering an extremely engaging and viral way.
 
-= Does playbuzz help me make my content viral? =
-Absolutely. Our plugin includes an option to share each content item on social networks such as Facebook and Twitter. Any click on these share buttons will create a share link directing users to your website.
+= Can Playbuzz help my site to go viral? =
+Absolutely! We can’t guarantee that you’ll become the next “Gangnam Style,” but our content platform is optimized to encourage maximum sharing. Embeds powered by our plugin include the option to share each content item on social networks such as Facebook and Twitter. Any click on these share buttons will create a share link directing users to your website.
 
-= Does playbuzz work on mobile and tablet versions of my site? =
+= Does Playbuzz work on mobile and tablet versions of my site? =
+
 Yes. Playbuzz's UI is responsive and mobile compatible.
 
 = Can I create my own content? =
-Absolutely. We encourage you to create original Playful Content using https://www.playbuzz.com/create
+For sure. We encourage you to use our free platform to create original #PlayfulContent here: https://www.playbuzz.com/create
 
-= Does this plugin slow down my website? =
-No. Test and see for yourself. playbuzz is using a large content delivery network to ensure prompt delivery.
+= Might this plugin slow down my website? =
+Nope. Test it and see for yourself. Playbuzz uses a large content delivery network to ensure super-fast load times.
 
-= How do i embed playbuzz content? =
-Two ways to embed playbuzz content:
-1. For basic usage you can embed content using nothing but a URL. Just copy the item/section URL from https://www.playbuzz.com and paste it to your post.
-2. Advanced users can use playbuzz shortcodes using attributes to tweak the result.
+= How do I embed Playbuzz content? =
+The WordPress plugin supports two ways to embed Playbuzz content: For basic use, you can search for content from within the plugin, or embed content you’ve already found simply by pasting its [playbuzz.com](https://www.playbuzz.com) URL into the text editor. Advanced users can use Playbuzz shortcodes using attributes to customize embed settings.
 
-= What shortcode attributes can i use? =
-You can find the full list of attributes in "Settings" -> "Playbuzz" -> "Help"
+= I’m using an older version of WordPress, and I have a lot of plugins installed. I’ve upgraded the Playbuzz plugin, but some of the features seem to not be working. What should I do? =
+To work around this issue, go to the Plugins panel, click “Deactivate” under the Playbuzz plugin, re-activate the plugin, and you should be all set.
 
-= I've got more questions! =
-For more information please [contact us](https://www.playbuzz.com/contact).
+= Sometimes, after I embed an item, its settings won’t open in the visual editor. How do I fix this? =
+Occasionally, the TinyMCE visual editor doesn’t completely load the scripts for embeds powered by the plugin. To fix this issue, simply switch over to the text editor and then come back to the visual editor. This will trigger the CMS to render the embed fully, and it should become clickable.
+
+= Wait – I've got more questions! =
+For more information, please feel free to [contact us](https://www.playbuzz.com/contact), and we’ll do our best to reply within one business day. You can also sign up for product and updates and tips via email [here](http://eepurl.com/bc3LRn).
 
 == Screenshots ==
 1. Plugin "Getting Started" screen.
-2. Plugin "General Embed Settings" screen.
-3. Easy to embed single content items. Simply click playbuzz button and add the content URL.
-4. Customize content settings popup (e.g item info ; sharing  ; comments).
-5. See the playbuzz placeholder in the visual editor to indicate where the item will be embedded. Double click the image to customize the item settings.
-6. Switch to text editor to see and edit the simple playbuzz shortcode.
-7. Game preview on your WordPress website.
-8. Embedded "Food" section on your WordPress website.
+2. Click the blue Playbuzz button in the visual-editor to discover Playful content.
+3. Select one of our featured items or search for an item you want.
+4. Embedding Playbuzz item will be presented in the visual-editor with rest of the content.
+5. Click the item to customize the item settings (e.g item info ; sharing  ; comments).
+6. Switching to the text-editor will present the simple shortcode in use.
 
 == Changelog ==
 
+= 0.6.0 =
+* Admin: Complete redesign of "Getting Started" tab
+* Admin: Complete redesign of "Site Settings" tab
+* Admin: Rename the "Help" tag to "Shortcodes"
+* Admin: Added a Feedback tab that allow easy contact with Playbuzz
+* Visual Editor: Add search popup to discover playful items - No need to search on Playbuzz.com anymore!
+* Visual Editor: Update the item settings popup
+* Visual Editor: Replace the generic shortcode placeholder image with individual item thumbnail that can be seen on the Visual Editor
+* Performance improvements 
+* Minor bug fixes
+
 = 0.5.0 =
-* oEmbed: Add playbuzz oEmbed support to WordPress, to embed items using nothing but a URL
+* oEmbed: Add Playbuzz oEmbed support to WordPress, to embed items using nothing but a URL
 * Security: use 'https' everywhere
 * Security: don't allow directly file call
 * Update all the graphics - logo's, icons, images, screen shots ect
@@ -116,9 +112,9 @@ For more information please [contact us](https://www.playbuzz.com/contact).
 * Shortcodes: Add 'links' parameter to allow user's to open clicked items in new pages
 
 = 0.4.0 =
-* Editor: Add playbuzz button to the visual editor, making it easy to create customizable playbuzz shortcodes
-* Editor: Inside the visual editor, replace playbuzz shortcodes with a placeholder image to indicate visually where the item will be embedded
-* Editor: Show shortcode settings popup when clicking the playbuzz shortcodes placeholder image
+* Visual Editor: Add Playbuzz button to the visual editor, making it easy to create customizable Playbuzz shortcodes
+* Visual Editor: Inside the visual editor, replace Playbuzz shortcodes with a placeholder image to indicate visually where the item will be embedded
+* Visual Editor: Show shortcode settings popup when clicking the Playbuzz shortcodes placeholder image
 * Uninstall: Delete site option in multisite installation
 * i18n: Update hebrew (he_IL) translation
 
@@ -154,7 +150,7 @@ For more information please [contact us](https://www.playbuzz.com/contact).
 * Verified compatibility with WordPress 3.8.2
 * Added new categories!
 * Separate control for Comments and Share Buttons (Previous Social settings is obsolete)
-* Websites with top floating bars can now set margin for playbuzz score bar
+* Websites with top floating bars can now set margin for Playbuzz score bar
 
 = 0.1.5 =
 * Bug fix - allow to embed code in post and pages (not only posts)

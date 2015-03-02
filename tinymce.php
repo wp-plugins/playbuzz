@@ -30,15 +30,12 @@ class PlaybuzzTinyMCE {
 			return;
 
 		// Check if the user has editing privilege
-		if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') )
+		if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) )
 			return;
 
 		// Check if the user uses rich editing
-		if ( 'false' == get_user_option('rich_editing') )
+		if ( 'false' == get_user_option( 'rich_editing' ) )
 			return;
-
-		// Add playbuzz button above the editor
-		//add_action( 'media_buttons', array( $this, 'register_button_above_the_editor' ) );
 
 		// Add playbuzz button to the TinyMCE editor
 		add_filter( 'mce_buttons', array( $this, 'register_tinymce_button' ) );
@@ -50,16 +47,6 @@ class PlaybuzzTinyMCE {
 		add_filter( 'mce_external_plugins', array( $this, 'register_tinymce_js' ) );
 
 	}
-
-	/*
-	 * Add playbuzz button above the editor
-	 *
-	function register_button_above_the_editor() {
-
-		echo '<a href="#" id="insert-playbuzz-button" class="button insert-playbuzz playbuzz" data-editor="content">' . __( 'Add playbuzz', 'playbuzz' ) . '</a>';
-
-	}
-	*/
 
 	/*
 	 * Add playbuzz button to the TinyMCE editor
@@ -74,14 +61,17 @@ class PlaybuzzTinyMCE {
 	/*
 	 * Register TinyMCE editor style CSS
 	 */
-	function register_tinymce_css( $mce_css ){
+	function register_tinymce_css( $mce_css ) {
 
 		// If the site has other css, add a comma
 		if ( ! empty( $mce_css ) )
 			$mce_css .= ',';
 
 		// Add playbuzz TinyMCE editor css
-		$mce_css .= plugins_url( 'css/editor.css', __FILE__ );
+		$mce_css .= plugins_url( 'css/tinymce-visual-editor.css', __FILE__ );
+		if ( is_rtl() ) {
+			$mce_css .= ',' . plugins_url( 'css/tinymce-visual-editor-rtl.css', __FILE__ );
+		}
 
 		// Return the css list
 		return $mce_css;
@@ -93,9 +83,10 @@ class PlaybuzzTinyMCE {
 	 */
 	function register_tinymce_js( $plugin_array ) {
 
-		$plugin_array[$this->name] = plugins_url( 'js/tinymce.js' , __FILE__ );
+		$plugin_array[$this->name] = plugins_url( 'js/playbuzz-tinymce.js' , __FILE__ );
 		return $plugin_array;
 
 	}
 
 }
+new PlaybuzzTinyMCE();

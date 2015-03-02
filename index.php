@@ -1,16 +1,17 @@
 <?php
 /*
-Plugin Name: playbuzz
+Plugin Name: Playbuzz
 Plugin URI: https://www.playbuzz.com/
-Description: Plugin for embedding playbuzz Playful Content in WordPress sites.
-Version: 0.5.0
-Author: PlayBuzz
+Description: Plugin for embedding customized playful content from Playbuzz in your WordPress site.
+Version: 0.6.0
+Author: playbuzz
 Author URI: https://www.playbuzz.com/
 Text Domain: playbuzz
 Domain Path: /lang
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
+
 
 
 /*
@@ -21,11 +22,12 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 
+
 /*
  * WordPress Admin Options Page
  */
-require ( plugin_dir_path( __FILE__ ) . 'admin.php' );
-new PlaybuzzAdmin();
+include_once ( plugin_dir_path( __FILE__ ) . 'admin.php' );
+
 
 
 /*
@@ -34,10 +36,12 @@ new PlaybuzzAdmin();
 include_once ( plugin_dir_path( __FILE__ ) . 'oembed.php' );
 
 
+
 /*
  * Add WordPress Shortcodes
  */
 include_once ( plugin_dir_path( __FILE__ ) . 'shortcodes.php' );
+
 
 
 /*
@@ -46,22 +50,23 @@ include_once ( plugin_dir_path( __FILE__ ) . 'shortcodes.php' );
 include_once ( plugin_dir_path( __FILE__ ) . 'widgets.php' );
 
 
+
 /*
  * Add TinyMCE plugin
  */
 include_once ( plugin_dir_path( __FILE__ ) . 'tinymce.php' );
-new PlaybuzzTinyMCE();
+
 
 
 /*
  * Add settings link on plugin page
  */
 function playbuzz_settings_link( $links ) {
-	$settings_link = '<a href="options-general.php?page=playbuzz">' . __( 'Settings' ) . '</a>';
-	array_unshift( $links, $settings_link );
+	$links[] = '<a href="options-general.php?page=playbuzz">' . __( 'Settings' ) . '</a>';
 	return $links;
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'playbuzz_settings_link' );
+
 
 
 /*

@@ -46,10 +46,19 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 		// set values
 		$title = empty( $instance['title'] ) ? '' : apply_filters( 'title', $instance['title'] );
 		$key   = $options['key'];
-		$tags  = pb_tags( $instance );
 		$view  = empty( $instance['view']  ) ? '' : apply_filters( 'view',  $instance['view']  );
 		$items = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
 		$links = empty( $instance['links'] ) ? '' : apply_filters( 'links', $instance['links'] );
+
+		$tags  = '';
+		if ( '1' == $instance['tags-mix']          ) $tags .= 'All,';
+		if ( '1' == $instance['tags-fun']          ) $tags .= 'Fun,';
+		if ( '1' == $instance['tags-pop']          ) $tags .= 'Pop,';
+		if ( '1' == $instance['tags-geek']         ) $tags .= 'Geek,';
+		if ( '1' == $instance['tags-sports']       ) $tags .= 'Sports,';
+		if ( '1' == $instance['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
+		$tags .= $instance['more-tags'];
+		$tags = rtrim( $tags, ',');
 
 		// Output
 		echo $before_widget;

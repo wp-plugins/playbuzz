@@ -8,6 +8,6 @@ if( !defined( 'WP_UNINSTALL_PLUGIN' ) )
 delete_option( 'playbuzz' );
 
 // For site options in multisite
-delete_site_option( $option_name );  
+delete_site_option( 'playbuzz' );  
 
 ?>
