@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Playbuzz\n"
-"POT-Creation-Date: 2015-02-22 15:53+0200\n"
-"PO-Revision-Date: 2015-02-22 15:55+0200\n"
+"POT-Creation-Date: 2015-03-01 17:19+0200\n"
+"PO-Revision-Date: 2015-03-01 17:19+0200\n"
 "Last-Translator: Rami Y <r_a_m_i@hotmail.com>\n"
 "Language-Team: Playbuzz <publishers@playbuzz.com>\n"
 "Language: he\n"
@@ -20,70 +20,70 @@ msgstr ""
 msgid "Playbuzz"
 msgstr "פלייבאז"
 
-#: ../admin.php:172
+#: ../admin.php:175
 msgid "Playbuzz Plugin"
 msgstr "תוסף פלייבאז"
 
-#: ../admin.php:174
+#: ../admin.php:177
 msgid "Getting Started"
 msgstr "אופן שימוש"
 
-#: ../admin.php:175
+#: ../admin.php:178
 msgid "Site Settings"
 msgstr "הגדרות אתר"
 
-#: ../admin.php:176
+#: ../admin.php:179
 msgid "Shortcodes"
 msgstr "פקודות מאקרו"
 
-#: ../admin.php:177
+#: ../admin.php:180
 msgid "Feedback"
 msgstr "פידבק"
 
-#: ../admin.php:186
+#: ../admin.php:189
 msgid "Embed Items from Playbuzz"
 msgstr "הטמעת תכנים מתוך פלייבאז"
 
-#: ../admin.php:190
+#: ../admin.php:193
 msgid "Create a new post / page"
 msgstr "צרו פוסט / עמוד חדש"
 
-#: ../admin.php:193
+#: ../admin.php:196
 msgid "Click the blue Playbuzz button in the visual editor"
 msgstr "לחצו על הכפתור הכחול של פלייבאז בעורך הויזואלי"
 
-#: ../admin.php:196
+#: ../admin.php:199
 msgid "Search for an item you want or select one of our featured items"
 msgstr "חפשו תכנים להטמעה או בחרו מהתכנים המומלצים"
 
-#: ../admin.php:199
+#: ../admin.php:202
 msgid "To embed the item just click the \"Embed\" button"
 msgstr "להטמעת פריט כלשהו לחצו על הכפתור \"הטמעה\""
 
-#: ../admin.php:209
+#: ../admin.php:212
 msgid "Item Customization"
 msgstr "התאמת תצוגה"
 
-#: ../admin.php:213
+#: ../admin.php:216
 msgid ""
 "After embedding the item in your post, click on the settings icon to open "
 "the item settings panel"
 msgstr ""
 "אחרי הטמעת הפריט בפוסט, לחיצה על אותו פריט תפתח חלון לביצוע התאמות תצוגה"
 
-#: ../admin.php:216
+#: ../admin.php:219
 msgid "Use site default settings"
 msgstr "ניתן להשתמש בהגדרות ברירת המחדל"
 
-#: ../admin.php:219
+#: ../admin.php:222
 msgid "Or select the \"Custom\" option to apply customized settings"
 msgstr "או לבחור תצוגה מותאמת אישית של הרכיבים שיוצגו"
 
-#: ../admin.php:227 ../admin.php:251
+#: ../admin.php:230 ../admin.php:254
 msgid "Default Site Settings"
 msgstr "הגדרות ברירת מחדל של האתר"
 
-#: ../admin.php:231
+#: ../admin.php:234
 #, php-format
 msgid ""
 "Instead of heaving to define each one of the items separately, you can use "
@@ -92,7 +92,7 @@ msgstr ""
 "במקום להגדיר לכל פריט מוטמע תצוגה נפרדת, ניתן להגדיר <a href=\"%s\">תצוגת "
 "ברירת מחדל לכל הפריטים באתר</a>"
 
-#: ../admin.php:234
+#: ../admin.php:237
 #, php-format
 msgid ""
 "This option is always available for you <a href=\"%s\">here</a> and in the "
@@ -101,47 +101,47 @@ msgstr ""
 "האפשרות הזו זמינה תמיכה <a href=\"%s\">כאן</a> ובנתיב הבא: הגדרות > פלייבאז "
 "> הגדרות אתר"
 
-#: ../admin.php:237
+#: ../admin.php:240
 msgid "These settings will not apply on items you customize manually"
 msgstr "הגדרות אלה לא ישפיעו על פריטים בהם נבחרה תצוגה מותאמת אישית"
 
-#: ../admin.php:255
+#: ../admin.php:258
 msgid "Display item information"
 msgstr "תצוגת פרטים"
 
-#: ../admin.php:257
+#: ../admin.php:260
 msgid "Show item thumbnail, name, description, creator."
 msgstr "הצגת תמונה, כותרת, תיאור ויוצר."
 
-#: ../admin.php:261
+#: ../admin.php:264
 msgid "Display share buttons"
 msgstr "תצוגת כפתורי שיתוף"
 
-#: ../admin.php:263
+#: ../admin.php:266
 msgid "Show share buttons with links to YOUR site."
 msgstr "הצגת כפתורי שיתוף עם קישורים לאתר שלך."
 
-#: ../admin.php:267
+#: ../admin.php:270
 msgid "Display Facebook comments"
 msgstr "תצוגת תגובות פייסבוק"
 
-#: ../admin.php:269
+#: ../admin.php:272
 msgid "Show Facebook comments in your items."
 msgstr "הצגת תגובות פייסבוק בפריטים שהוטמעו."
 
-#: ../admin.php:275
+#: ../admin.php:278
 msgid "Sticky Header Preferences"
 msgstr "הגדרות ריווח עליון"
 
-#: ../admin.php:278
+#: ../admin.php:281
 msgid "Height"
 msgstr "גובה"
 
-#: ../admin.php:280
+#: ../admin.php:283
 msgid "px"
 msgstr "פיקסלים"
 
-#: ../admin.php:282
+#: ../admin.php:285
 msgid ""
 "Use this if your website has top header that's always visible, even while "
 "scrolling down."
@@ -149,23 +149,23 @@ msgstr ""
 "ניתן להשתמש באפשרות זו באתרים בהם הכותרת העליונה תמיד מוצגת, גם כשגוללים "
 "למטה."
 
-#: ../admin.php:288
+#: ../admin.php:291
 msgid "Appearance Preferences"
 msgstr "הגדרות תצוגה"
 
-#: ../admin.php:291
+#: ../admin.php:294
 msgid "Display embed on"
 msgstr "הצגת תכנים מוטמעים ב"
 
-#: ../admin.php:293
+#: ../admin.php:296
 msgid "Posts & Pages Only"
 msgstr "עמודי תוכן בלבד"
 
-#: ../admin.php:294
+#: ../admin.php:297
 msgid "All pages (singular, archive, ect.)"
 msgstr "בכל העמודים, כולל עמודי ארכיון"
 
-#: ../admin.php:297
+#: ../admin.php:300
 #, php-format
 msgid ""
 "Whether to show the embedded content only in <a href=\"%s\" target=\"_blank"
@@ -175,91 +175,91 @@ msgstr ""
 "האם להציג את התכנים המוטמעים ב<a href=\"%s\">עמודי תוכן</a>, או גם ב<a href="
 "\"%s\">עמודי ארכיון</a>."
 
-#: ../admin.php:303
+#: ../admin.php:306
 msgid "Item Recommendations"
 msgstr "תכנים מומלצים"
 
-#: ../admin.php:307
+#: ../admin.php:310
 msgid "Display more recommendations"
 msgstr "תצוגת תכנים מומלצים נוספים"
 
-#: ../admin.php:309 ../admin.php:499 ../admin.php:552
+#: ../admin.php:312 ../admin.php:502 ../admin.php:555
 msgid "Show recommendations for more items."
 msgstr "הצגת המלצות לפריטים נוספים"
 
-#: ../admin.php:317 ../widgets.php:173
+#: ../admin.php:320 ../widgets.php:173
 msgid "Tags"
 msgstr "תגיות"
 
-#: ../admin.php:320 ../widgets.php:174
+#: ../admin.php:323 ../widgets.php:174
 msgid "All"
 msgstr "הכל"
 
-#: ../admin.php:324 ../widgets.php:175
+#: ../admin.php:327 ../widgets.php:175
 msgid "Fun"
 msgstr "כיף"
 
-#: ../admin.php:328 ../widgets.php:176
+#: ../admin.php:331 ../widgets.php:176
 msgid "Pop"
 msgstr "פופולריים"
 
-#: ../admin.php:332 ../widgets.php:177
+#: ../admin.php:335 ../widgets.php:177
 msgid "Geek"
 msgstr "גיקים"
 
-#: ../admin.php:336 ../widgets.php:178
+#: ../admin.php:339 ../widgets.php:178
 msgid "Sports"
 msgstr "ספורט"
 
-#: ../admin.php:340 ../widgets.php:179
+#: ../admin.php:343 ../widgets.php:179
 msgid "Editor's Pick"
 msgstr "בחירת העורכים"
 
-#: ../admin.php:345 ../widgets.php:182
+#: ../admin.php:348 ../widgets.php:182
 msgid "Custom Tags"
 msgstr "תגיות מותאמות אישית"
 
-#: ../admin.php:346
+#: ../admin.php:349
 msgid "Comma separated tags, e.g. food, rap, weather"
 msgstr "תגיות מופרדות בפסיקים, כגון food, rap, weather"
 
-#: ../admin.php:354
+#: ../admin.php:357
 msgid "Authentication"
 msgstr "הזדהות"
 
-#: ../admin.php:356
+#: ../admin.php:359
 msgid "API Key"
 msgstr "מפתח API"
 
-#: ../admin.php:365
+#: ../admin.php:368
 msgid "Related Content Customization"
 msgstr "הגדרת המלצות בהתאמה אישית"
 
-#: ../admin.php:369 ../widgets.php:154
+#: ../admin.php:372 ../widgets.php:154
 msgid "Number of Items"
 msgstr "מספר פריטים להצגה"
 
-#: ../admin.php:390 ../widgets.php:146
+#: ../admin.php:393 ../widgets.php:146
 msgid "Items layout"
 msgstr "פריסת פריטים"
 
-#: ../admin.php:392 ../widgets.php:148
+#: ../admin.php:395 ../widgets.php:148
 msgid "Large Images"
 msgstr "תמונות גדולות"
 
-#: ../admin.php:393 ../widgets.php:149
+#: ../admin.php:396 ../widgets.php:149
 msgid "Horizontal Images"
 msgstr "תמונות אנכיות"
 
-#: ../admin.php:394 ../widgets.php:150
+#: ../admin.php:397 ../widgets.php:150
 msgid "No Images"
 msgstr "ללא תמונות"
 
-#: ../admin.php:417
+#: ../admin.php:420
 msgid "Open Items at"
 msgstr "מיקום רשימת הפריטים"
 
-#: ../admin.php:419 ../widgets.php:187
+#: ../admin.php:422 ../widgets.php:187
 #, php-format
 msgid ""
 "<a href=\"%s\" target=\"_blank\">Create</a> a new page containing the "
@@ -270,48 +270,48 @@ msgstr ""
 "<code>[playbuzz-section]</code>. הגדירו את העמוד כמיקום של רשימת הפריטים בו "
 "יפתחו פריטים שהוקלקו:"
 
-#: ../admin.php:426 ../widgets.php:195
+#: ../admin.php:429 ../widgets.php:195
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; בחירה &mdash;"
 
-#: ../admin.php:437
+#: ../admin.php:440
 msgid "Automatically Add Recommendations"
 msgstr "הוספת המלצות באופן אוטומטי"
 
-#: ../admin.php:440
+#: ../admin.php:443
 msgid "Active"
 msgstr "הפעל"
 
-#: ../admin.php:443
+#: ../admin.php:446
 msgid "Disable"
 msgstr "כבה"
 
-#: ../admin.php:444
+#: ../admin.php:447
 msgid "Enable"
 msgstr "הפעל"
 
-#: ../admin.php:449
+#: ../admin.php:452
 msgid "Location"
 msgstr "מיקום"
 
-#: ../admin.php:452
+#: ../admin.php:455
 msgid "Above the content"
 msgstr "מעל התוכן"
 
-#: ../admin.php:453
+#: ../admin.php:456
 msgid "Bellow the content"
 msgstr "מתחת לתוכן"
 
-#: ../admin.php:469
+#: ../admin.php:472
 msgid "Item Shortcode"
 msgstr "קוד הטמעה לפריט"
 
-#: ../admin.php:470
+#: ../admin.php:473
 #, php-format
 msgid "Choose any Playful Content item from %s and easily embed it in a post."
 msgstr "בחרו פריט כלשהו מאתר %s והטמיעו אותו בקלות באתר."
 
-#: ../admin.php:471
+#: ../admin.php:474
 msgid ""
 "For basic use, paste the item URL into your text editor and go to the visual "
 "editor to make sure it loads."
@@ -319,13 +319,13 @@ msgstr ""
 "לשימוש בסיסי, הדביקו את כתובת ה-URL של הפריט בעורך הטקסט וגשו לעורך "
 "הוויזואלי כדי לוודא שהוא נטען."
 
-#: ../admin.php:472
+#: ../admin.php:475
 msgid ""
 "For more advance usage, use the following shortcode if you want to adjust "
 "the item appearance:"
 msgstr "לשימוש מתקדם, השתמשו בקוד הטמעה הבא להתאמת התצוגה:"
 
-#: ../admin.php:474
+#: ../admin.php:477
 #, php-format
 msgid ""
 "You can set default appearance settings in the <a href=\"%s\">Site Settings</"
@@ -334,38 +334,38 @@ msgstr ""
 "ניתן להגדיר תצוגת ברירת מחדל לכל הפיטים המוטמעים ב<a href=\"%s\">הגדרות אתר</"
 "a>."
 
-#: ../admin.php:475
+#: ../admin.php:478
 msgid ""
 "Or you can override the default appearance and customize each item with the "
 "following shortcode attributes:"
 msgstr "או להגדיר לכל פריט תצוגה מותאמת אישית באמצעות הפרמטרים הבאים:"
 
-#: ../admin.php:479
+#: ../admin.php:482
 msgid "The URL of the item that will be displayed."
 msgstr "ה-URL של הפריט שיוצג."
 
-#: ../admin.php:480
+#: ../admin.php:483
 msgid "Type: URL"
 msgstr "סוג: URL"
 
-#: ../admin.php:484
+#: ../admin.php:487
 msgid "Show item info (thumbnail, name, description, editor, etc)."
 msgstr "הצגת פרטים כגון תמונה, כותרת, תיאור, ויוצר."
 
-#: ../admin.php:485 ../admin.php:490 ../admin.php:495 ../admin.php:500
-#: ../admin.php:543 ../admin.php:548 ../admin.php:553
+#: ../admin.php:488 ../admin.php:493 ../admin.php:498 ../admin.php:503
+#: ../admin.php:546 ../admin.php:551 ../admin.php:556
 msgid "Type: Boolean (true/false) ; Default: true"
 msgstr "סוג: בוליאני (כן/לא) ; ברירת מחדל: כן"
 
-#: ../admin.php:489 ../admin.php:542
+#: ../admin.php:492 ../admin.php:545
 msgid "Show sharing buttons."
 msgstr "הצגת כפתורי שיתוף."
 
-#: ../admin.php:494 ../admin.php:547
+#: ../admin.php:497 ../admin.php:550
 msgid "Show comments control from the item page."
 msgstr "הצגת כפתורי שיתוף בעמוד הפריט."
 
-#: ../admin.php:504 ../admin.php:557
+#: ../admin.php:507 ../admin.php:560
 msgid ""
 "Destination page, containing the [playbuzz-section] shortcode, where new "
 "items will be displayed."
@@ -373,35 +373,35 @@ msgstr ""
 "עמוד היעד, המכיל את קוד ההטמעה [playbuzz-section], הוא העמוד בו יפתחו פריטים "
 "חדשים."
 
-#: ../admin.php:505 ../admin.php:558
+#: ../admin.php:508 ../admin.php:561
 msgid "Type: URL ; Default: https://www.playbuzz.com/"
 msgstr "סוג: URL ; ברירת מחדל: https://www.playbuzz.com/"
 
-#: ../admin.php:509 ../admin.php:562
+#: ../admin.php:512 ../admin.php:565
 msgid "Define custom width in pixels."
 msgstr "הגדרת רוחב מותאם אישית בפיקסלים."
 
-#: ../admin.php:510 ../admin.php:515 ../admin.php:563 ../admin.php:568
+#: ../admin.php:513 ../admin.php:518 ../admin.php:566 ../admin.php:571
 msgid "Type: String ; Default: auto"
 msgstr "סוג: מחרוזת ; ברירת מחדל: auto"
 
-#: ../admin.php:514 ../admin.php:567
+#: ../admin.php:517 ../admin.php:570
 msgid "Define custom height in pixels."
 msgstr "הגדרת גובה מותאם אישית בפיקסלים."
 
-#: ../admin.php:519 ../admin.php:572
+#: ../admin.php:522 ../admin.php:575
 msgid "Define custom margin-top in pixels."
 msgstr "הגדרת ריווח עליון מותאם אישית בפיקסלים."
 
-#: ../admin.php:520 ../admin.php:573
+#: ../admin.php:523 ../admin.php:576
 msgid "Type: String ; Default: 0px"
 msgstr "סוג: מחרוזת ; ברירת מחדל: 0px"
 
-#: ../admin.php:528
+#: ../admin.php:531
 msgid "Section Shortcode"
 msgstr "קוד הטמעה לרשימת פריטים"
 
-#: ../admin.php:529
+#: ../admin.php:532
 #, php-format
 msgid ""
 "Choose any list of Playful Items in a specific vertical from %s and easily "
@@ -412,7 +412,7 @@ msgstr ""
 "הטובה ביותר ליצור \"אזורים\" חדשים המציגים מגוון רחב של פריטים המבוססים על "
 "תגית מסויימת."
 
-#: ../admin.php:530
+#: ../admin.php:533
 msgid ""
 "For basic use, paste the section URL into your text editor and go to the "
 "visual editor to make sure it loads."
@@ -420,14 +420,14 @@ msgstr ""
 "לשימוש בסיסי, הדביקו את כתובת ה-URL של רשימת הפריטים בעורך הטקסט וגשו לעורך "
 "הוויזואלי כדי לוודא שהם נטענו."
 
-#: ../admin.php:531
+#: ../admin.php:534
 msgid ""
 "Use the following shortcode if you want to adjust the settings of your "
 "embedded section:"
 msgstr ""
 "השתמשו בקוד ההטמעה הבא אם ברצונכם להתאים את אופן התצוגה של רשימת הפריטים:"
 
-#: ../admin.php:533
+#: ../admin.php:536
 msgid ""
 "You can tweak the general settings for the section with the following "
 "shortcode attributes:"
@@ -435,19 +435,19 @@ msgstr ""
 "ניתן לעקוף את אפשרויות ההטמעה ולתת הגדרות ספציפיות לכל רשימה, על ידי הוספת "
 "הפרמטרים המתקדמים הבאים לקוד ההטמעה:"
 
-#: ../admin.php:537
+#: ../admin.php:540
 msgid "Filters the content shown by comma separated tags."
 msgstr "סינון התכנים המוצגים על ידי תגיות המופרדות בפסיקים."
 
-#: ../admin.php:538
+#: ../admin.php:541
 msgid "Type: String ; Default: All"
 msgstr "סוג: מחרוזת ; ברירת מחדל: All"
 
-#: ../admin.php:583
+#: ../admin.php:586
 msgid "We Are Listening"
 msgstr "אנחנו קשובים לצרכים שלכם"
 
-#: ../admin.php:585
+#: ../admin.php:588
 msgid ""
 "We’d love to know about your experiences with our WordPress plugin and "
 "beyond. Drop us a line using the form below"
@@ -455,43 +455,43 @@ msgstr ""
 "נשמח לשמוע על חוויה שלכם בעבודה עם תוסף הוורדפרס של פלייבאז. שלחו פידבק "
 "בעזרת הטופס הבא"
 
-#: ../admin.php:597
+#: ../admin.php:600
 msgid "Feedback Sent."
 msgstr "פידבק נשלח."
 
-#: ../admin.php:599
+#: ../admin.php:602
 msgid "Error sending feedback."
 msgstr "שגיאה בשליחת פידבק."
 
-#: ../admin.php:606
+#: ../admin.php:609
 msgid "Your Name"
 msgstr "שם"
 
-#: ../admin.php:610
+#: ../admin.php:613
 msgid "Email (so we can write you back)"
 msgstr "אימייל (כדי שנוכל לחזור אלייכם)"
 
-#: ../admin.php:614
+#: ../admin.php:617
 msgid "Description"
 msgstr "תיאור"
 
-#: ../admin.php:615
+#: ../admin.php:618
 msgid "What's on your mind?"
 msgstr "על מה חשבתם?"
 
-#: ../admin.php:617
+#: ../admin.php:620
 msgid "Submit"
 msgstr "שליחה"
 
-#: ../admin.php:625
+#: ../admin.php:628
 msgid "Join the Playbuzz Publishers Community"
 msgstr "הצטרפו לקהילת המוציאים לאור של פלייבאז"
 
-#: ../admin.php:637
+#: ../admin.php:640
 msgid "Enjoying the Playbuzz WordPress Plugin?"
 msgstr "נהנים מתוסף הוורדפרס של פלייבאז?"
 
-#: ../admin.php:638
+#: ../admin.php:641
 #, php-format
 msgid ""
 "<a href=\"%s\" target=\"_blank\">Rate us</a> on the Wordpress Plugin "
@@ -500,17 +500,17 @@ msgstr ""
 "<a href=\"%s\" target=\"_blank\">דרגו אותנו</a> בספריית התוספים של וורדפרס "
 "כדי לעזור לאחרים לגלות את פלייבאז!"
 
-#: ../admin.php:644
+#: ../admin.php:647
 msgid "Become a Premium Playbuzz Publisher"
 msgstr "הצטרפו לשותפי הפרמיום של פלייבאז"
 
-#: ../admin.php:645
+#: ../admin.php:648
 msgid ""
 "Want to learn how Playbuzz can take your publication’s engagement to new "
 "heights?"
 msgstr "רוצים ללמוד איך פלייבאז יכולה לקחת את התכנים שלכם לגבהים חדשים?"
 
-#: ../admin.php:646
+#: ../admin.php:649
 msgid "Lets Talk!"
 msgstr "דברו איתנו!"
 

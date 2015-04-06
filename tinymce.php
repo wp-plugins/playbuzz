@@ -1,5 +1,15 @@
 <?php
 /*
+ * Security check
+ * Exit if file accessed directly.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
+
+/*
  * Playbuzz TinyMCE Plugin
  * TinyMCE plugin for playbuzz on WordPress editor.
  *

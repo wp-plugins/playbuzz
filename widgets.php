@@ -1,5 +1,15 @@
 <?php
 /*
+ * Security check
+ * Exit if file accessed directly.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
+
+/*
  * Recommendations Widget
  * WordPress widget that displays playbuzz related playful content links and recommendations on sites sidebar.
  *
@@ -13,12 +23,9 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 	public function __construct() {
 
 		// load plugin text domain
-		add_action( 'init', array( $this, 'playbuzz' ) );
+		//add_action( 'init', array( $this, 'playbuzz' ) );
 
-		// Hooks fired when the Widget is activated and deactivated
-		register_activation_hook(   __FILE__ , array( $this, 'activate'   ) );
-		register_deactivation_hook( __FILE__ , array( $this, 'deactivate' ) );
-
+		// register new widget
 		parent::__construct(
 			'playbuzz-recommendations-id',
 			__( 'Playbuzz Recommendations', 'playbuzz' ),
@@ -39,36 +46,37 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		extract( $args, EXTR_SKIP );
+		// Load WordPress globals
+		global $wp_version;
 
-		$options = get_option( 'playbuzz' );
+		// Load global site settings from DB
+		$options = (array) get_option( 'playbuzz' );
 
-		// set values
+		// Prepare widget settings
+		$key   = ( ( ( array_key_exists( 'key', $options ) ) ) ? $options['key'] : str_replace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) ) );
 		$title = empty( $instance['title'] ) ? '' : apply_filters( 'title', $instance['title'] );
-		$key   = $options['key'];
 		$view  = empty( $instance['view']  ) ? '' : apply_filters( 'view',  $instance['view']  );
 		$items = empty( $instance['items'] ) ? '' : apply_filters( 'items', $instance['items'] );
 		$links = empty( $instance['links'] ) ? '' : apply_filters( 'links', $instance['links'] );
-
 		$tags  = '';
-		if ( '1' == $instance['tags-mix']          ) $tags .= 'All,';
-		if ( '1' == $instance['tags-fun']          ) $tags .= 'Fun,';
-		if ( '1' == $instance['tags-pop']          ) $tags .= 'Pop,';
-		if ( '1' == $instance['tags-geek']         ) $tags .= 'Geek,';
-		if ( '1' == $instance['tags-sports']       ) $tags .= 'Sports,';
-		if ( '1' == $instance['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
+		$tags .= ( ( '1' == $instance['tags-mix']          ) ? 'All,'                  : '' );
+		$tags .= ( ( '1' == $instance['tags-fun']          ) ? 'Fun,'                  : '' );
+		$tags .= ( ( '1' == $instance['tags-pop']          ) ? 'Pop,'                  : '' );
+		$tags .= ( ( '1' == $instance['tags-geek']         ) ? 'Geek,'                 : '' );
+		$tags .= ( ( '1' == $instance['tags-sports']       ) ? 'Sports,'               : '' );
+		$tags .= ( ( '1' == $instance['tags-editors-pick'] ) ? 'EditorsPick_Featured,' : '' );
 		$tags .= $instance['more-tags'];
-		$tags = rtrim( $tags, ',');
+		$tags  = rtrim( $tags, ',');
 
 		// Output
-		echo $before_widget;
+		echo $args['before_widget'];
 		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
 		echo '
 			<script type="text/javascript" src="//cdn.playbuzz.com/widget/widget.js"></script>
-			<div class="pb_recommendations" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="false"></div>
+			<div class="pb_recommendations" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $key ) . '" data-tags="' . esc_attr( $tags ) . '" data-view="' . esc_attr( $view ) . '" data-num-items="' . esc_attr( $items ) . '" data-links="' . esc_attr( $links ) . '" data-nostyle="false"></div>
 		';
-		echo $after_widget;
+		echo $args['after_widget'];
 
 	}
 
@@ -83,23 +91,23 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		$instance['title']             = strip_tags( $new_instance['title']                             );
-		$instance['view']              = strip_tags( stripslashes( $new_instance['view']              ) );
-		$instance['items']             = strip_tags( stripslashes( $new_instance['items']             ) );
-		$instance['tags-mix']          = strip_tags( stripslashes( $new_instance['tags-mix']          ) );
-		$instance['tags-fun']          = strip_tags( stripslashes( $new_instance['tags-fun']          ) );
-		$instance['tags-pop']          = strip_tags( stripslashes( $new_instance['tags-pop']          ) );
-		$instance['tags-geek']         = strip_tags( stripslashes( $new_instance['tags-geek']         ) );
-		$instance['tags-sports']       = strip_tags( stripslashes( $new_instance['tags-sports']       ) );
-		$instance['tags-editors-pick'] = strip_tags( stripslashes( $new_instance['tags-editors-pick'] ) );
-		$instance['more-tags']         = strip_tags( stripslashes( $new_instance['more-tags']         ) );
-		$instance['section-page']      = $new_instance['section-page'];
+		$instance['title']             = sanitize_text_field( $new_instance['title']                             );
+		$instance['view']              = sanitize_text_field( stripslashes( $new_instance['view']              ) );
+		$instance['items']             = sanitize_text_field( stripslashes( $new_instance['items']             ) );
+		$instance['tags-mix']          = sanitize_text_field( stripslashes( $new_instance['tags-mix']          ) );
+		$instance['tags-fun']          = sanitize_text_field( stripslashes( $new_instance['tags-fun']          ) );
+		$instance['tags-pop']          = sanitize_text_field( stripslashes( $new_instance['tags-pop']          ) );
+		$instance['tags-geek']         = sanitize_text_field( stripslashes( $new_instance['tags-geek']         ) );
+		$instance['tags-sports']       = sanitize_text_field( stripslashes( $new_instance['tags-sports']       ) );
+		$instance['tags-editors-pick'] = sanitize_text_field( stripslashes( $new_instance['tags-editors-pick'] ) );
+		$instance['more-tags']         = sanitize_text_field( stripslashes( $new_instance['more-tags']         ) );
+		$instance['section-page']      = sanitize_text_field( $new_instance['section-page'] );
 
 		// for backwards compatibility
 		if ( empty( $instance['section-page'] ) OR ( 0 == $instance['section-page'] ) ) {
-			$instance['links']         = strip_tags( $new_instance['links'] );
+			$instance['links']         = sanitize_text_field( $new_instance['links'] );
 		} else {
-			$instance['links']         = get_permalink( $new_instance['section-page'] );
+			$instance['links']         = esc_url_raw( get_permalink( $new_instance['section-page'] ) );
 		}
 
 		return $instance;
@@ -115,7 +123,7 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 	public function form( $instance ) {
 
 		// Load options
-		$options = get_option( 'playbuzz' );
+		$options = (array) get_option( 'playbuzz' );
 
 		// Set default values
 		$defaults = array(
@@ -139,20 +147,20 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 		// Display the admin form
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e( 'Title', 'playbuzz' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $new_instance['title']; ?>" placeholder="<?php _e( 'Widget title', 'playbuzz' ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title', 'playbuzz' ); ?></label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" value="<?php echo esc_attr( $new_instance['title'] ); ?>" placeholder="<?php esc_attr_e( 'Widget title', 'playbuzz' ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('view'); ?>"><?php _e( 'Items layout', 'playbuzz' ); ?></label>
-			<select class="widefat" id="<?php echo $this->get_field_id('view'); ?>" name="<?php echo $this->get_field_name('view'); ?>">
-				<option value="large_images"      <?php if ( 'large_images'      == $new_instance['view'] ) echo 'selected'; ?>><?php _e( 'Large Images',      'playbuzz' ); ?></option>
-				<option value="horizontal_images" <?php if ( 'horizontal_images' == $new_instance['view'] ) echo 'selected'; ?>><?php _e( 'Horizontal Images', 'playbuzz' ); ?></option>
-				<option value="no_images"         <?php if ( 'no_images'         == $new_instance['view'] ) echo 'selected'; ?>><?php _e( 'No Images',         'playbuzz' ); ?></option>
+			<label for="<?php echo esc_attr( $this->get_field_id('view') ); ?>"><?php esc_html_e( 'Items layout', 'playbuzz' ); ?></label>
+			<select class="widefat" id="<?php echo esc_attr( $this->get_field_id('view') ); ?>" name="<?php echo esc_attr( $this->get_field_name('view') ); ?>">
+				<option value="large_images"      <?php if ( 'large_images'      == $new_instance['view'] ) echo 'selected'; ?>><?php esc_html_e( 'Large Images',      'playbuzz' ); ?></option>
+				<option value="horizontal_images" <?php if ( 'horizontal_images' == $new_instance['view'] ) echo 'selected'; ?>><?php esc_html_e( 'Horizontal Images', 'playbuzz' ); ?></option>
+				<option value="no_images"         <?php if ( 'no_images'         == $new_instance['view'] ) echo 'selected'; ?>><?php esc_html_e( 'No Images',         'playbuzz' ); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('items'); ?>"><?php _e( 'Number of Items', 'playbuzz' ); ?></label>
-			<select class="widefat" id="<?php echo $this->get_field_id('items'); ?>" name="<?php echo $this->get_field_name('items'); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id('items') ); ?>"><?php esc_html_e( 'Number of Items', 'playbuzz' ); ?></label>
+			<select class="widefat" id="<?php echo esc_attr( $this->get_field_id('items') ); ?>" name="<?php echo esc_attr( $this->get_field_name('items') ); ?>">
 				<option value="2"  <?php if ( '2'  == $new_instance['items'] ) echo 'selected'; ?>>2</option>
 				<option value="3"  <?php if ( '3'  == $new_instance['items'] ) echo 'selected'; ?>>3</option>
 				<option value="4"  <?php if ( '4'  == $new_instance['items'] ) echo 'selected'; ?>>4</option>
@@ -170,20 +178,20 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('tags'); ?>"><?php _e( 'Tags', 'playbuzz' ); ?></label><br>
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-mix');          ?>" value="1" <?php if ( '1' == $new_instance['tags-mix']          ) echo 'checked="checked"'; ?>> <?php _e( 'All',            'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-fun');          ?>" value="1" <?php if ( '1' == $new_instance['tags-fun']          ) echo 'checked="checked"'; ?>> <?php _e( 'Fun',            'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-pop');          ?>" value="1" <?php if ( '1' == $new_instance['tags-pop']          ) echo 'checked="checked"'; ?>> <?php _e( 'Pop',            'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-geek');         ?>" value="1" <?php if ( '1' == $new_instance['tags-geek']         ) echo 'checked="checked"'; ?>> <?php _e( 'Geek',           'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-sports');       ?>" value="1" <?php if ( '1' == $new_instance['tags-sports']       ) echo 'checked="checked"'; ?>> <?php _e( 'Sports',         'playbuzz' ); ?> 
-			<input type="checkbox" name="<?php echo $this->get_field_name('tags-editors-pick'); ?>" value="1" <?php if ( '1' == $new_instance['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php _e( 'Editor\'s Pick', 'playbuzz' ); ?> 
+			<label for="<?php echo esc_attr( $this->get_field_id('tags') ); ?>"><?php esc_html_e( 'Tags', 'playbuzz' ); ?></label><br>
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name('tags-mix') );          ?>" value="1" <?php if ( '1' == $new_instance['tags-mix']          ) echo 'checked="checked"'; ?>> <?php esc_html_e( 'All',            'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name('tags-fun') );          ?>" value="1" <?php if ( '1' == $new_instance['tags-fun']          ) echo 'checked="checked"'; ?>> <?php esc_html_e( 'Fun',            'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name('tags-pop') );          ?>" value="1" <?php if ( '1' == $new_instance['tags-pop']          ) echo 'checked="checked"'; ?>> <?php esc_html_e( 'Pop',            'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name('tags-geek') );         ?>" value="1" <?php if ( '1' == $new_instance['tags-geek']         ) echo 'checked="checked"'; ?>> <?php esc_html_e( 'Geek',           'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name('tags-sports') );       ?>" value="1" <?php if ( '1' == $new_instance['tags-sports']       ) echo 'checked="checked"'; ?>> <?php esc_html_e( 'Sports',         'playbuzz' ); ?> 
+			<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name('tags-editors-pick') ); ?>" value="1" <?php if ( '1' == $new_instance['tags-editors-pick'] ) echo 'checked="checked"'; ?>> <?php esc_html_e( 'Editor\'s Pick', 'playbuzz' ); ?> 
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('more-tags'); ?>"><?php _e( 'Custom Tags', 'playbuzz' ); ?></label>
-			<input type="text" class="widefat" id="<?php echo $this->get_field_id('more-tags'); ?>" name="<?php echo $this->get_field_name('more-tags'); ?>" value="<?php echo $new_instance['more-tags']; ?>" placeholder="<?php _e( 'Comma separated tags', 'playbuzz' ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id('more-tags') ); ?>"><?php esc_html_e( 'Custom Tags', 'playbuzz' ); ?></label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('more-tags') ); ?>" name="<?php echo esc_url( $this->get_field_name('more-tags') ); ?>" value="<?php echo esc_attr( $new_instance['more-tags'] ); ?>" placeholder="<?php esc_attr_e( 'Comma separated tags', 'playbuzz' ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('links'); ?>"><?php _e( 'Open Items at (location of section)', 'playbuzz' ); ?></label><br>
+			<label for="<?php echo esc_attr( $this->get_field_id('links') ); ?>"><?php esc_html_e( 'Open Items at (location of section)', 'playbuzz' ); ?></label><br>
 			<p><?php printf( __( '<a href="%s" target="_blank">Create</a> a new page containing the <code>[playbuzz-section]</code> shortcode. Then select it below as the destination page where items will open:', 'playbuzz' ), 'post-new.php?post_type=page' ); ?></p>
 			<?php
 			if ( isset( $new_instance['section-page'] ) ) {
@@ -193,7 +201,7 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 			}
 			?>
 			<?php wp_dropdown_pages( array( 'selected' => $link_page_id, 'post_type' => 'page', 'hierarchical' => 1, 'class' => 'widefat', 'id' => $this->get_field_id('section-page'), 'name' => $this->get_field_name('section-page'), 'show_option_none' => __( '&mdash; Select &mdash;' ), 'option_none_value' => '0' ) ); ?>
-			<input type="hidden" class="widefat" id="<?php echo $this->get_field_id('links'); ?>" name="<?php echo $this->get_field_name('links'); ?>" value="<?php echo $new_instance['links']; ?>" placeholder="https://www.playbuzz.com/">
+			<input type="hidden" class="widefat" id="<?php echo esc_attr( $this->get_field_id('links') ); ?>" name="<?php echo esc_attr( $this->get_field_name('links') ); ?>" value="<?php echo esc_attr( $new_instance['links'] ); ?>" placeholder="https://www.playbuzz.com/">
 		</p>
 		<?php
 	}
@@ -206,26 +214,15 @@ class Playbuzz_Recommendations_Widget extends WP_Widget {
 		load_plugin_textdomain( 'playbuzz', false, plugin_dir_path( __FILE__ ) . '/lang' );
 	}
 
-
-	/*
-	 * Fired when the plugin is activated.
-	 *
-	 * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
-	 */
-	public function activate( $network_wide ) {
-		// Define activation functionality here
-	}
-
-
-	/*
-	 * Fired when the plugin is deactivated.
-	 *
-	 * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
-	 */
-	public function deactivate( $network_wide ) {
-		// Define deactivation functionality here
-	}
-
 }
 
-add_action( 'widgets_init', create_function( '', 'register_widget("Playbuzz_Recommendations_Widget");' ) );
+
+/*
+ * Register Recommendations Widget
+ *
+ * @since 0.1.0
+ */
+function register_playbuzz_recommendations_widget() {
+	register_widget("Playbuzz_Recommendations_Widget");
+}
+add_action( 'widgets_init', 'register_playbuzz_recommendations_widget' );

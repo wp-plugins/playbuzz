@@ -114,7 +114,7 @@
 	padding-left: 0;
 	padding-right: 30px;
 }
-.rtl #playbuzz_item_update input[type=reset] {
+.rtl #playbuzz_item_update .playbuzz_item_cancel_button {
 	float: left;
 }
 

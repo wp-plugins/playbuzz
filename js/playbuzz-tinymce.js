@@ -24,11 +24,12 @@
 		function item_type( type ) {
 
 			switch( type ) {
-				case "TestYourself"   : name = "PERSONALITY QUIZ"; break;
-				case "List"           : name = "LIST";             break;
-				case "multipleChoice" : name = "TRIVIA";           break;
-				case "Poll"           : name = "POLL";             break;
-				case "RankList"       : name = "RANKED LIST";      break;
+				case "TestYourself"   : name = "Personality Quiz"; break;
+				case "List"           : name = "List";             break;
+				case "multipleChoice" : name = "Trivia";           break;
+				case "Poll"           : name = "Poll";             break;
+				case "RankList"       : name = "Ranked List";      break;
+				case "Gallery"        : name = "Gallery Quiz";     break;
 				default               : name = "";                 break;
 			}
 			return name;
@@ -112,12 +113,13 @@
 			results += "			<div class='playbuzz_search_fields'>";
 			results += "				<label for='playbuzz_search_type' class='playbuzz_search_label'>SHOW</label>";
 			results += "				<select id='playbuzz_search_type' name='playbuzz_search_type' class='playbuzz_search_type'>";
-			results += "					<option value='List,TestYourself,Poll,RankList,multipleChoice'>ALL TYPES</option>";
+			results += "					<option value='List,TestYourself,Poll,RankList,multipleChoice,Gallery'>ALL TYPES</option>";
 			results += "					<option value='List'>LIST</option>";
 			results += "					<option value='TestYourself'>PERSONALITY QUIZ</option>";
 			results += "					<option value='Poll'>POLL</option>";
 			results += "					<option value='RankList'>RANKED LIST</option>";
 			results += "					<option value='multipleChoice'>TRIVIA</option>";
+			results += "					<option value='Gallery'>GALLERY QUIZ</option>";
 			results += "				</select>";
 			results += "				<label for='playbuzz_search_sort' class='playbuzz_search_label'>SORT BY</label>";
 			results += "				<select id='playbuzz_search_sort' name='playbuzz_search_sort' class='playbuzz_search_sort'>";
@@ -354,7 +356,7 @@
 						var info  = " ",
 						    image = " ";
 
-						// // Data output
+						// Data output
 						if ( data.items.total > 0 ) {
 							info  = "<p class='wp_playbuzz_title'>" + data.items.data[0].title + "</p><p class='wp_playbuzz_meta'>Created by <span class='wp_playbuzz_author'>" + data.items.data[0].creator_name + "</span> on " + item_date( data.items.data[0].published_date ) + "</p>";
 							image = data.items.data[0].img_large;
@@ -514,8 +516,8 @@
 				results += "			<input type='hidden' id='playbuzz_item_settings_tags'   value='" + tags       + "'>";
 				results += "			<input type='hidden' id='playbuzz_item_settings_width'  value='" + width      + "'>";
 				results += "			<input type='hidden' id='playbuzz_item_settings_height' value='" + height     + "'>";
-				results += "			<input type='reset'  class=''                           value='Cancel'>";
-				results += "			<input type='button' class='button button-primary'      value='Update Item'>";
+				results += "			<div class='playbuzz_item_cancel_button'>Cancel</div>";
+				results += "			<div class='playbuzz_item_update_button'>Update Item</div>";
 				results += "		</div>";
 				results += "	</form>";
 				results += "</div>";
@@ -617,9 +619,12 @@
 				(jQuery)("#playbuzz_popup_close").click(function() {
 					(jQuery)( '.playbuzz_popup_overlay' ).remove();
 				});
+				(jQuery)(".playbuzz_item_cancel_button").click(function() {
+					(jQuery)( '.playbuzz_popup_overlay' ).remove();
+				});
 
 				// Click Update button
-				(jQuery)("#playbuzz_item_update input").click(function( e ) {
+				(jQuery)(".playbuzz_item_update_button").click(function( e ) {
 
 					// start shortcode tag
 					var shortcode_str = '[playbuzz-item';

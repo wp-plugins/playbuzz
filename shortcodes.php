@@ -1,5 +1,15 @@
 <?php
 /*
+ * Security check
+ * Exit if file accessed directly.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
+
+/*
  * Item Shortcode
  * Display a specific item in a desired location on your content.
  *
@@ -47,58 +57,61 @@ add_shortcode( 'playbuzz-recommendations', 'playbuzz_recommendations_shortcode' 
  */
 function playbuzz_item_shortcode( $atts ) {
 
-	// Load globals
+	// Load WordPress globals
 	global $wp_version;
 
-	// Load publisher options from DB defined 
-	$options = get_option( 'playbuzz' );
+	// Load global site settings from DB
+	$options = (array) get_option( 'playbuzz' );
 
-	// Tags
-	$tags = '';
-	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
-	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
-	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
-	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
-	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
-	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
-	$tags .= $options['more-tags'];
-	$tags = rtrim( $tags, ',');
+	// Prepare site settings
+	$site_key       = ( ( ( array_key_exists( 'key',               $options ) ) ) ? $options['key'] : str_replace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) ) );
+	$site_info      = ( ( ( array_key_exists( 'info',              $options ) ) && ( '1' == $options['info']      ) ) ? 'true' : 'false' );
+	$site_shares    = ( ( ( array_key_exists( 'shares',            $options ) ) && ( '1' == $options['shares']    ) ) ? 'true' : 'false' );
+	$site_comments  = ( ( ( array_key_exists( 'comments',          $options ) ) && ( '1' == $options['comments']  ) ) ? 'true' : 'false' );
+	$site_recommend = ( ( ( array_key_exists( 'recommend',         $options ) ) && ( '1' == $options['recommend'] ) ) ? 'true' : 'false' );
+	$site_tags      = '';
+	$site_tags     .= ( ( ( array_key_exists( 'tags-mix',          $options ) ) && ( '1' == $options['tags-mix']          ) ) ? 'All,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-fun',          $options ) ) && ( '1' == $options['tags-fun']          ) ) ? 'Fun,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-pop',          $options ) ) && ( '1' == $options['tags-pop']          ) ) ? 'Pop,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-geek',         $options ) ) && ( '1' == $options['tags-geek']         ) ) ? 'Geek,'                 : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-sports',       $options ) ) && ( '1' == $options['tags-sports']       ) ) ? 'Sports,'               : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-editors-pick', $options ) ) && ( '1' == $options['tags-editors-pick'] ) ) ? 'EditorsPick_Featured,' : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'more-tags',         $options ) ) ) ? $options['more-tags']  : '' );
+	$site_tags      = rtrim( $site_tags, ',' );
+	$site_margintop = ( ( ( array_key_exists( 'margin-top',        $options ) ) ) ? $options['margin-top'] : '' );
+	$embeddedon     = ( ( ( array_key_exists( 'embeddedon',        $options ) ) ) ? $options['embeddedon'] : 'content' );
 
-	// Attributes with default values
-	extract( shortcode_atts(
+	// Set default attribute values if the user did not defined any
+	$atts = shortcode_atts(
 		array(
-			'key'       => $options['key'],                                     // api key allowing configuration and analytics
-			'tags'      => $tags,                                               // filter by tags
-			'game'      => '',                                                  // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
-			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
-			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
-			'shares'    => ( '1' == $options['shares']    ? 'true' : 'false' ), // show sharing buttons 
-			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page
-			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more items
-			'links'     => '',                                                  // destination url in your site where new items will be displayed
-			'width'     => 'auto',                                              // define custom width (added in 0.3)
-			'height'    => 'auto',                                              // define custom height (added in 0.3)
-			'margintop' => $options['margin-top'],                              // margin top for score bar in case there is a floating bar
-		), $atts )
-	);
+			'key'        => $site_key,       // api key allowing configuration and analytics
+			'game'       => '',              // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
+			'url'        => '',              // defines the item that will be loaded by the IFrame (added in 0.3)
+			'info'       => $site_info,      // show item info (thumbnail, name, description, editor, etc)
+			'shares'     => $site_shares,    // show sharing buttons 
+			'comments'   => $site_comments,  // show comments control from the item page
+			'recommend'  => $site_recommend, // show recommendations for more items
+			'tags'       => $site_tags,      // filter by tags
+			'links'      => '',              // destination url in your site where new items will be displayed
+			'width'      => 'auto',          // define custom width (added in 0.3)
+			'height'     => 'auto',          // define custom height (added in 0.3)
+			'margin-top' => $site_margintop, // margin top for score bar in case there is a floating bar
+		), $atts );
 
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-provider="WordPress ' . $wp_version . '" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="' . $shares . '" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
+		<div class="pb_feed" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-game="' . esc_url( $atts['url'] . $atts['game'] ) . '" data-game-info="' . esc_attr( $atts['info'] ) . '" data-comments="' . esc_attr( $atts['comments'] ) . '" data-shares="' . esc_attr( $atts['shares'] ) . '" data-recommend="' . esc_attr( $atts['recommend'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-width="' . esc_attr( $atts['width'] ) . '" data-height="' . esc_attr( $atts['height'] ) . '" data-margin-top="' . esc_attr( $atts['margintop'] ) . '"></div>
 	';
 
 	// Theme Visibility
-	if ( 'content' == $options['embeddedon'] ) {
+	if ( 'content' == $embeddedon ) {
 		// Show only in singular pages
 		if ( is_singular() ) {
 			return $code;
 		}
-	} elseif ( 'all' == $options['embeddedon'] ) {
+	} elseif ( 'all' == $embeddedon ) {
 		// Show in all pages
-		return $code;
-	} else {
-		// BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
 		return $code;
 	}
 
@@ -111,58 +124,61 @@ function playbuzz_item_shortcode( $atts ) {
  */
 function playbuzz_section_shortcode( $atts ) {
 
-	// Load globals
+	// Load WordPress globals
 	global $wp_version;
 
-	// Load publisher options from DB defined 
-	$options = get_option( 'playbuzz' );
+	// Load global site settings from DB
+	$options = (array) get_option( 'playbuzz' );
 
-	// Tags
-	$tags = '';
-	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
-	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
-	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
-	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
-	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
-	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
-	$tags .= $options['more-tags'];
-	$tags = rtrim( $tags, ',');
+	// Prepare site settings
+	$site_key       = ( ( ( array_key_exists( 'key',               $options ) ) ) ? $options['key'] : str_replace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) ) );
+	$site_info      = ( ( ( array_key_exists( 'info',              $options ) ) && ( '1' == $options['info']      ) ) ? 'true' : 'false' );
+	$site_shares    = ( ( ( array_key_exists( 'shares',            $options ) ) && ( '1' == $options['shares']    ) ) ? 'true' : 'false' );
+	$site_comments  = ( ( ( array_key_exists( 'comments',          $options ) ) && ( '1' == $options['comments']  ) ) ? 'true' : 'false' );
+	$site_recommend = ( ( ( array_key_exists( 'recommend',         $options ) ) && ( '1' == $options['recommend'] ) ) ? 'true' : 'false' );
+	$site_tags      = '';
+	$site_tags     .= ( ( ( array_key_exists( 'tags-mix',          $options ) ) && ( '1' == $options['tags-mix']          ) ) ? 'All,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-fun',          $options ) ) && ( '1' == $options['tags-fun']          ) ) ? 'Fun,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-pop',          $options ) ) && ( '1' == $options['tags-pop']          ) ) ? 'Pop,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-geek',         $options ) ) && ( '1' == $options['tags-geek']         ) ) ? 'Geek,'                 : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-sports',       $options ) ) && ( '1' == $options['tags-sports']       ) ) ? 'Sports,'               : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-editors-pick', $options ) ) && ( '1' == $options['tags-editors-pick'] ) ) ? 'EditorsPick_Featured,' : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'more-tags',         $options ) ) ) ? $options['more-tags']  : '' );
+	$site_tags      = rtrim( $site_tags, ',' );
+	$site_margintop = ( ( ( array_key_exists( 'margin-top',        $options ) ) ) ? $options['margin-top'] : '' );
+	$embeddedon     = ( ( ( array_key_exists( 'embeddedon',        $options ) ) ) ? $options['embeddedon'] : 'content' );
 
-	// Attributes with default values
-	extract( shortcode_atts(
+	// Set default attribute values if the user did not defined any
+	$atts = shortcode_atts(
 		array(
-			'key'       => $options['key'],                                     // api key allowing configuration and analytics
-			'tags'      => $tags,                                               // filter by tags
-			'game'      => '',                                                  // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
-			'url'       => '',                                                  // defines the item that will be loaded by the IFrame (added in 0.3)
-			'info'      => ( '1' == $options['info']      ? 'true' : 'false' ), // show item info (thumbnail, name, description, editor, etc)
-			'shares'    => ( '1' == $options['shares']    ? 'true' : 'false' ), // show sharing buttons 
-			'comments'  => ( '1' == $options['comments']  ? 'true' : 'false' ), // show comments control from the item page
-			'recommend' => ( '1' == $options['recommend'] ? 'true' : 'false' ), // show recommendations for more items
-			'links'     => '',                                                  // destination url in your site where new items will be displayed
-			'width'     => 'auto',                                              // defines the width (added in 0.3)
-			'height'    => 'auto',                                              // defines the height (added in 0.3)
-			'margintop' => $options['margin-top'],                              // margin top for score bar in case there is a floating bar
-		), $atts )
-	);
+			'key'        => $site_key,       // api key allowing configuration and analytics
+			'tags'       => $site_tags,      // filter by tags
+			'game'       => '',              // defines the item that will be loaded by the IFrame (deprecated in 0.3 ; use "url" attribute)
+			'url'        => '',              // defines the item that will be loaded by the IFrame (added in 0.3)
+			'info'       => $site_info,      // show item info (thumbnail, name, description, editor, etc)
+			'shares'     => $site_shares,    // show sharing buttons 
+			'comments'   => $site_comments,  // show comments control from the item page
+			'recommend'  => $site_recommend, // show recommendations for more items
+			'links'      => '',              // destination url in your site where new items will be displayed
+			'width'      => 'auto',          // define custom width (added in 0.3)
+			'height'     => 'auto',          // define custom height (added in 0.3)
+			'margin-top' => $site_margintop, // margin top for score bar in case there is a floating bar
+		), $atts );
 
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-provider="WordPress ' . $wp_version . '" data-key="' . $key . '" data-tags="' . $tags . '" data-game="' . $url . $game . '" data-game-info="' . $info . '" data-comments="' . $comments . '" data-shares="true" data-recommend="' . $recommend . '" data-links="' . $links . '" data-width="' . $width . '" data-height="' . $height . '" data-margin-top="' . $margintop . '"></div>
+		<div class="pb_feed" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-game="' . esc_url( $atts['url'] . $atts['game'] ) . '" data-game-info="' . esc_attr( $atts['info'] ) . '" data-comments="' . esc_attr( $atts['comments'] ) . '" data-shares="true" data-recommend="' . esc_attr( $atts['recommend'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-width="' . esc_attr( $atts['width'] ) . '" data-height="' . esc_attr( $atts['height'] ) . '" data-margin-top="' . esc_attr( $atts['margintop'] ) . '"></div>
 	';
 
 	// Theme Visibility
-	if ( 'content' == $options['embeddedon'] ) {
+	if ( 'content' == $embeddedon ) {
 		// Show only in singular pages
 		if ( is_singular() ) {
 			return $code;
 		}
-	} elseif ( 'all' == $options['embeddedon'] ) {
+	} elseif ( 'all' == $embeddedon ) {
 		// Show in all pages
-		return $code;
-	} else {
-		// BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
 		return $code;
 	}
 
@@ -175,52 +191,53 @@ function playbuzz_section_shortcode( $atts ) {
  */
 function playbuzz_recommendations_shortcode( $atts ) {
 
-	// Load globals
+	// Load WordPress globals
 	global $wp_version;
 
-	// Load publisher options from DB defined 
-	$options = get_option( 'playbuzz' );
+	// Load global site settings from DB
+	$options = (array) get_option( 'playbuzz' );
 
-	// Tags
-	$tags = '';
-	if ( '1' == $options['tags-mix']          ) $tags .= 'All,';
-	if ( '1' == $options['tags-fun']          ) $tags .= 'Fun,';
-	if ( '1' == $options['tags-pop']          ) $tags .= 'Pop,';
-	if ( '1' == $options['tags-geek']         ) $tags .= 'Geek,';
-	if ( '1' == $options['tags-sports']       ) $tags .= 'Sports,';
-	if ( '1' == $options['tags-editors-pick'] ) $tags .= 'EditorsPick_Featured,';
-	$tags .= $options['more-tags'];
-	$tags = rtrim( $tags, ',');
+	// Prepare site settings
+	$site_key       = ( ( ( array_key_exists( 'key',               $options ) ) ) ? $options['key']   : str_replace( 'www.', '', parse_url( home_url(), PHP_URL_HOST ) ) );
+	$site_view      = ( ( ( array_key_exists( 'view',              $options ) ) ) ? $options['view']  : 'large_images' );
+	$site_items     = ( ( ( array_key_exists( 'items',             $options ) ) ) ? $options['items'] : 3 );
+	$site_links     = ( ( ( array_key_exists( 'links',             $options ) ) ) ? $options['links'] : 'https://www.playbuzz.com' );
+	$site_tags      = '';
+	$site_tags     .= ( ( ( array_key_exists( 'tags-mix',          $options ) ) && ( '1' == $options['tags-mix']          ) ) ? 'All,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-fun',          $options ) ) && ( '1' == $options['tags-fun']          ) ) ? 'Fun,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-pop',          $options ) ) && ( '1' == $options['tags-pop']          ) ) ? 'Pop,'                  : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-geek',         $options ) ) && ( '1' == $options['tags-geek']         ) ) ? 'Geek,'                 : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-sports',       $options ) ) && ( '1' == $options['tags-sports']       ) ) ? 'Sports,'               : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'tags-editors-pick', $options ) ) && ( '1' == $options['tags-editors-pick'] ) ) ? 'EditorsPick_Featured,' : '' );
+	$site_tags     .= ( ( ( array_key_exists( 'more-tags',         $options ) ) ) ? $options['more-tags']  : '' );
+	$site_tags      = rtrim( $site_tags, ',' );
+	$embeddedon     = ( ( ( array_key_exists( 'embeddedon',        $options ) ) ) ? $options['embeddedon'] : 'content' );
 
-	// Attributes with default values
-	extract( shortcode_atts(
+	// Set default attribute values if the user did not defined any
+	$atts = shortcode_atts(
 		array(
-			'key'     => $options['key'],     // api key allowing configuration and analytics
-			'view'    => $options['view'],    // set view type
-			'items'   => $options['items'],   // number of items to display
-			'links'   => $options['links'],   // destination url in your site where new items will be displayed
-			'tags'    => $tags,               // filter by tags
-			'nostyle' => 'false',             // set style
-		), $atts )
-	);
+			'key'     => $site_key,   // api key allowing configuration and analytics
+			'view'    => $site_view,  // set view type
+			'items'   => $site_items, // number of items to display
+			'links'   => $site_links, // destination url in your site where new items will be displayed
+			'tags'    => $site_tags,  // filter by tags
+			'nostyle' => 'false',     // set style
+		), $atts );
 
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/widget.js"></script>
-		<div class="pb_recommendations" data-provider="WordPress ' . $wp_version . '" data-key="' . $key . '" data-tags="' . $tags . '" data-view="' . $view . '" data-num-items="' . $items . '" data-links="' . $links . '" data-nostyle="' . $nostyle . '"></div>
+		<div class="pb_recommendations" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-view="' . esc_attr( $atts['view'] ) . '" data-num-items="' . esc_attr( $atts['items'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-nostyle="' . esc_attr( $atts['nostyle'] ) . '"></div>
 	';
 
 	// Theme Visibility
-	if ( 'content' == $options['embeddedon'] ) {
+	if ( 'content' == $embeddedon ) {
 		// Show only in singular pages
 		if ( is_singular() ) {
 			return $code;
 		}
-	} elseif ( 'all' == $options['embeddedon'] ) {
+	} elseif ( 'all' == $embeddedon ) {
 		// Show in all pages
-		return $code;
-	} else {
-		// BUGFIX: after update to v0.3, no "embeddedon' defined and all content gone.
 		return $code;
 	}
 

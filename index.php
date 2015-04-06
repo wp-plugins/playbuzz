@@ -1,24 +1,22 @@
 <?php
 /*
 Plugin Name: Playbuzz
-Plugin URI: https://www.playbuzz.com/
-Description: Plugin for embedding customized playful content from Playbuzz in your WordPress site.
-Version: 0.6.0
-Author: playbuzz
-Author URI: https://www.playbuzz.com/
+Plugin URI:  https://www.playbuzz.com/
+Description: Embed customized playful content from Playbuzz.com in your WordPress site
+Version:     0.7.0
+Author:      Playbuzz
+Author URI:  https://www.playbuzz.com/
 Text Domain: playbuzz
 Domain Path: /lang
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
 
 /*
- * Abort if this file is called directly.
+ * Exit if file accessed directly
  */
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 
