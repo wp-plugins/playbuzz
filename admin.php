@@ -298,7 +298,7 @@ class PlaybuzzAdmin {
 						<h3><?php esc_html_e( 'Appearance Preferences', 'playbuzz' ); ?></h3>
 
 						<label for="<?php echo esc_attr( $this->get_option_name() ); ?>[embeddedon]">
-							<?php esc_html_e( 'Display embed on', 'playbuzz' ); ?>
+							<?php esc_html_e( 'Display embedded items on', 'playbuzz' ); ?>
 							<select id="<?php echo esc_attr( $this->get_option_name() ); ?>[embeddedon]" name="<?php echo esc_attr( $this->get_option_name() ); ?>[embeddedon]">
 								<option value="content" <?php if ( isset( $options['embeddedon'] ) && ( 'content' == $options['embeddedon'] ) ) echo 'selected'; ?>><?php esc_html_e( 'Posts & Pages Only',                  'playbuzz' ); ?></option>
 								<option value="all"     <?php if ( isset( $options['embeddedon'] ) && ( 'all'     == $options['embeddedon'] ) ) echo 'selected'; ?>><?php esc_html_e( 'All pages (singular, archive, ect.)', 'playbuzz' ); ?></option>
