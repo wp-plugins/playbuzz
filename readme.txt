@@ -89,7 +89,7 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 
 == Changelog ==
 
-= 0.7.0  (2015-MM-DD) =
+= 0.7.0  (2015-04-06) =
 * Bug Fix: Resolve JS issues with item popup when clicking multiple times "Cancel" and "Update Item" buttons
 * Bug Fix: Resolve all "undefined index" notices in shortcodes
 * Bug Fix: Now the plugin works even if the user didn't saved any site settings
