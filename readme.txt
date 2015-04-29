@@ -3,7 +3,7 @@ Contributors: playbuzz
 Tags: Playbuzz, playful content, feed, feeds, embed, oembed, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.7
 Tested up to: 4.2
-Stable tag: 0.7.0
+Stable tag: 0.7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,9 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 6. Switching to the text-editor will present the simple shortcode in use.
 
 == Changelog ==
+
+= 0.7.1  (2015-04-27) =
+* Fix API issues - when creating an item in playbuzz, now you can see it instantly in your WordPress dashboard
 
 = 0.7.0  (2015-04-06) =
 * Bug Fix: Resolve JS issues with item popup when clicking multiple times "Cancel" and "Update Item" buttons
@@ -198,6 +201,9 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 * Admin: Shortcodes documentation
 
 == Upgrade Notice ==
+
+= 0.7.1 =
+Fix Playbuzz API issues
 
 = 0.7.0 =
 Bug fixes, security improvements, resolve php notices, harden the plugin, and add more changes for WordPress.com VIP clients

@@ -222,7 +222,8 @@
 					data     : {
 						item_type : type,
 						size      : items_per_page,
-						from      : (current_page*items_per_page)-items_per_page
+						from      : (current_page*items_per_page)-items_per_page,
+						moderation : false
 					},
 					success  : function( data ) {
 						total_items = data.items.total;
@@ -348,7 +349,8 @@
 					dataType : "json",
 					data     : {
 						creator_name_seo : creatorName,
-						item_name_seo    : gameName
+						item_name_seo    : gameName,
+						moderation       : false
 					},
 					success  : function( data ) {
 
@@ -530,7 +532,8 @@
 					dataType : "json",
 					data     : {
 						creator_name_seo : creatorName,
-						item_name_seo    : gameName
+						item_name_seo    : gameName,
+						moderation       : false
 					},
 					success  : function( data ) {
 
