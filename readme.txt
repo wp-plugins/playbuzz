@@ -89,7 +89,7 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 
 == Changelog ==
 
-= 0.7.1  (2015-04-27) =
+= 0.7.1  (2015-04-29) =
 * Fix API issues - when creating an item in playbuzz, now you can see it instantly in your WordPress dashboard
 
 = 0.7.0  (2015-04-06) =
