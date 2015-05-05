@@ -101,7 +101,7 @@ function playbuzz_item_shortcode( $atts ) {
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-game="' . esc_url( $atts['url'] . $atts['game'] ) . '" data-game-info="' . esc_attr( $atts['info'] ) . '" data-comments="' . esc_attr( $atts['comments'] ) . '" data-shares="' . esc_attr( $atts['shares'] ) . '" data-recommend="' . esc_attr( $atts['recommend'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-width="' . esc_attr( $atts['width'] ) . '" data-height="' . esc_attr( $atts['height'] ) . '" data-margin-top="' . esc_attr( $atts['margintop'] ) . '"></div>
+		<div class="pb_feed" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-game="' . esc_url( $atts['url'] . $atts['game'] ) . '" data-game-info="' . esc_attr( $atts['info'] ) . '" data-comments="' . esc_attr( $atts['comments'] ) . '" data-shares="' . esc_attr( $atts['shares'] ) . '" data-recommend="' . esc_attr( $atts['recommend'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-width="' . esc_attr( $atts['width'] ) . '" data-height="' . esc_attr( $atts['height'] ) . '" data-margin-top="' . esc_attr( $atts['margin-top'] ) . '"></div>
 	';
 
 	// Theme Visibility
@@ -168,7 +168,7 @@ function playbuzz_section_shortcode( $atts ) {
 	// Playbuzz Embed Code
 	$code = '
 		<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
-		<div class="pb_feed" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-game="' . esc_url( $atts['url'] . $atts['game'] ) . '" data-game-info="' . esc_attr( $atts['info'] ) . '" data-comments="' . esc_attr( $atts['comments'] ) . '" data-shares="true" data-recommend="' . esc_attr( $atts['recommend'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-width="' . esc_attr( $atts['width'] ) . '" data-height="' . esc_attr( $atts['height'] ) . '" data-margin-top="' . esc_attr( $atts['margintop'] ) . '"></div>
+		<div class="pb_feed" data-provider="WordPress ' . esc_attr( $wp_version ) . '" data-key="' . esc_attr( $atts['key'] ) . '" data-tags="' . esc_attr( $atts['tags'] ) . '" data-game="' . esc_url( $atts['url'] . $atts['game'] ) . '" data-game-info="' . esc_attr( $atts['info'] ) . '" data-comments="' . esc_attr( $atts['comments'] ) . '" data-shares="true" data-recommend="' . esc_attr( $atts['recommend'] ) . '" data-links="' . esc_attr( $atts['links'] ) . '" data-width="' . esc_attr( $atts['width'] ) . '" data-height="' . esc_attr( $atts['height'] ) . '" data-margin-top="' . esc_attr( $atts['margin-top'] ) . '"></div>
 	';
 
 	// Theme Visibility

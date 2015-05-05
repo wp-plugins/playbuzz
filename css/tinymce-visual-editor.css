@@ -60,6 +60,7 @@
 	font-size: 0.9em;
 	line-height: 1.5em;
 	padding-top: 0.75em;
+	text-transform: uppercase;
 }
 .wp_playbuzz_buttons {
 	display: block;

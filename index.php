@@ -2,8 +2,8 @@
 /*
 Plugin Name: Playbuzz
 Plugin URI:  https://www.playbuzz.com/
-Description: Embed customized playful content from Playbuzz.com in your WordPress site
-Version:     0.7.1
+Description: Embed customized playful content from Playbuzz.com into your WordPress site
+Version:     0.8.0
 Author:      Playbuzz
 Author URI:  https://www.playbuzz.com/
 Text Domain: playbuzz

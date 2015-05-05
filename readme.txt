@@ -3,11 +3,11 @@ Contributors: playbuzz
 Tags: Playbuzz, playful content, feed, feeds, embed, oembed, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
 Requires at least: 3.7
 Tested up to: 4.2
-Stable tag: 0.7.1
+Stable tag: 0.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Embed customized playful content from Playbuzz.com in your WordPress site
+Embed customized playful content from Playbuzz.com into your WordPress site
 
 == Description ==
 
@@ -18,6 +18,7 @@ Take your site to new heights of audience engagement and shareability when you i
 = Features =
 
 * Quickly find the most relevant Playbuzz items to embed in the content you're working on, without leaving your edit screen.
+* Browse your own published items or search for content by the entire user community.
 * Refine results by content category, format, popularity and creation date.
 * Automate the plugin to display only the content relevant to your site, using tag filters.
 
@@ -65,7 +66,7 @@ Absolutely! We obviously can’t guarantee that you’ll get millions of page vi
 Yes. Playbuzz's UI is responsive and mobile compatible.
 
 = Can I create my own content? =
-For sure. We encourage you to use our free platform to create original Playful Content here: https://www.playbuzz.com/create
+For sure. And the plugin makes it super easy to find your own creations in a dedicated tab interface. We encourage you to use our free platform to create original Playful Content here: https://www.playbuzz.com/create
 
 = Might this plugin slow down my website? =
 Nope. Test it and see for yourself. Playbuzz uses a large content delivery network to ensure super-fast load times.
@@ -89,8 +90,15 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 
 == Changelog ==
 
+= 0.8.0  (2015-05-05) =
+* Admin: Add your Playbuzz.com username to browse your personal items from within the WordPress visual editor
+* Admin: Add feedback form validation
+* Visual Editor: Add "My Items" tab to playbuzz search popup
+* Visual Editor: Stretch popup height to the max (search popup and item settings popup)
+* i18n: Full Internationalization support with new translation strings for all the JS files
+
 = 0.7.1  (2015-04-29) =
-* Fix API issues - when creating an item in playbuzz, now you can see it instantly in your WordPress dashboard
+* Bug Fix: Improve Playbuzz API request - when creating an item in playbuzz, now you can see it instantly in your WordPress dashboard
 
 = 0.7.0  (2015-04-06) =
 * Bug Fix: Resolve JS issues with item popup when clicking multiple times "Cancel" and "Update Item" buttons
@@ -112,6 +120,7 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 * Visual Editor: Add search popup to discover playful items - No need to search on Playbuzz.com anymore!
 * Visual Editor: Update the item settings popup
 * Visual Editor: Replace the generic shortcode placeholder image with individual item thumbnail that can be seen on the Visual Editor
+* Shortcodes: Add 'data-provider' parameter for better debugging
 * Security: Prevent direct access to sub-folders
 * Performance improvements
 * Minor bug fixes
@@ -124,7 +133,7 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 * Minimum Requirements: WordPress 3.7 or greater
 
 = 0.4.1  (2014-11-16) =
-* Shortcodes: Add 'links' parameter to allow user's to open clicked items in new pages
+* Shortcodes: Add 'data-links' parameter to allow user's to open clicked items in new pages
 
 = 0.4.0  (2014-10-30) =
 * Visual Editor: Add Playbuzz button to the visual editor, making it easy to create customizable Playbuzz shortcodes
@@ -202,8 +211,11 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 
 == Upgrade Notice ==
 
+= 0.8.0 =
+Add the ability to see your personal Playbuzz items from WordPress dashboard
+
 = 0.7.1 =
-Fix Playbuzz API issues
+Improve Playbuzz API request
 
 = 0.7.0 =
 Bug fixes, security improvements, resolve php notices, harden the plugin, and add more changes for WordPress.com VIP clients

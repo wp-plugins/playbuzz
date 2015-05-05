@@ -15,21 +15,16 @@
 	float: right;
 }
 .rtl #playbuzz-admin dd {
+	margin-left: 0;
+	margin-right: 10em;
 	border-left: 0;
 	border-right: 1px solid #ccc;
+	padding-left: 0;
+	padding-right: 1em;
 }
 .rtl #playbuzz-admin img.location_img {
 	float: left;
 	clear: both;
-}
-@media (max-width: 780px) {
-	.rtl #playbuzz-admin h1 {
-		float: none;
-		padding: 0;
-	}
-	.rtl #playbuzz-admin  img.location_img {
-		float: none;
-	}
 }
 
 
@@ -71,10 +66,6 @@
  * ITEM POPUP
  */
 
-.rtl .playbuzz_item_header_text {
-	padding-left: 0;
-	padding-right: 20px;
-}
 .rtl #playbuzz_item_preview .playbuzz_item_thumb img {
 	margin-right: 0;
 	margin-left: 25px;
@@ -124,24 +115,71 @@
  * SEARCH POPUP - General
  */
 
+/* Search popup header */
+
 .rtl #playbuzz_search_header .playbuzz_search_logo {
 	float: right;
 }
-.rtl #playbuzz_search_header .playbuzz_search {
-	margin: 20px 6% 20px 0;
+
+/* Search popup form */
+
+.rtl #playbuzz_search_input_form .playbuzz_search {
+	padding-right: 30px;
+	padding-left: 15px;
+	background-position: 98.5% 5px;
 }
-.rtl #playbuzz_search_sub_header {
-	padding: 15px 20px 0px 25px;
+.rtl #playbuzz_search_input_form .playbuzz_create_button {
+	float: left;
+}
+
+/* Search popup sub-header */
+
+.rtl #playbuzz_search_sub_header #playbuzz_search_for .playbuzz_search_title_user_img:before {
+	float: right;
+	background-position: right;
+	padding-right: 0;
+	padding-left: 10px;
+}
+.rtl #playbuzz_search_sub_header .playbuzz_search_label {
+	padding-left: 0;
+	padding-right: 1em;
 }
 .rtl #playbuzz_search_sub_header .playbuzz_search_fields {
 	float: left;
 }
-.rtl #playbuzz_search_results .playbuzz_item_desc div,
-.rtl #playbuzz_search_results .playbuzz_item_type div,
-.rtl #playbuzz_search_results .playbuzz_item_views div {
-	border-right: 0;
-	border-left: 2px solid #ebebeb;
+
+/* Search popup results */
+
+/*
+#playbuzz_search_results {
+	padding-left: 5px;
+	padding-right: 20px;
 }
+*/
+
+/* Search popup result in grid view */
+
+.rtl #playbuzz_search_results .playbuzz_grid_view {
+	float: right;
+}
+#playbuzz_search_results .playbuzz_grid_view div.playbuzz_present_item_views span:before {
+	/*
+	padding-right: 0;
+	padding-left: 5px;
+	*/
+}
+
+/* Search popup result in list view */
+
+.rtl #playbuzz_search_results .playbuzz_list_view div.playbuzz_present_item_type,
+.rtl #playbuzz_search_results .playbuzz_list_view div.playbuzz_present_item_views,
+.rtl #playbuzz_search_results .playbuzz_list_view div.playbuzz_present_item_buttons {
+	border-left: 0;
+	border-right: 1px solid #ebebeb;
+}
+
+/* Search popup result pagination */
+
 .rtl #playbuzz_search_results .playbuzz_item_pagination a.playbuzz_prev:before {
 	content: '\f345';
 }
@@ -152,9 +190,15 @@
 
 
 /*
- * SEARCH POPUP - Features Items
+ * Mobile
  */
 
-.rtl #playbuzz_search_results .playbuzz_featured_item {
-	float: right;
+@media (max-width: 780px) {
+	.rtl #playbuzz-admin h1 {
+		float: none;
+		padding: 0;
+	}
+	.rtl #playbuzz-admin  img.location_img {
+		float: none;
+	}
 }
