@@ -356,7 +356,8 @@
 						size             : items_per_page,
 						from             : (current_page*items_per_page)-items_per_page,
 						creator_name_seo : site_settings.pb_user,
-						moderation       : false
+						moderation       : false,
+						language         : 'all'
 					},
 					success  : function( data ) {
 						// Set variables
@@ -445,7 +446,8 @@
 						size             : items_per_page,
 						from             : (current_page*items_per_page)-items_per_page,
 						creator_name_seo : site_settings.pb_user,
-						moderation       : false
+						moderation       : false,
+						language         : 'all'
 					},
 					success  : function( data ) {
 						// Set variables
@@ -599,7 +601,8 @@
 					data     : {
 						creator_name_seo : creatorName,
 						item_name_seo    : gameName,
-						moderation       : false
+						moderation       : false,
+						language         : 'all'
 					},
 					success  : function( data ) {
 
@@ -786,7 +789,8 @@
 					data     : {
 						creator_name_seo : creatorName,
 						item_name_seo    : gameName,
-						moderation       : false
+						moderation       : false,
+						language         : 'all'
 					},
 					success  : function( data ) {
 
