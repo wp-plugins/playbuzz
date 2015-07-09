@@ -7,7 +7,5 @@ if( !defined( 'WP_UNINSTALL_PLUGIN' ) )
 // Delete option from options table
 delete_option( 'playbuzz' );
 
-// For site options in multisite
+// Delete multisite option from the database
 delete_site_option( 'playbuzz' );
-
-?>

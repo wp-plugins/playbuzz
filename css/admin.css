@@ -248,11 +248,11 @@ i.mce-i-playbuzz:hover,
  * POPUP - General
  */
 
-.playbuzz_popup_overlay {
+.playbuzz_popup_overlay_container {
 	position: relative;
 	z-index: 987654321;
 }
-.playbuzz_popup_overlay_background {
+.playbuzz_popup_overlay_bg {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -767,14 +767,11 @@ i.mce-i-playbuzz:hover,
 #playbuzz_search_sub_header .playbuzz_search_label {
 	display: inline-block;
 	font-weight: normal;
-	padding-left: 1em;
+	padding: 0 1em;
 	text-transform: uppercase;
 }
 #playbuzz_search_sub_header .playbuzz_search_sub_divider {
 	border-bottom: 2px solid #fff;
-}
-#playbuzz_search_sub_header .playbuzz_search_sub_divider_colored {
-	border-color: #d7d7d7;
 }
 
 /* Search popup results */
@@ -791,11 +788,9 @@ i.mce-i-playbuzz:hover,
 	overflow-y: auto;
 }
 
-/* Search popup notice/error messages */
+/* Search popup error messages */
 
-#playbuzz_search_results .playbuzz_server_error,
-#playbuzz_search_results .playbuzz_no_user,
-#playbuzz_search_results .playbuzz_no_search_results {
+#playbuzz_search_results .playbuzz_error_message {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -829,9 +824,11 @@ i.mce-i-playbuzz:hover,
 	color: #009cff;
 	text-decoration:none;
 }
-#playbuzz_search_results .playbuzz_notice a.playbuzz_create_button {
-	display: inline-block;
-	margin-top: 10px;
+#playbuzz_search_results .playbuzz_notice div.playbuzz_create_button {
+	display: block;
+	margin-top: 2em;
+}
+#playbuzz_search_results .playbuzz_notice div.playbuzz_create_button a {
 	padding: 8px 20px;
 	border-radius: 3px;
 	background-color: #f64040;
@@ -842,8 +839,8 @@ i.mce-i-playbuzz:hover,
 	text-decoration: none;
 	cursor: pointer;
 }
-#playbuzz_search_results .playbuzz_notice a.playbuzz_create_button:hover,
-#playbuzz_search_results .playbuzz_notice a.playbuzz_create_button:focus {
+#playbuzz_search_results .playbuzz_notice div.playbuzz_create_button a:hover,
+#playbuzz_search_results .playbuzz_notice div.playbuzz_create_button a:focus {
 	background-color: #dd3a3a;
 }
 
@@ -897,6 +894,10 @@ i.mce-i-playbuzz:hover,
 	font-size: 0.85em;
 	height: 1.5em;
 	overflow: hidden;
+}
+#playbuzz_search_results .playbuzz_grid_view div.playbuzz_present_item_meta span {
+	font-weight: bold;
+	font-style: italic;
 }
 #playbuzz_search_results .playbuzz_grid_view div.playbuzz_present_item_type {
 	display: none;
@@ -1041,6 +1042,9 @@ i.mce-i-playbuzz:hover,
 	font-style: italic;
 	font-size: 0.9em;
 	line-height: 1.5em;
+}
+#playbuzz_search_results .playbuzz_list_view div.playbuzz_present_item_meta span {
+	font-weight: bold;
 }
 #playbuzz_search_results .playbuzz_list_view div.playbuzz_present_item_views {
 	font-weight: bold;

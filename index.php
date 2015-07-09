@@ -3,7 +3,7 @@
 Plugin Name: Playbuzz
 Plugin URI:  https://www.playbuzz.com/
 Description: Embed customized playful content from Playbuzz.com into your WordPress site
-Version:     0.8.1
+Version:     0.9.0
 Author:      Playbuzz
 Author URI:  https://www.playbuzz.com/
 Text Domain: playbuzz
@@ -22,37 +22,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /*
- * WordPress Admin Options Page
+ * Include plugin files
  */
-include_once ( plugin_dir_path( __FILE__ ) . 'admin.php' );
-
-
-
-/*
- * Add oEmbed support
- */
-include_once ( plugin_dir_path( __FILE__ ) . 'oembed.php' );
-
-
-
-/*
- * Add WordPress Shortcodes
- */
-include_once ( plugin_dir_path( __FILE__ ) . 'shortcodes.php' );
-
-
-
-/*
- * Add WordPress Sidebar Widgets
- */
-include_once ( plugin_dir_path( __FILE__ ) . 'widgets.php' );
-
-
-
-/*
- * Add TinyMCE plugin
- */
-include_once ( plugin_dir_path( __FILE__ ) . 'tinymce.php' );
+include_once ( plugin_dir_path( __FILE__ ) . 'activator.php' );      // Add Activation hook
+include_once ( plugin_dir_path( __FILE__ ) . 'deactivator.php' );    // Add Deactivation hook
+include_once ( plugin_dir_path( __FILE__ ) . 'i18n.php' );           // Add Internationalization support
+include_once ( plugin_dir_path( __FILE__ ) . 'admin.php' );          // Add Admin Page
+include_once ( plugin_dir_path( __FILE__ ) . 'scripts-styles.php' ); // Load Scripts and Styles
+include_once ( plugin_dir_path( __FILE__ ) . 'oembed.php' );         // Add oEmbed support
+include_once ( plugin_dir_path( __FILE__ ) . 'shortcodes.php' );     // Add WordPress Shortcodes
+include_once ( plugin_dir_path( __FILE__ ) . 'widgets.php' );        // Add WordPress Sidebar Widgets
+include_once ( plugin_dir_path( __FILE__ ) . 'tinymce.php' );        // Add TinyMCE plugin
 
 
 
@@ -64,11 +44,3 @@ function playbuzz_settings_link( $links ) {
 	return $links;
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'playbuzz_settings_link' );
-
-
-
-/*
- * Hooks fired when the Plugin is activated and deactivated
- */
-register_activation_hook(   __FILE__ , array( 'PlaybuzzAdmin', 'activate'   ) );
-register_deactivation_hook( __FILE__ , array( 'PlaybuzzAdmin', 'deactivate' ) );

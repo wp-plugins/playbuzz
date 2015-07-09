@@ -1,9 +1,9 @@
 ﻿=== Playbuzz ===
 Contributors: playbuzz
 Tags: Playbuzz, playful content, feed, feeds, embed, oembed, content, viral, related, syndication, related content, quiz, quizzes, test yourself, list, poll, Personality Quiz, personality, entertainment, celebs, celebrities, celebrity, animals
-Requires at least: 3.7
+Requires at least: 3.9
 Tested up to: 4.2
-Stable tag: 0.8.1
+Stable tag: 0.9.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,7 +45,7 @@ For any questions or more information, please [contact us](https://www.playbuzz.
 * Use WordPress automatic updates to upgrade to the latest version. Ensure to backup your site just in case.
 
 = Minimum Requirements =
-* WordPress version 3.7 or greater.
+* WordPress version 3.9 or greater.
 * PHP version 5.2.4 or greater.
 * MySQL version 5.0 or greater.
 
@@ -89,6 +89,11 @@ For more information, please feel free to [contact us](https://www.playbuzz.com/
 6. Switching to the text-editor will present the simple shortcode in use.
 
 == Changelog ==
+
+= 0.9.0  (2015-07-09) =
+* Security: Harden JS code using dom construction instead of string construction to prevent possible XSS
+* Minimum Requirements: WordPress 3.9 or greater
+* [Code review](https://vip.wordpress.com/documentation/) by [Automattic.com](http://automattic.com/) for "[WordPress.com VIP](https://vip.wordpress.com/)" clients
 
 = 0.8.1  (2015-05-25) =
 * Bug Fix: Improve Playbuzz API request - in the visual editor and the playbuzz edit popup, show items written in all languages

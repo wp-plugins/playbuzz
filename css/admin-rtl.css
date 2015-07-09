@@ -140,10 +140,6 @@
 	padding-right: 0;
 	padding-left: 10px;
 }
-.rtl #playbuzz_search_sub_header .playbuzz_search_label {
-	padding-left: 0;
-	padding-right: 1em;
-}
 .rtl #playbuzz_search_sub_header .playbuzz_search_fields {
 	float: left;
 }

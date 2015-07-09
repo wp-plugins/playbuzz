@@ -24,14 +24,14 @@ class PlaybuzzTinyMCE {
 	 */
 	function __construct() {
 
-		add_action( 'admin_init', array( $this, 'register_stuff' ) );
+		add_action( 'admin_init', array( $this, 'init' ) );
 
 	}
 
 	/*
 	 * Create TinyMCE 
 	 */
-	function register_stuff() {
+	function init() {
 
 		global $wp_version;
 
